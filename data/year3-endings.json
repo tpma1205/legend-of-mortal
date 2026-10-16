@@ -1,0 +1,2376 @@
+{
+  "routes": [
+    {
+      "id": "longxiang",
+      "name": "龍湘線"
+    },
+    {
+      "id": "xiaoshimei",
+      "name": "小師妹線"
+    },
+    {
+      "id": "xiahoulan",
+      "name": "夏侯蘭線"
+    },
+    {
+      "id": "assassination",
+      "name": "刺殺線"
+    },
+    {
+      "id": "west-alliance",
+      "name": "西武林盟線"
+    },
+    {
+      "id": "disband-tang",
+      "name": "解散唐門線"
+    }
+  ],
+  "endings": [
+    {
+      "id": "hq-6",
+      "name": "汗青書6「睡死」",
+      "kind": "neutral",
+      "conditions": [
+        "昏倒時選「我不活了」,或偽demo線中選擇跟隨離開;第三年五月金烏夜襲後日期跳至十一月"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "hq-9",
+      "name": "汗青書9「竹之城」",
+      "kind": "neutral",
+      "conditions": [
+        "第三年一月下旬選不下山,小竹為心上人且不告白"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "hq-10",
+      "name": "汗青書10「隱退江湖」",
+      "kind": "neutral",
+      "conditions": [
+        "同汗青書9,但選擇告白;原文另載需留學崆峒、小梅小竹好感皆高、醫術5級以上"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "hq-11",
+      "name": "汗青書11「魂歸故里」",
+      "kind": "neutral",
+      "conditions": [
+        "第三年救治大師兄時,小梅已加入唐門並選擇停手"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "hq-12",
+      "name": "汗青書12「孤獨終老」",
+      "kind": "neutral",
+      "conditions": [
+        "第三年三月下旬四師兄遠行時,心上人非小師妹或小師妹好感3星以下"
+      ],
+      "keyEventIds": [
+        "y3-03-fourth-brother-leaves"
+      ]
+    },
+    {
+      "id": "hq-13",
+      "name": "汗青書13「西遊記」",
+      "kind": "neutral",
+      "conditions": [
+        "四師兄遠行時小師妹為心上人,好感約3至5星(回覆稱改版後4至5星即可)"
+      ],
+      "keyEventIds": [
+        "y3-03-fourth-brother-leaves"
+      ]
+    },
+    {
+      "id": "hq-14",
+      "name": "汗青書14「天下寂寥事,與君闊別時」",
+      "kind": "neutral",
+      "conditions": [
+        "四師兄遠行時小師妹為心上人,好感超過5星"
+      ],
+      "keyEventIds": [
+        "y3-03-fourth-brother-leaves"
+      ]
+    },
+    {
+      "id": "hq-16",
+      "name": "汗青書16「猿鶴蟲沙」",
+      "kind": "neutral",
+      "conditions": [
+        "第三年五月外堡群毆戰敗,道德中庸以上且未拜夏侯蘭"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "hq-22",
+      "name": "汗青書22「恩怨的盡頭」",
+      "kind": "be",
+      "conditions": [
+        "已拜夏侯蘭,外堡與金烏決戰並勝利(原文汗青書條目)",
+        "夏侯蘭結局清單稱為BE:群毆戰敗後唐門解散,夏侯蘭與無塵帶主角赴崆峒復仇,復仇後主角死亡"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "hq-24",
+      "name": "汗青書24「趕海人」",
+      "kind": "neutral",
+      "conditions": [
+        "解散唐門線;與其他女角結緣,十一月後山觸發龍湘心魔並向龍湘告白"
+      ],
+      "keyEventIds": [
+        "y3-11-longxiang-inner-demon",
+        "y3-12-tang-split"
+      ]
+    },
+    {
+      "id": "hq-25",
+      "name": "汗青書25「退隱江湖」",
+      "kind": "good",
+      "conditions": [
+        "解散唐門線,單身、小師妹線或龍湘線(夏侯蘭線討論串稱退隱分支皆為幸福結局)"
+      ],
+      "keyEventIds": [
+        "y3-12-tang-split"
+      ]
+    },
+    {
+      "id": "hq-31",
+      "name": "汗青書31「傳說之人」",
+      "kind": "neutral",
+      "conditions": [
+        "解散唐門線,夏侯蘭線且道德好人以上(留言稱需道德60以上,未經證實)"
+      ],
+      "keyEventIds": [
+        "y3-12-tang-split"
+      ]
+    },
+    {
+      "id": "hq-32",
+      "name": "汗青書32「殉志之死」",
+      "kind": "neutral",
+      "conditions": [
+        "第四年各線戰敗結局之一(例如西武林盟線護衛三師兄時單挑戰敗)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-33",
+      "name": "汗青書33「全軍覆沒」",
+      "kind": "neutral",
+      "conditions": [
+        "第四年西武林盟線外堡戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-34",
+      "name": "汗青書34「行尸走肉」",
+      "kind": "be",
+      "conditions": [
+        "第四年一月中旬夏侯蘭在場時選「我聽妳的」並離開(道德高低結局不同)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-35",
+      "name": "汗青書35「慷慨就義」",
+      "kind": "be",
+      "conditions": [
+        "第四年唐門大院團戰戰敗;夏侯蘭線討論串列為壞結局"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-36",
+      "name": "汗青書36「唐門的暗器」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線與瑞笙決戰戰敗(同時獲風雲史16「最後的暗器」)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-37",
+      "name": "汗青書37「唐門薪火」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線且為小師妹線"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-43",
+      "name": "汗青書43「失寵」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線夏侯蘭線;第四年一月中旬選「對不住,師父,我意已決」且夏侯蘭留在唐門並打贏全部戰鬥(來源之一稱GE,另一稱NE)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-44",
+      "name": "汗青書44「雞腿大亨」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線龍湘線"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-45",
+      "name": "汗青書45「最後的唐門弟子」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線,單身且未復活大師兄"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-46",
+      "name": "汗青書46「相聲二人組」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線,單身且已復活大師兄(同時獲風雲史18「飛俠歸來」)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-47",
+      "name": "汗青書47「君所願兮江湖行」",
+      "kind": "neutral",
+      "conditions": [
+        "西武林盟線決戰眉山,單挑瑞笙戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hq-49",
+      "name": "汗青書49「喪家之犬」",
+      "kind": "neutral",
+      "conditions": [
+        "西武林盟線,南宮深好感≥2星時戰敗可能改為此結局"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "fy-13",
+      "name": "風雲史13「雪山派大弟子」",
+      "kind": "good",
+      "conditions": [
+        "夏侯蘭線結局;遊民星空稱好結局為夏侯蘭回大雪山重建雪山派並育有一子一女"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "fy-14",
+      "name": "風雲史14「唐門女婿」",
+      "kind": "good",
+      "conditions": [
+        "小師妹線結局;小師妹心上人、好感4星以上,擊殺金烏後擲骰須擲出「小師妹是我的」,結緣需扣200貢獻度;多女角結緣時小師妹結局優先"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night",
+        "y3-05-way-home"
+      ]
+    },
+    {
+      "id": "fy-15",
+      "name": "風雲史15「忘憂俠侶」",
+      "kind": "good",
+      "conditions": [
+        "龍湘線結局;龍湘為心上人,去錦香宮前好感至少40點,最後於第三年十二月下旬收到飛鴿傳書答覆"
+      ],
+      "keyEventIds": [
+        "y3-12-flying-pigeon"
+      ]
+    },
+    {
+      "id": "fy-17",
+      "name": "風雲史17「武林傳奇」",
+      "kind": "good",
+      "conditions": [
+        "西武林盟線決戰眉山後取得(夏侯蘭線討論串列為唯一好結局)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "fy-16",
+      "name": "風雲史16「最後的暗器」",
+      "kind": "neutral",
+      "conditions": [
+        "刺殺線與瑞笙決戰(勝負皆獲得)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-1",
+      "name": "生死簿1「砍死」",
+      "kind": "be",
+      "conditions": [
+        "閻關三煞決鬥第一戰戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-2",
+      "name": "生死簿2「摔死」",
+      "kind": "be",
+      "conditions": [
+        "女弟子房偷看被發現"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-4",
+      "name": "生死簿4「毒死」",
+      "kind": "be",
+      "conditions": [
+        "煉丹房選「正是找死」;段考可疑藥"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-5",
+      "name": "生死簿5「爆頭」",
+      "kind": "be",
+      "conditions": [
+        "閻關三煞喇嗲失敗;崆峒鐵拳門戰敗逃跑失敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-6",
+      "name": "生死簿6「誰也別想欺負我小師妹」",
+      "kind": "be",
+      "conditions": [
+        "閻關三煞決鬥第三戰戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-7",
+      "name": "生死簿7「屁力焦蛙」",
+      "kind": "be",
+      "conditions": [
+        "伙房驚嚇判定失敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-8",
+      "name": "生死簿8「我在唐門穀底」",
+      "kind": "be",
+      "conditions": [
+        "後山被推;假字畫戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-10",
+      "name": "生死簿10「小師妹的制裁」",
+      "kind": "be",
+      "conditions": [
+        "五月、六月貢獻點評決鬥戰敗;段考戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-11",
+      "name": "生死簿11「被圍毆致死」",
+      "kind": "be",
+      "conditions": [
+        "江陵安濟坊戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-12",
+      "name": "生死簿12「一刀兩斷」",
+      "kind": "be",
+      "conditions": [
+        "崆峒戰隊戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-13",
+      "name": "生死簿13「謀財害命」",
+      "kind": "be",
+      "conditions": [
+        "無色廣場賭場不給錢戰敗;鶴手事件戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-14",
+      "name": "生死簿14「活活打死」",
+      "kind": "be",
+      "conditions": [
+        "無色廣場擂臺打輸;蝸居戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-15",
+      "name": "生死簿15「自食惡果」",
+      "kind": "be",
+      "conditions": [
+        "飛天殿吹牛被火龍仙君噴死"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-16",
+      "name": "生死簿16「被情敵殺死」",
+      "kind": "be",
+      "conditions": [
+        "鐵拳巷連進戰敗;小梅跑步偶遇情敵"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-19",
+      "name": "生死簿19「殺人滅口」",
+      "kind": "be",
+      "conditions": [
+        "女飛賊埋伏戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-20",
+      "name": "生死簿20「爆體而亡」",
+      "kind": "be",
+      "conditions": [
+        "魏菊傳功擲骰低於80"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-21",
+      "name": "生死簿21「山中法度」",
+      "kind": "be",
+      "conditions": [
+        "拒當崆峒弟子並與魏菊決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-26",
+      "name": "生死簿26「被馬踩死」",
+      "kind": "be",
+      "conditions": [
+        "返程墜馬判定失敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-27",
+      "name": "生死簿27「妨礙別人談戀愛被打死」",
+      "kind": "be",
+      "conditions": [
+        "情侶爭執戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-28",
+      "name": "生死簿28「被吵架情侶拳劍合璧打死」",
+      "kind": "be",
+      "conditions": [
+        "情侶爭執另一選項戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-29",
+      "name": "生死簿29「被煉死」",
+      "kind": "be",
+      "conditions": [
+        "召回弟子時放錯主爐"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-30",
+      "name": "生死簿30「清理門戶」",
+      "kind": "be",
+      "conditions": [
+        "師叔誘降,選投靠廣州唐門後戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-31",
+      "name": "生死簿31「鬥毆致死」",
+      "kind": "be",
+      "conditions": [
+        "第三年一月客棧與路人亂戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-inn-rest"
+      ]
+    },
+    {
+      "id": "be-32",
+      "name": "生死簿32「被雞腿殺死」",
+      "kind": "be",
+      "conditions": [
+        "第三年一月回程客棧,龍湘同行選「交給我吧」且嘴力低於40"
+      ],
+      "keyEventIds": [
+        "y3-01-return-inn"
+      ]
+    },
+    {
+      "id": "be-33",
+      "name": "生死簿33「被龍湘誤殺」",
+      "kind": "be",
+      "conditions": [
+        "龍湘同行與其戰鬥戰敗且擲骰被嚇壞"
+      ],
+      "keyEventIds": [
+        "y3-01-return-inn"
+      ]
+    },
+    {
+      "id": "be-34",
+      "name": "生死簿34「爛死」",
+      "kind": "be",
+      "conditions": [
+        "第三年一月回程遭路人亂戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-return-inn"
+      ]
+    },
+    {
+      "id": "be-35",
+      "name": "生死簿35「分身而死」",
+      "kind": "be",
+      "conditions": [
+        "小梅迎接時選兩人都不放手"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-36",
+      "name": "生死簿36「被憤怒的鐵匠槌死」",
+      "kind": "be",
+      "conditions": [
+        "鐵匠迎接(小梅未入唐門)"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-37",
+      "name": "生死簿37「被女飛賊埋伏刺殺」",
+      "kind": "be",
+      "conditions": [
+        "金烏旁邊的女飛賊戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-38",
+      "name": "生死簿38「被小梅刺殺」",
+      "kind": "be",
+      "conditions": [
+        "與小梅戰鬥,小梅好感4.5星以下戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-39",
+      "name": "生死簿39「遭到連累死」",
+      "kind": "be",
+      "conditions": [
+        "煉丹房傳功輸掉與飛天門或青城的戰鬥"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "be-40",
+      "name": "生死簿40「人為財死」",
+      "kind": "be",
+      "conditions": [
+        "招親當晚半夜勒索師弟戰敗"
+      ],
+      "keyEventIds": [
+        "y3-05-xiaoshimei-wedding"
+      ]
+    },
+    {
+      "id": "be-41",
+      "name": "生死簿41「被壓死」",
+      "kind": "be",
+      "conditions": [
+        "招親武試爬上屋頂"
+      ],
+      "keyEventIds": [
+        "y3-05-xiaoshimei-wedding"
+      ]
+    },
+    {
+      "id": "be-43",
+      "name": "生死簿43「惡貫滿盈」",
+      "kind": "be",
+      "conditions": [
+        "外堡群毆戰敗,道德壞人以下"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-44",
+      "name": "生死簿44「逃跑失敗被處決」",
+      "kind": "be",
+      "conditions": [
+        "崆峒四連戰飛天門或奪魄門戰敗後逃跑失敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-46",
+      "name": "生死簿46「恐懼而死」",
+      "kind": "be",
+      "conditions": [
+        "小師妹不在場時單挑金烏後續失敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-47",
+      "name": "生死簿47「為虎作倀」",
+      "kind": "be",
+      "conditions": [
+        "烤雞後幫公子俠打道士戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-48",
+      "name": "生死簿48「捲入別人恩怨而死」",
+      "kind": "be",
+      "conditions": [
+        "不烤雞幫公子俠戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-49",
+      "name": "生死簿49「上官螢的制裁」",
+      "kind": "be",
+      "conditions": [
+        "彼岸仙香相關,選焚香、威脅後與上官螢決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-50",
+      "name": "生死簿50「被下馬威隨手殺死」",
+      "kind": "be",
+      "conditions": [
+        "客棧路人俠戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-51",
+      "name": "生死簿51「點蒼劍下亡魂」",
+      "kind": "be",
+      "conditions": [
+        "點蒼師兄追擊決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-53",
+      "name": "生死簿53「高手過招被波及而死」",
+      "kind": "be",
+      "conditions": [
+        "錦香惜花令戰敗且未在破廟結識龍湘"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-57",
+      "name": "生死簿57「被雷劈死」",
+      "kind": "be",
+      "conditions": [
+        "初版遊戲瑞笙戰後觸發,現版本已無法獲得"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-60",
+      "name": "生死簿60「被誤殺而死」",
+      "kind": "be",
+      "conditions": [
+        "大比第三場擲出狗妹,戰敗後選不停手"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-61",
+      "name": "生死簿61「被盜版逼到沒有活路」",
+      "kind": "be",
+      "conditions": [
+        "晁和假趙活決戰戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-62",
+      "name": "生死簿62「食物中毒死」",
+      "kind": "be",
+      "conditions": [
+        "晁和請客擲骰大失敗選不可以浪費食物"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-63",
+      "name": "生死簿63「累死」",
+      "kind": "be",
+      "conditions": [
+        "金烏單挑後回唐門的師弟攔截戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-65",
+      "name": "生死簿65「出師未捷身先死」",
+      "kind": "be",
+      "conditions": [
+        "泥教惡鬼道與地獄道戰敗"
+      ],
+      "keyEventIds": [
+        "y3-09-road-to-wulin"
+      ]
+    },
+    {
+      "id": "be-66",
+      "name": "生死簿66「被道士當妖怪誤殺」",
+      "kind": "be",
+      "conditions": [
+        "全真派門派等級低於3時遇到戰敗"
+      ],
+      "keyEventIds": [
+        "y3-09-road-to-wulin"
+      ]
+    },
+    {
+      "id": "be-67",
+      "name": "生死簿67「含恨而死」",
+      "kind": "be",
+      "conditions": [
+        "已拜夏侯蘭,與金烏決戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-68",
+      "name": "生死簿68「被揍死」",
+      "kind": "be",
+      "conditions": [
+        "萬里鵬程緊閉大門,謹慎且內力≥20,戰勝時血量低於一半也視為戰敗(第四年)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-71",
+      "name": "生死簿71「眼睜睜看著你死」",
+      "kind": "be",
+      "conditions": [
+        "雪山遭遇戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-06-snow-mountain-trek"
+      ]
+    },
+    {
+      "id": "be-72",
+      "name": "生死簿72「被豬拱死」",
+      "kind": "be",
+      "conditions": [
+        "抵達雪山時戰敗"
+      ],
+      "keyEventIds": [
+        "y3-06-snow-mountain-trek"
+      ]
+    },
+    {
+      "id": "be-73",
+      "name": "生死簿73「小菜之死」",
+      "kind": "be",
+      "conditions": [
+        "決戰第三香戰敗",
+        "來源另一說:夏侯蘭為心上人才能對戰第三香,此時戰敗為此結局"
+      ],
+      "keyEventIds": [
+        "y3-07-third-fragrance"
+      ]
+    },
+    {
+      "id": "be-74",
+      "name": "生死簿74「與花合葬」",
+      "kind": "be",
+      "conditions": [
+        "師傅傳功對戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-07-master-teaching"
+      ]
+    },
+    {
+      "id": "be-76",
+      "name": "生死簿76「找死」",
+      "kind": "be",
+      "conditions": [
+        "錦香宮賴著不走,打輸或被殺"
+      ],
+      "keyEventIds": [
+        "y3-10-jinxianggong"
+      ]
+    },
+    {
+      "id": "be-79",
+      "name": "生死簿79「天地無聲」",
+      "kind": "be",
+      "conditions": [
+        "錦香宮團戰後對南宮深或上官隼戰敗"
+      ],
+      "keyEventIds": [
+        "y3-10-wulin-conference"
+      ]
+    },
+    {
+      "id": "be-80",
+      "name": "生死簿80「被人借刀殺死」",
+      "kind": "be",
+      "conditions": [
+        "南宮淺追出會場戰敗"
+      ],
+      "keyEventIds": [
+        "y3-10-wulin-conference"
+      ]
+    },
+    {
+      "id": "be-81",
+      "name": "生死簿81「洩恨不成反被殺」",
+      "kind": "be",
+      "conditions": [
+        "追黑猴話袁神戰敗"
+      ],
+      "keyEventIds": [
+        "y3-10-wulin-conference"
+      ]
+    },
+    {
+      "id": "be-84",
+      "name": "生死簿84「被嚇死」",
+      "kind": "be",
+      "conditions": [
+        "萬里鵬程音波功,選緊閉大門且懦夫或內力<20(第四年)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-85",
+      "name": "生死簿85「被蛇咬死」",
+      "kind": "be",
+      "conditions": [
+        "龍湘遭竊戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-87",
+      "name": "生死簿87「黑吃黑失敗」",
+      "kind": "be",
+      "conditions": [
+        "與許大鯨決鬥戰敗"
+      ],
+      "keyEventIds": []
+    }
+  ],
+  "events": [
+    {
+      "id": "y3-01-inn-rest",
+      "year": 3,
+      "month": 1,
+      "title": "陪大師兄下山途中的客棧休息",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年一月中旬"
+        },
+        {
+          "kind": "choice",
+          "text": "選擇陪大師兄下山線"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "買包子",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "俠客道德"
+            }
+          ],
+          "consequence": {
+            "summary": "獲得稱號「食草俠」",
+            "unlocks": [
+              "稱號:食草俠"
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "與路人戰鬥並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be31",
+            "leadsTo": "be",
+            "endingId": "be-31"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-01-shigongyuan-duel",
+      "year": 3,
+      "month": 1,
+      "title": "唐布衣大戰石公遠",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年一月下旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "冒險的絕招",
+          "preconditions": [],
+          "consequence": {
+            "summary": "龍湘同行,飛石幫轉為友好",
+            "unlocks": [
+              "飛石幫轉為友好"
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "穩妥的絕招",
+          "preconditions": [],
+          "consequence": {
+            "summary": "福韞同行"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-01-return-inn",
+      "year": 3,
+      "month": 1,
+      "title": "回程客棧",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年一月下旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "龍湘同行,選「交給我吧」",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "龍湘同行"
+            },
+            {
+              "kind": "stat",
+              "text": "嘴力低於40"
+            }
+          ],
+          "consequence": {
+            "summary": "嘴力低於40時死亡,生死簿 be32",
+            "leadsTo": "be",
+            "endingId": "be-32"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "龍湘同行,選練功與龍湘戰鬥並戰敗",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "龍湘同行"
+            }
+          ],
+          "consequence": {
+            "summary": "依擲骰結果:被龍湘誤殺(be33),或守住錢包與湘姐逛街(來源另一說法為獲得糖果)",
+            "alternatives": [
+              {
+                "summary": "被嚇壞的擲骰結果為 be33,冷靜則陪龍湘逛街並得到糖果獎勵",
+                "source": {
+                  "site": "巴哈姆特",
+                  "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+                  "version": "未標示",
+                  "date": "2024-09-08"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "o3",
+          "text": "福韞同行,與福韞戰鬥",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "福韞同行"
+            }
+          ],
+          "consequence": {
+            "summary": "依學問與嘴力有不同對白"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "回程遭路人亂戰並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be34",
+            "leadsTo": "be",
+            "endingId": "be-34"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-01-tangbuyi-death",
+      "year": 3,
+      "month": 1,
+      "title": "唐布衣之死",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年一月下旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "鐵匠迎接(小梅未入門)並戰敗",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "小梅未入唐門"
+            }
+          ],
+          "consequence": {
+            "summary": "死亡,生死簿 be36",
+            "leadsTo": "be",
+            "endingId": "be-36"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "小梅迎接,兩人都不放手",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "小梅已入唐門"
+            },
+            {
+              "kind": "choice",
+              "text": "心上人為龍湘或小梅"
+            }
+          ],
+          "consequence": {
+            "summary": "死亡(分身而死),生死簿 be35,並解鎖風雲史12「分身」",
+            "leadsTo": "be",
+            "endingId": "be-35",
+            "unlocks": [
+              "風雲史12 分身"
+            ]
+          }
+        },
+        {
+          "id": "o3",
+          "text": "與喬裝的小梅戰鬥並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "小梅好感4.5星以下戰敗為 be38;好感高時有特殊對白,小梅會反水",
+            "leadsTo": "be",
+            "endingId": "be-38"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "金烏旁邊的女飛賊埋伏戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be37",
+            "leadsTo": "be",
+            "endingId": "be-37"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "金烏手下戰敗或被偷襲",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲風雲史4「懦夫救星」與「失魂落魄」狀態",
+            "unlocks": [
+              "風雲史4 懦夫救星"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-01-save-dashixiong",
+      "year": 3,
+      "month": 1,
+      "title": "救治大師兄",
+      "trigger": "timed",
+      "routeIds": [
+        "xiaoshimei"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年一月下旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "下山線救治",
+          "preconditions": [],
+          "consequence": {
+            "summary": "需名聲≥50、道德≥80並打贏金烏與小梅;否則於申屠龍事件後出現瑞杏夢,選擇不惜代價復活並扣10命運點,由瑞杏救活"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "不下山線,於煉丹房傳功救治",
+          "preconditions": [],
+          "consequence": {
+            "summary": "前提為醫術≥5或煉丹總點數>250,且傳功中累積至少2點生存點數(內力≥28、≥53、南宮護心訣3級各加1,提前退出扣1);結局依小梅、小竹狀態分為汗青書9、10、11;小梅加入唐門且輸掉傳功戰為 be39"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "煉丹房傳功,對小竹告白",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "不下山線"
+            },
+            {
+              "kind": "stat",
+              "text": "小竹為心上人"
+            }
+          ],
+          "consequence": {
+            "summary": "汗青書10「隱退江湖」",
+            "leadsTo": "ending",
+            "endingId": "hq-10"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "煉丹房傳功,小竹為心上人但不告白",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "不下山線"
+            }
+          ],
+          "consequence": {
+            "summary": "汗青書9「竹之城」",
+            "leadsTo": "ending",
+            "endingId": "hq-9"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "煉丹房傳功,小梅已入唐門並停手",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "不下山線"
+            }
+          ],
+          "consequence": {
+            "summary": "汗青書11「魂歸故里」",
+            "leadsTo": "ending",
+            "endingId": "hq-11"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "y3-03-fourth-brother-leaves",
+      "year": 3,
+      "month": 3,
+      "title": "四師兄遠行",
+      "trigger": "timed",
+      "routeIds": [
+        "xiaoshimei"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年三月下旬"
+        },
+        {
+          "kind": "stat",
+          "text": "練功或團練累積5次且四師兄好感超過5星"
+        },
+        {
+          "kind": "choice",
+          "text": "觸發時選「好」"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "小師妹非心上人,或其好感3星以下",
+          "preconditions": [],
+          "consequence": {
+            "summary": "汗青書12「孤獨終老」",
+            "leadsTo": "ending",
+            "endingId": "hq-12"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "小師妹為心上人,好感約3至5星",
+          "preconditions": [],
+          "consequence": {
+            "summary": "汗青書13「西遊記」",
+            "leadsTo": "ending",
+            "endingId": "hq-13",
+            "alternatives": [
+              {
+                "summary": "回覆區有人表示改版後好感4至5星即可達成汗青書13",
+                "source": {
+                  "site": "巴哈姆特",
+                  "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+                  "version": "未標示",
+                  "date": "2024-09-08"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "o3",
+          "text": "小師妹為心上人,好感超過5星",
+          "preconditions": [],
+          "consequence": {
+            "summary": "汗青書14「天下寂寥事,與君闊別時」",
+            "leadsTo": "ending",
+            "endingId": "hq-14"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-04-tang-meeting",
+      "year": 3,
+      "month": 4,
+      "title": "唐門例會",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年四月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "抗議",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與三師兄決鬥,戰勝會大量扣除向心力;另一來源指出此選項可大幅提升小師妹好感",
+            "alternatives": [
+              {
+                "summary": "走小師妹線時選「抗議」可大幅提升好感",
+                "source": {
+                  "site": "Ludens Media",
+                  "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+                  "version": "未標示",
+                  "date": "2026-05-25"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "y3-05-xiaoshimei-wedding",
+      "year": 3,
+      "month": 5,
+      "title": "小師妹招親",
+      "trigger": "timed",
+      "routeIds": [
+        "xiaoshimei"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年五月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "文試:撿起掉落的劍",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "小師妹為心上人"
+            }
+          ],
+          "consequence": {
+            "summary": "小師妹為心上人時可撿到《斬天黑翼雙龍劍》",
+            "unlocks": [
+              "斬天黑翼雙龍劍"
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "休息時間拜訪南宮深",
+          "preconditions": [],
+          "consequence": {
+            "summary": "可獲還虛丹",
+            "unlocks": [
+              "還虛丹"
+            ]
+          }
+        },
+        {
+          "id": "o3",
+          "text": "休息時間前往後山",
+          "preconditions": [],
+          "consequence": {
+            "summary": "依是否已拜夏侯蘭獲得不同武學;另有遇解無塵獲《很是用力踢》的說法"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "當晚半夜勒索師弟並戰敗",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "道德壞人以下"
+            }
+          ],
+          "consequence": {
+            "summary": "死亡,生死簿 be40",
+            "leadsTo": "be",
+            "endingId": "be-40"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "武試:爬上屋頂",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡(被壓死),生死簿 be41",
+            "leadsTo": "be",
+            "endingId": "be-41"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-05-jinwu-night",
+      "year": 3,
+      "month": 5,
+      "title": "金烏夜襲外堡",
+      "trigger": "timed",
+      "routeIds": [
+        "xiaoshimei"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年五月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "單挑金烏",
+          "preconditions": [],
+          "consequence": {
+            "summary": "擊殺金烏獲風雲史2「師門砥柱」,崆峒轉為友好;輸一次獲「失魂落魄」;連敗或認輸且小師妹不在場為 be46;擊殺後擲骰,另一來源說明需擲出「小師妹是我的」",
+            "unlocks": [
+              "風雲史2 師門砥柱",
+              "崆峒轉為友好"
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "單挑金烏後連敗並認輸(小師妹不在場)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "恐懼而死,生死簿 be46",
+            "leadsTo": "be",
+            "endingId": "be-46"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "單挑金烏後選睡倒(偽demo線)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "汗青書6「睡死」,日期跳至11月",
+            "leadsTo": "ending",
+            "endingId": "hq-6"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "單挑金烏後回唐門被師弟攔截並戰敗",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "小師妹為心上人且好感超過5星"
+            }
+          ],
+          "consequence": {
+            "summary": "死亡,生死簿 be63",
+            "leadsTo": "be",
+            "endingId": "be-63"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "群毆,道德中庸以上且未拜夏侯蘭,戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "汗青書16「猿鶴蟲沙」",
+            "leadsTo": "ending",
+            "endingId": "hq-16"
+          }
+        },
+        {
+          "id": "o6",
+          "text": "群毆,道德壞人以下且未拜夏侯蘭,戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be43",
+            "leadsTo": "be",
+            "endingId": "be-43"
+          }
+        },
+        {
+          "id": "o7",
+          "text": "群毆,已拜夏侯蘭,與金烏決戰並勝利",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "已拜夏侯蘭"
+            }
+          ],
+          "consequence": {
+            "summary": "汗青書22「恩怨的盡頭」,夏侯蘭為其報仇後主角死亡",
+            "leadsTo": "ending",
+            "endingId": "hq-22"
+          }
+        },
+        {
+          "id": "o8",
+          "text": "群毆,已拜夏侯蘭,與金烏決戰並戰敗",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "已拜夏侯蘭"
+            }
+          ],
+          "consequence": {
+            "summary": "死亡,生死簿 be67",
+            "leadsTo": "be",
+            "endingId": "be-67"
+          }
+        },
+        {
+          "id": "o9",
+          "text": "崆峒四連戰後逃跑失敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "飛天門戰敗為 be44;鐵拳門戰敗為 be5",
+            "leadsTo": "be",
+            "endingId": "be-44"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=883",
+          "version": "未標示",
+          "date": "2024-06-22"
+        }
+      ]
+    },
+    {
+      "id": "y3-05-way-home",
+      "year": 3,
+      "month": 5,
+      "title": "回家路上",
+      "trigger": "timed",
+      "routeIds": [
+        "xiaoshimei"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年五月"
+        },
+        {
+          "kind": "choice",
+          "text": "小師妹為心上人"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "全程甜蜜選項",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲得【小師妹的香囊】,小師妹線結緣完成",
+            "unlocks": [
+              "小師妹的香囊"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-08"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/Co.php?bsn=73317&sn=8220",
+          "version": "未標示",
+          "date": "2024-09-08"
+        }
+      ]
+    },
+    {
+      "id": "y3-06-snow-mountain-trek",
+      "year": 3,
+      "month": 6,
+      "title": "雪山行(上山途中)",
+      "trigger": "timed",
+      "routeIds": [
+        "xiahoulan"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年六月上至下旬"
+        },
+        {
+          "kind": "choice",
+          "text": "已拜夏侯蘭"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "上山途中遭遇戰並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be71",
+            "leadsTo": "be",
+            "endingId": "be-71"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "抵達雪山時與野豬戰鬥並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡(被豬拱死),生死簿 be72",
+            "leadsTo": "be",
+            "endingId": "be-72"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "順利上山",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲《奪魄幽靈爪》;若第二年崆峒大比敗給瑞笙則改為《雪山飛鴻爪》;另一來源指出途中須殺掉淫賊,放走會降好感",
+            "unlocks": [
+              "奪魄幽靈爪"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "y3-07-third-fragrance",
+      "year": 3,
+      "month": 7,
+      "title": "決戰第三香",
+      "trigger": "timed",
+      "routeIds": [
+        "xiahoulan"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年七月中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be73;本文稱夏侯蘭為心上人才能對戰",
+            "leadsTo": "be",
+            "endingId": "be-73",
+            "alternatives": [
+              {
+                "summary": "生死簿清單寫明 be73 條件為夏侯蘭非心上人時決戰第三香戰敗",
+                "source": {
+                  "site": "巴哈姆特",
+                  "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+                  "version": "未標示",
+                  "date": "2024-09-11"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "主動請纓並戰勝",
+          "preconditions": [],
+          "consequence": {
+            "summary": "另一來源建議選「主動請纓」並打贏;選見證決戰則夏侯蘭會贏;背包沒酒時須選菊花酒"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "y3-07-master-teaching",
+      "year": 3,
+      "month": 7,
+      "title": "師傅傳功",
+      "trigger": "timed",
+      "routeIds": [
+        "xiahoulan"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年七月中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "抵抗到底並與師傅對戰(夏侯蘭為心上人)",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "夏侯蘭為心上人"
+            },
+            {
+              "kind": "choice",
+              "text": "連續三次抵抗"
+            }
+          ],
+          "consequence": {
+            "summary": "戰勝獲稱號「雪山派大弟子」,師傅存活並返回唐門;戰敗死亡,生死簿 be74「與花合葬」",
+            "leadsTo": "be",
+            "endingId": "be-74",
+            "unlocks": [
+              "稱號:雪山派大弟子"
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "接受傳功(非心上人)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "解鎖《玄黃納心網》,夏侯蘭死亡",
+            "unlocks": [
+              "玄黃納心網"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "y3-08-attack-xiahoulan",
+      "year": 3,
+      "month": 8,
+      "title": "襲擊夏侯蘭",
+      "trigger": "timed",
+      "routeIds": [
+        "xiahoulan"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年八月下旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "襲擊夏侯蘭並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "解鎖「三級甲密密縫」",
+            "unlocks": [
+              "三級甲密密縫"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        }
+      ]
+    },
+    {
+      "id": "y3-09-road-to-wulin",
+      "year": 3,
+      "month": 9,
+      "title": "前往武林大會途中",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年九月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "泥教攔路,全力迎戰",
+          "preconditions": [],
+          "consequence": {
+            "summary": "輸給惡鬼道或地獄道死亡,生死簿 be65",
+            "leadsTo": "be",
+            "endingId": "be-65"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "遇全真派戰鬥並戰敗(門派等級低於3)",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "全真派門派等級低於3"
+            }
+          ],
+          "consequence": {
+            "summary": "死亡,生死簿 be66",
+            "leadsTo": "be",
+            "endingId": "be-66"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "黑衣劍少事件",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "龍湘好感超過2星"
+            }
+          ],
+          "consequence": {
+            "summary": "麻辣獵膜人齊王侮辱小師妹後,龍湘出場逼退對方"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-11"
+        }
+      ]
+    },
+    {
+      "id": "y3-10-jinxianggong",
+      "year": 3,
+      "month": 10,
+      "title": "錦香宮與告別溫夫人",
+      "trigger": "timed",
+      "routeIds": [
+        "longxiang"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十月上旬至中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "夜遇龍湘並參觀錦香宮",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "龍湘好感超過4星"
+            }
+          ],
+          "consequence": {
+            "summary": "觸發龍湘相關劇情"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "告別溫夫人:選「賴著不走」(一妻多夫)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "被殺或戰敗,生死簿 be76「找死」",
+            "leadsTo": "be",
+            "endingId": "be-76"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "告別溫夫人:選「少俠留步」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "可選戰溫夫人或聽琴;聽完可解除失魂落魄"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "偷聽瑞杏與溫夫人對話",
+          "preconditions": [],
+          "consequence": {
+            "summary": "解鎖風雲史5「人間道」",
+            "unlocks": [
+              "風雲史5 人間道"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        },
+        {
+          "site": "Ludens Media",
+          "url": "https://www.ludens.com.tw/legend-of-mortal-romance-complete-guide/",
+          "version": "未標示",
+          "date": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "y3-10-wulin-conference",
+      "year": 3,
+      "month": 10,
+      "title": "武林大會",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十月中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "南宮淺黑化後追出會場",
+          "preconditions": [],
+          "consequence": {
+            "summary": "被借刀殺害,生死簿 be80",
+            "leadsTo": "be",
+            "endingId": "be-80"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "追黑猴話袁神並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be81",
+            "leadsTo": "be",
+            "endingId": "be-81"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "天地無聲:與南宮深或上官隼戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "死亡,生死簿 be79",
+            "leadsTo": "be",
+            "endingId": "be-79"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "群俠圍攻錦香宮",
+          "preconditions": [],
+          "consequence": {
+            "summary": "門派投票結果決定唐門是否成為公敵;狗妹加入唐門需狗妹好感>3星、丐幫門派好感<5、李富貴好感<1星"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-10-12"
+        }
+      ]
+    },
+    {
+      "id": "y3-11-longxiang-inner-demon",
+      "year": 3,
+      "month": 11,
+      "title": "龍湘心魔",
+      "trigger": "timed",
+      "routeIds": [
+        "longxiang"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十一月中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "於後山遇迷惘的龍湘,依選項回應",
+          "preconditions": [],
+          "consequence": {
+            "summary": "可獲稱號「臭弟俠」,或進入表白線;與龍湘結緣並於此時表白者,日後解散唐門線得汗青書24「趕海人」",
+            "unlocks": [
+              "稱號:臭弟俠"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-08-22"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-11"
+        }
+      ]
+    },
+    {
+      "id": "y3-12-tang-split",
+      "year": 3,
+      "month": 12,
+      "title": "唐門去向表決(解散唐門、刺殺線與西武林盟線分界)",
+      "trigger": "timed",
+      "routeIds": [
+        "disband-tang",
+        "assassination",
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十二月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "正心堂四人表決(三師兄、四師兄、趙活、小師妹)"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "退隱票較多:解散唐門線",
+          "preconditions": [],
+          "consequence": {
+            "summary": "單身、小師妹線或龍湘線為汗青書25「退隱江湖」;夏侯蘭線且道德好人以上為汗青書31「傳說之人」;與龍湘結緣且十一月後山告白者為汗青書24「趕海人」"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "「戰他娘親」票較多:刺殺線",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "李富貴好感低於2星"
+            }
+          ],
+          "consequence": {
+            "summary": "需李富貴好感低於2星;十二月下旬石公遠助陣唐門"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "票數相同",
+          "preconditions": [],
+          "consequence": {
+            "summary": "趙活與三師兄單挑,勝者的意見執行"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "自動進入西武林盟線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "外堡擊殺金烏,或李富貴好感達2星"
+            }
+          ],
+          "consequence": {
+            "summary": "擊殺金烏且戰術≥8,或戰術≥5且學問≥60(趙活提出);李富貴好感≥2星時由其提出且優先度較高"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-08-22"
+        },
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-09-11"
+        }
+      ]
+    },
+    {
+      "id": "y3-12-flying-pigeon",
+      "year": 3,
+      "month": 12,
+      "title": "飛鴿傳書(龍湘結緣)",
+      "trigger": "timed",
+      "routeIds": [
+        "longxiang"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十二月下旬"
+        },
+        {
+          "kind": "choice",
+          "text": "龍湘結緣"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "與龍淵戰鬥",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲《酩酊玄劍掌》",
+            "unlocks": [
+              "酩酊玄劍掌"
+            ]
+          }
+        },
+        {
+          "id": "o2",
+          "text": "與龍湘戰鬥讓其覺醒",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲《龍淵七絕》",
+            "unlocks": [
+              "龍淵七絕"
+            ]
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "巴哈姆特",
+          "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+          "version": "未標示",
+          "date": "2024-08-22"
+        }
+      ]
+    }
+  ]
+}
