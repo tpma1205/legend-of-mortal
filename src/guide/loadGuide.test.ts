@@ -72,4 +72,20 @@ describe("loadGuide", () => {
     );
     expect(out).toBe("");
   });
+
+  it("merges a route or ending declared identically in several files", () => {
+    const a = validFile();
+    const b = { routes: [...a.routes], endings: [{ ...a.endings[0], conditions: ["另一個條件"], keyEventIds: [] }], events: [] };
+    const guide = loadGuide([a, b]);
+    expect(guide.routes).toHaveLength(1);
+    expect(guide.endings).toHaveLength(1);
+    expect(guide.endings[0].conditions).toEqual(["道德過低", "另一個條件"]);
+  });
+
+  it("rejects a route id reused for a different name", () => {
+    const a = validFile();
+    const b = { routes: [{ id: "longxiang", name: "別條線" }], endings: [], events: [] };
+    expect(issuesOf([a, b])).toContain("route id longxiang declared with different names");
+  });
 });
+

@@ -32,8 +32,20 @@ export function loadGuide(files: unknown[]): Guide {
       return;
     }
     events.push(...parsed.data.events);
-    routes.push(...parsed.data.routes);
-    endings.push(...parsed.data.endings);
+    for (const r of parsed.data.routes) {
+      const known = routes.find((x) => x.id === r.id);
+      if (!known) routes.push(r);
+      else if (known.name !== r.name) issues.push(`route id ${r.id} declared with different names`);
+    }
+    for (const e of parsed.data.endings) {
+      const known = endings.find((x) => x.id === e.id);
+      if (!known) endings.push({ ...e });
+      else if (known.name !== e.name) issues.push(`ending id ${e.id} declared with different names`);
+      else {
+        known.conditions = [...new Set([...known.conditions, ...e.conditions])];
+        known.keyEventIds = [...new Set([...known.keyEventIds, ...e.keyEventIds])];
+      }
+    }
   });
 
   const unique = (kind: string, ids: string[]) => {
