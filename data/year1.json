@@ -7,249 +7,49 @@
     {
       "id": "yeyunshang",
       "name": "葉雲裳線"
+    },
+    {
+      "id": "xiaoshimei",
+      "name": "小師妹線"
     }
   ],
   "endings": [],
   "events": [
     {
-      "id": "y1-opening-sect-criticism",
-      "year": 1,
-      "month": 4,
-      "title": "唐門開局:被門派批評",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月開局"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "附和批評",
-          "preconditions": [],
-          "consequence": {
-            "summary": "嘴力+1,道德下降,掌門好感下降",
-            "statChanges": [
-              {
-                "stat": "嘴力",
-                "delta": 1
-              },
-              {
-                "stat": "道德",
-                "text": "下降"
-              },
-              {
-                "stat": "掌門好感",
-                "text": "下降"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "默默忍受",
-          "preconditions": [],
-          "consequence": {
-            "summary": "處世與性情下降,好感上升",
-            "statChanges": [
-              {
-                "stat": "處世",
-                "text": "下降"
-              },
-              {
-                "stat": "性情",
-                "text": "下降"
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-opening-second-event",
-      "year": 1,
-      "month": 4,
-      "title": "開局第二個事件(挑釁或安慰)",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月開局"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "挑釁",
-          "preconditions": [],
-          "consequence": {
-            "summary": "嘴力+1、性情上升,處世與道德下降",
-            "statChanges": [
-              {
-                "stat": "嘴力",
-                "delta": 1
-              },
-              {
-                "stat": "性情",
-                "text": "上升"
-              },
-              {
-                "stat": "處世",
-                "text": "下降"
-              },
-              {
-                "stat": "道德",
-                "text": "下降"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "安慰",
-          "preconditions": [],
-          "consequence": {
-            "summary": "修養上升,三師兄好感上升",
-            "statChanges": [
-              {
-                "stat": "修養",
-                "text": "上升"
-              },
-              {
-                "stat": "三師兄好感",
-                "text": "上升"
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
       "id": "y1-opening-recruit-wheel",
       "year": 1,
       "month": 4,
-      "title": "開局招新轉盤",
+      "title": "4月上 唐門招新(初識唐升)",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一年四月開局"
+          "text": "第一年4月上"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "招募新人",
+          "text": "招募轉盤",
           "preconditions": [],
           "consequence": {
-            "summary": "成功招募名聲上升、心相下降;招滿三人額外加嘴力與名聲;轉盤點數過高(超過75)失敗會被打被搶、心相下降",
-            "statChanges": [
-              {
-                "stat": "名聲",
-                "text": "上升"
-              },
-              {
-                "stat": "心相",
-                "text": "下降"
-              }
-            ]
+            "summary": "建議 roll 到招募三個人;其餘選項隨意",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "saveHint": "sl"
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-opening-recruit-followup",
-      "year": 1,
-      "month": 4,
-      "title": "招新後續:住處安排",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月開局"
-        },
-        {
-          "kind": "choice",
-          "text": "先前觸發招新轉盤"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "沒有房子",
-          "preconditions": [],
-          "consequence": {
-            "summary": "性情上升",
-            "statChanges": [
-              {
-                "stat": "性情",
-                "text": "上升"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "大橘為重",
-          "preconditions": [],
-          "consequence": {
-            "summary": "修養上升、三師兄好感上升,處世與名聲下降",
-            "statChanges": [
-              {
-                "stat": "修養",
-                "text": "上升"
-              },
-              {
-                "stat": "三師兄好感",
-                "text": "上升"
-              },
-              {
-                "stat": "處世",
-                "text": "下降"
-              },
-              {
-                "stat": "名聲",
-                "text": "下降"
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
         }
       ]
     },
@@ -257,425 +57,78 @@
       "id": "y1-first-night-mirror",
       "year": 1,
       "month": 4,
-      "title": "第一夜照鏡子",
+      "title": "4月上 男弟子房:閒聊與照鏡子",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一年四月第一夜"
+          "text": "第一年4月上"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "選項一(照鏡子後自戀,S3 記為『還不錯』)",
+          "text": "所有閒聊各選一遍,最後選照鏡子",
           "preconditions": [],
           "consequence": {
-            "summary": "性情下降,取得技能「自戀」與成就《自戀》(S1 稱技能僅外觀效果)",
-            "statChanges": [
-              {
-                "stat": "性情",
-                "text": "下降"
-              }
-            ],
+            "summary": "照鏡子結果不差,趙活立繪美顏,獲得【自戀】技能",
+            "statChanges": [],
             "unlocks": [
-              "技能:自戀",
-              "成就:自戀"
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "選項二",
-          "preconditions": [],
-          "consequence": {
-            "summary": "學問+3(S1 推薦)",
-            "statChanges": [
-              {
-                "stat": "學問",
-                "delta": 3
-              }
-            ]
-          }
-        },
-        {
-          "id": "o3",
-          "text": "選項三",
-          "preconditions": [],
-          "consequence": {
-            "summary": "心相-20,性情與修養下降",
-            "statChanges": [
-              {
-                "stat": "心相",
-                "delta": -20
-              },
-              {
-                "stat": "性情",
-                "text": "下降"
-              },
-              {
-                "stat": "修養",
-                "text": "下降"
-              }
-            ]
+              "【自戀】技能"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        },
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
+          "date": "2024-08-31"
         }
       ]
     },
     {
-      "id": "y1-kitchen-senior-brother-scare",
+      "id": "y1-opening-male-room-1",
       "year": 1,
       "month": 4,
-      "title": "廚房遇見大師兄(驚嚇事件)",
+      "title": "開局事件①:男弟子房1",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一次進入廚房"
+          "text": "開局事件,觸發時限為第一年5月下之前"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "好言相勸",
+          "text": "選閒聊",
           "preconditions": [],
           "consequence": {
-            "summary": "道德與修養上升",
-            "statChanges": [
-              {
-                "stat": "道德",
-                "text": "上升"
-              },
-              {
-                "stat": "修養",
-                "text": "上升"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "正面對質",
-          "preconditions": [],
-          "consequence": {
-            "summary": "道德下降、嘴力上升、大師兄好感下降",
-            "statChanges": [
-              {
-                "stat": "道德",
-                "text": "下降"
-              },
-              {
-                "stat": "嘴力",
-                "text": "上升"
-              },
-              {
-                "stat": "大師兄好感",
-                "text": "下降"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o3",
-          "text": "轉盤選第3項(S3)",
-          "preconditions": [],
-          "consequence": {
-            "summary": "S3 記載此處會被嚇死(生死簿7);S1 稱此驚嚇事件約有5%死亡機率"
+            "summary": "初識唐惟元,開啟商店功能",
+            "statChanges": [],
+            "unlocks": [
+              "商店功能",
+              "初識唐惟元"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        },
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-alchemy-room-first-visit",
-      "year": 1,
-      "month": 4,
-      "title": "首次進入煉丹房見二師兄",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一次進入煉丹房"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "與二師兄閒聊",
-          "preconditions": [],
-          "consequence": {
-            "summary": "心相可能-15(S1)",
-            "statChanges": [
-              {
-                "stat": "心相",
-                "delta": -15
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "「來找死」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "S3 記載會中毒身亡(生死簿4);S1 亦稱敵意選項可能致命"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        },
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-group-brawl",
-      "year": 1,
-      "month": 4,
-      "title": "群毆事件",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "閃避等待,再叫大師兄出面",
-          "preconditions": [],
-          "consequence": {
-            "summary": "得到約1000錢與秘籍《擲石問天》;可無限重試"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942897432085135365",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-sect-punishment",
-      "year": 1,
-      "month": 4,
-      "title": "四月:同門刁難(門規處罰)",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月上旬"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "選項一",
-          "preconditions": [],
-          "consequence": {
-            "summary": "屬性下降(來源未寫細節)"
-          }
-        },
-        {
-          "id": "o2",
-          "text": "選項二",
-          "preconditions": [],
-          "consequence": {
-            "summary": "屬性下降(來源未寫細節)"
-          }
-        },
-        {
-          "id": "o3",
-          "text": "選項三(作者推薦)",
-          "preconditions": [],
-          "consequence": {
-            "summary": "性情與嘴力上升,處世下降",
-            "statChanges": [
-              {
-                "stat": "性情",
-                "text": "上升"
-              },
-              {
-                "stat": "嘴力",
-                "text": "上升"
-              },
-              {
-                "stat": "處世",
-                "text": "下降"
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-mountain-master-encounter",
-      "year": 1,
-      "month": 4,
-      "title": "受辱後山中遇高人",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "choice",
-          "text": "先前觸發四月同門刁難事件"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "選項一:自己解決",
-          "preconditions": [],
-          "consequence": {
-            "summary": "處世與性情上升",
-            "statChanges": [
-              {
-                "stat": "處世",
-                "text": "上升"
-              },
-              {
-                "stat": "性情",
-                "text": "上升"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "選項三",
-          "preconditions": [],
-          "consequence": {
-            "summary": "心相+10",
-            "statChanges": [
-              {
-                "stat": "心相",
-                "delta": 10
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-mysterious-stranger-wheel",
-      "year": 1,
-      "month": 4,
-      "title": "四月中旬:神秘人贈書轉盤",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月中旬"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "金鐘罩",
-          "preconditions": [],
-          "consequence": {
-            "summary": "挨揍技能可轉為反擊"
-          }
-        },
-        {
-          "id": "o2",
-          "text": "點蒼劍譜",
-          "preconditions": [],
-          "consequence": {
-            "summary": "絕招消耗降低;S4 稱之後大舅哥《同舟劍法》與雲裳《劍聖極招》需要此書,錯過可向四師兄商店購買"
-          }
-        },
-        {
-          "id": "o3",
-          "text": "五毒密錄",
-          "preconditions": [],
-          "consequence": {
-            "summary": "嘴力提升並可下毒;S4 推薦,因可提供足夠醫術"
-          }
-        },
-        {
-          "id": "o4",
-          "text": "歷戰血書",
-          "preconditions": [],
-          "consequence": {
-            "summary": "多項屬性提升,之後有額外獎勵事件"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
+          "date": "2024-08-31"
         }
       ]
     },
@@ -683,154 +136,697 @@
       "id": "y1-april-senior-brother-encouragement",
       "year": 1,
       "month": 4,
-      "title": "大師兄的鼓勵(男弟子房)",
+      "title": "開局事件②:男弟子房2(大師兄鼓勵)",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一年四月中下旬"
+          "text": "開局事件,觸發時限為第一年5月下之前"
         },
         {
           "kind": "stat",
-          "text": "心相較低(越低觸發機率越高)"
-        },
-        {
-          "kind": "choice",
-          "text": "進入男弟子房"
+          "text": "心相低於30"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "琴棋書畫 →「一起嘴南宮」",
+          "text": "roll 琴棋書畫,選「啊我好像懂」",
           "preconditions": [],
           "consequence": {
-            "summary": "得到「大師兄的塗鴉」(S3 稱無用)"
-          }
-        },
-        {
-          "id": "o2",
-          "text": "去鬧小師妹 →「想練輕功,站在小師妹身邊」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "得到《逍遙遊腿法》",
+            "summary": "獲得【大師兄的塗鴉】,影響7月呂翁催債事件;初識唐布衣",
+            "statChanges": [],
             "unlocks": [
-              "秘籍:逍遙遊腿法"
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-senior-brother-money-return",
-      "year": 1,
-      "month": 4,
-      "title": "與大師兄出手後的退錢抉擇",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年四月中下旬"
-        },
-        {
-          "kind": "choice",
-          "text": "大師兄邀玩的骰點落在20至60之間"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "全數還給村民",
-          "preconditions": [],
-          "consequence": {
-            "summary": "名聲、道德、掌門好感上升;唐不易好感下降",
-            "statChanges": [
-              {
-                "stat": "名聲",
-                "text": "上升"
-              },
-              {
-                "stat": "道德",
-                "text": "上升"
-              },
-              {
-                "stat": "掌門好感",
-                "text": "上升"
-              },
-              {
-                "stat": "唐不易好感",
-                "text": "下降"
-              }
-            ]
+              "【大師兄的塗鴉】"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "對半分",
+          "text": "roll 鬧小師妹",
           "preconditions": [],
           "consequence": {
-            "summary": "名聲與處世上升,獲得500銀",
-            "statChanges": [
-              {
-                "stat": "名聲",
-                "text": "上升"
-              },
-              {
-                "stat": "處世",
-                "text": "上升"
-              },
-              {
-                "stat": "銀",
-                "delta": 500
-              }
-            ]
+            "summary": "初識唐默鈴;選「我也要練好輕功」獲得《逍遙遊腿法》;選「光是輕功厲害沒用」並 roll 故作鎮定則與唐布衣決斗,戰勝後選項隨意",
+            "statChanges": [],
+            "unlocks": [
+              "《逍遙遊腿法》"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "均分",
+          "text": "roll 吃喝嫖賭",
           "preconditions": [],
           "consequence": {
-            "summary": "獲得2000銀,道德與處世下降",
-            "statChanges": [
-              {
-                "stat": "銀",
-                "delta": 2000
-              },
-              {
-                "stat": "道德",
-                "text": "下降"
-              },
-              {
-                "stat": "處世",
-                "text": "下降"
-              }
-            ]
+            "summary": "與山賊決斗,戰勝後選項隨意",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-opening-female-room",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件③:女弟子房",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選問候小師妹",
+          "preconditions": [],
+          "consequence": {
+            "summary": "初識唐默鈴,心相+100",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": 100
+              }
+            ],
+            "unlocks": [
+              "初識唐默鈴"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "女弟子房偷看",
+          "preconditions": [],
+          "consequence": {
+            "summary": "有機率摔下山谷死亡",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-2"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-opening-training-ground",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件④:練武場",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "接受三師兄的教學",
+          "preconditions": [],
+          "consequence": {
+            "summary": "進入決斗,體力+1、輕功+1",
+            "statChanges": [
+              {
+                "stat": "體力",
+                "delta": 1
+              },
+              {
+                "stat": "輕功",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "拒絕三師兄的教學",
+          "preconditions": [],
+          "consequence": {
+            "summary": "繼續陪小師妹練武,心相+50(初識小師妹時同場心相+50、體力+1)",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": 50
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-opening-lecture-hall",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件⑤:講經堂",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "與三師兄閒聊",
+          "preconditions": [],
+          "consequence": {
+            "summary": "初次為工作;之後每次閒聊內容不同,三師兄講述各大門派背景故事",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-alchemy-room-first-visit",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件⑥:煉丹房(初識唐錚)",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選「我是來工作的」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "二師兄好感+1、貢獻+10、心相-12,進行一次煉丹工作",
+            "statChanges": [
+              {
+                "stat": "二師兄好感",
+                "delta": 1
+              },
+              {
+                "stat": "貢獻",
+                "delta": 10
+              },
+              {
+                "stat": "心相",
+                "delta": -12
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選「正是找死」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "被毒死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-4"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-kitchen-senior-brother-scare",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件⑦:伙房1(大鬧飛石幫)",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "「誰叫我?」並 roll 驚嚇指數",
+          "preconditions": [],
+          "consequence": {
+            "summary": "roll 到嚇死則結局屁力焦蛙;其餘情況大師兄與趙活一起大鬧飛石幫,進入團戰教學關,建議多撿錢,戰後獲得《擲石問天》",
+            "statChanges": [],
+            "unlocks": [
+              "《擲石問天》"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-7"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-april-may-kitchen-low-xinxiang",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件⑧:伙房2",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        },
+        {
+          "kind": "stat",
+          "text": "心相低於30"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "「來者何人」roll 二師兄/三師兄/四師兄/掌門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "增加心相與對應人物好感;roll 到掌門可提前結識掌門,選「有點吃不消」體力+1",
+            "statChanges": [
+              {
+                "stat": "體力",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-opening-backhill-danger",
+      "year": 1,
+      "month": 4,
+      "title": "開局事件⑨:後山遇險",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "開局事件,觸發時限為第一年5月下之前"
+        },
+        {
+          "kind": "stat",
+          "text": "後山工作(低心相)隨機觸發神秘人尾隨"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選早點回去",
+          "preconditions": [],
+          "consequence": {
+            "summary": "事件結束",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選步調慢點,roll 迴避",
+          "preconditions": [],
+          "consequence": {
+            "summary": "發現神秘人是師姐,並救了師姐一命",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "選步調慢點,roll 被推",
+          "preconditions": [],
+          "consequence": {
+            "summary": "被推下谷底",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-8"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-april-group-brawl",
+      "year": 1,
+      "month": 4,
+      "title": "4月中 同門霸凌",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年4月中"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "據理力爭",
+          "preconditions": [],
+          "consequence": {
+            "summary": "推薦選項",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-mysterious-stranger-wheel"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "跟你們拼了",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與霸凌者決斗,輸贏結果都不好",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-mysterious-stranger-wheel"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-april-mysterious-stranger-wheel",
+      "year": 1,
+      "month": 4,
+      "title": "4月中 後山神秘人贈送秘籍",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "同門霸凌結束後自動觸發"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選醫書《五毒祕錄》",
+          "preconditions": [],
+          "consequence": {
+            "summary": "作者唯一推薦;傳功救大師兄需醫術5級,很難湊齊,不要放過任何醫術等級。其餘3本秘籍之後都能買到",
+            "statChanges": [],
+            "unlocks": [
+              "《五毒祕錄》"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-april-buy-ox",
+      "year": 1,
+      "month": 4,
+      "title": "4月下 下山買牛",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年4月下"
+        },
+        {
+          "kind": "stat",
+          "text": "四師兄好感度1.5星以上"
+        },
+        {
+          "kind": "stat",
+          "text": "道德、嘴力高低影響對話差分"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "斗笠人向李大夫求藥:選「我替他擔保」並 roll「李大夫跟你挺熟的」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "可省2000銀兩;《江湖快報》持有3份以上則葉雲舟摘下斗笠被認出",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 2000,
+                "text": "省下2000"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-siblings-pirate-ship"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選「犯不得強出頭」並 roll 繼續考慮,或選「默不吭聲」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "事件結束,返回唐門",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "打工:找零工賺快錢(飛石幫臨時工)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "銀兩+1000,飛石幫門派好感+2",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 1000
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-siblings-pirate-ship"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "打工:街頭賣藝",
+          "preconditions": [],
+          "consequence": {
+            "summary": "roll「竟是行家」銀兩+1000、名聲+1;roll「假吐血」銀兩+2000、體力-2、名聲-1",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-siblings-pirate-ship"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "打工:大宋閒漢趙活",
+          "preconditions": [],
+          "consequence": {
+            "summary": "銀兩+1000,千面人魔好感+1",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 1000
+              },
+              {
+                "stat": "千面人魔好感",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-siblings-pirate-ship"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o6",
+          "text": "什麼也不幹",
+          "preconditions": [],
+          "consequence": {
+            "summary": "修養+1、處世+1、心相+20",
+            "statChanges": [
+              {
+                "stat": "修養",
+                "delta": 1
+              },
+              {
+                "stat": "處世",
+                "delta": 1
+              },
+              {
+                "stat": "心相",
+                "delta": 20
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-siblings-pirate-ship"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
         }
       ]
     },
@@ -838,195 +834,275 @@
       "id": "y1-april-ye-siblings-pirate-ship",
       "year": 1,
       "month": 4,
-      "title": "初遇葉家兄妹:冒充葉雲舟與三煞",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "stat",
-          "text": "四師兄好感達1.5星(S4 記為15以上),最早第二旬"
-        },
-        {
-          "kind": "time",
-          "text": "第一年四月下旬(S4:買牛事件)"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "裝傻",
-          "preconditions": [],
-          "consequence": {
-            "summary": "文字遊戲失敗,被爆頭身亡(生死簿5)"
-          }
-        },
-        {
-          "id": "o2",
-          "text": "冒充葉雲舟",
-          "preconditions": [],
-          "consequence": {
-            "summary": "繼續談話則開打,血量過低會死(生死簿6);選「慌了」若獲勝,雲裳好感上升、雲舟好感下降,落敗則雲舟好感上升。S4 提醒:用嘴力欺騙會誹謗雲裳、降低大舅哥好感並記入傳記,不建議",
-            "nextEventIds": [
-              "y1-april-after-pirates-small-talk"
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-after-pirates-small-talk",
-      "year": 1,
-      "month": 4,
-      "title": "擊退海盜後的閒聊",
+      "title": "4月下 初識葉雲舟(閻關三煞)",
       "trigger": "chained",
-      "routeIds": [],
-      "preconditions": [],
-      "options": [
-        {
-          "id": "o1",
-          "text": "談錢 →「錢拿來」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "得到《點蒼劍譜》",
-            "unlocks": [
-              "秘籍:點蒼劍譜"
-            ]
-          }
-        }
+      "routeIds": [
+        "yeyunshang"
       ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-april-may-kitchen-low-xinxiang",
-      "year": 1,
-      "month": 5,
-      "title": "廚房事件(低心相)",
-      "trigger": "timed",
-      "routeIds": [],
       "preconditions": [
         {
-          "kind": "time",
-          "text": "四月下旬至五月中旬"
+          "kind": "choice",
+          "text": "下山買牛中與葉雲舟對話後,閻關三煞現身"
         },
         {
-          "kind": "stat",
-          "text": "心相較低(S3:低於30)"
+          "kind": "item",
+          "text": "《江湖快報》持有1份以上可認出閻關三煞"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "遇見二師兄",
+          "text": "選裝傻,roll 喇嗲失敗",
           "preconditions": [],
           "consequence": {
-            "summary": "轉盤理解暗示成功心相+80、二師兄好感上升;失敗心相-10,二師兄好感仍上升",
-            "statChanges": [
-              {
-                "stat": "心相",
-                "delta": 80,
-                "text": "成功;失敗為-10"
-              }
-            ]
+            "summary": "被爆頭",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-5"
           }
         },
         {
           "id": "o2",
-          "text": "遇見三師兄",
+          "text": "選裝傻,roll 喇嗲成功,再選找葉雲舟求助",
           "preconditions": [],
           "consequence": {
-            "summary": "心相+40、三師兄好感上升",
+            "summary": "事件結束,未結識葉雲裳,葉雲舟好感-2",
             "statChanges": [
               {
-                "stat": "心相",
-                "delta": 40
+                "stat": "葉雲舟好感",
+                "delta": -2
               }
-            ]
+            ],
+            "unlocks": [],
+            "misses": [
+              "結識葉雲裳"
+            ],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "遇見四師兄",
+          "text": "選裝傻的其他2個選項,或選「他還沒回來」",
           "preconditions": [],
           "consequence": {
-            "summary": "處世與四師兄好感上升",
-            "statChanges": [
-              {
-                "stat": "處世",
-                "text": "上升"
-              }
-            ]
+            "summary": "與閻關三煞決斗1:戰敗被砍死;撐過五回合不敗,葉雲舟出手秒殺三人",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-1"
           }
         },
         {
           "id": "o4",
-          "text": "遇見掌門:被問管理門派雜務辛不辛苦 →「一點也不」",
+          "text": "選「我就是葉雲舟」",
           "preconditions": [],
           "consequence": {
-            "summary": "處世下降、掌門好感上升,心相+80",
+            "summary": "銀兩+2000;roll「你慌了」進入決斗2(敵人憤怒,4回合不敗或戰敗,葉雲舟出手秒殺三人)",
             "statChanges": [
               {
-                "stat": "處世",
-                "text": "下降"
-              },
-              {
-                "stat": "心相",
-                "delta": 80
+                "stat": "銀兩",
+                "delta": 2000
               }
-            ]
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-yunshang-meeting"
+            ],
+            "alternatives": []
           }
         },
         {
           "id": "o5",
-          "text": "遇見掌門 →「有點多」(S2 推薦)",
+          "text": "選「我就是葉雲舟」,roll 欺詐",
           "preconditions": [],
           "consequence": {
-            "summary": "體力與掌門好感上升,心相+80",
-            "statChanges": [
-              {
-                "stat": "體力",
-                "text": "上升"
-              },
-              {
-                "stat": "心相",
-                "delta": 80
-              }
-            ]
+            "summary": "三煞調戲小師妹,趙活暴怒以憤怒狀態進入決斗3,敵人震撼膽怯;戰敗結局為「誰也別想欺負我小師妹」;戰勝後無屍首處理環節,劇情有差分,葉雲舟好感減、葉雲裳好感加",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-april-ye-yunshang-meeting"
+            ],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-6"
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-april-ye-yunshang-meeting",
+      "year": 1,
+      "month": 4,
+      "title": "4月下 初識葉雲裳",
+      "trigger": "chained",
+      "routeIds": [
+        "yeyunshang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "擊退閻關三煞後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "尸首處理",
+          "preconditions": [],
+          "consequence": {
+            "summary": "兩個選項隨意皆可",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
         },
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "id": "o2",
+          "text": "閒聊:關於錢",
+          "preconditions": [],
+          "consequence": {
+            "summary": "不要選「不行,錢還來」;《點蒼劍譜》第二年就能買到",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [
+              "避免選「不行,錢還來」"
+            ],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "閒聊:小師妹,選「不要為了我而爭鬥」再選「不行」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "影響葉雲裳之後對趙活的態度。閒聊中有選項會增加變心值(玩風雲史7一心一意者注意)",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-may-contribution-review",
+      "year": 1,
+      "month": 5,
+      "title": "5月上 貢獻點評",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年5月上"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "貢獻扣除50點後不低於0",
+          "preconditions": [],
+          "consequence": {
+            "summary": "心相+15、向心+10",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": 15
+              },
+              {
+                "stat": "向心",
+                "delta": 10
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "貢獻扣除50點後小於0",
+          "preconditions": [],
+          "consequence": {
+            "summary": "心相-20、向心-5、掌門好感-1",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": -20
+              },
+              {
+                "stat": "向心",
+                "delta": -5
+              },
+              {
+                "stat": "掌門好感",
+                "delta": -1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "選「好啦好啦都我啦又我啦」",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "道德壞人及以下"
+            }
+          ],
+          "consequence": {
+            "summary": "與師兄決斗,戰敗結局為小師妹的制裁",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-10"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1034,329 +1110,182 @@
       "id": "y1-may-sect-tournament",
       "year": 1,
       "month": 5,
-      "title": "五月中旬門派比武",
+      "title": "5月下 首次段考",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一年五月中旬"
+          "text": "第一年5月下"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "擊敗對手",
+          "text": "roll 主考官:掌門/大師兄/二師兄/三師兄",
           "preconditions": [],
           "consequence": {
-            "summary": "必須獲勝,否則遊戲結束;對手隨機;獲勝心相+30、武學點+3、向心下降",
+            "summary": "戰勝後增加心相與對應人物好感;戰勝後選項及小師妹的安慰隨意(別選「一點屁用都沒有」)",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "小師妹的制裁",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-10"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-june-contribution-review",
+      "year": 1,
+      "month": 6,
+      "title": "6月上 貢獻點評",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年6月上"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "貢獻扣除50點後大於等於0",
+          "preconditions": [],
+          "consequence": {
+            "summary": "心相+15、向心+10",
             "statChanges": [
               {
                 "stat": "心相",
-                "delta": 30
-              },
-              {
-                "stat": "武學點",
-                "delta": 3
+                "delta": 15
               },
               {
                 "stat": "向心",
-                "text": "下降"
+                "delta": 10
               }
-            ]
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "大師兄當裁判時,賽後不開口說話",
+          "text": "貢獻扣除50點後小於0",
           "preconditions": [],
           "consequence": {
-            "summary": "額外好感上升並獲得甘蔗"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-may-after-tournament-rival",
-      "year": 1,
-      "month": 5,
-      "title": "比武後對手找碴",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "choice",
-          "text": "先前完成五月比武"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "選項一",
-          "preconditions": [],
-          "consequence": {
-            "summary": "修養下降、處世上升",
-            "statChanges": [
-              {
-                "stat": "修養",
-                "text": "下降"
-              },
-              {
-                "stat": "處世",
-                "text": "上升"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "選項二",
-          "preconditions": [],
-          "consequence": {
-            "summary": "修養與向心上升,處世下降",
-            "statChanges": [
-              {
-                "stat": "修養",
-                "text": "上升"
-              },
-              {
-                "stat": "向心",
-                "text": "上升"
-              },
-              {
-                "stat": "處世",
-                "text": "下降"
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-may-junior-sister-master-ill",
-      "year": 1,
-      "month": 5,
-      "title": "小師妹來訪(師父病倒)",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年五月"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "安慰她",
-          "preconditions": [],
-          "consequence": {
-            "summary": "心相+30,小師妹好感上升",
+            "summary": "心相-20、向心-5、掌門好感-1",
             "statChanges": [
               {
                 "stat": "心相",
-                "delta": 30
-              }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-may-tang-sisters-cliff",
-      "year": 1,
-      "month": 5,
-      "title": "五月下旬:山上遇唐門姐妹",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年五月下旬"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "慢慢走",
-          "preconditions": [],
-          "consequence": {
-            "summary": "會被推下山崖;若閃開則醜姐姐會喜歡你。作者認為閃開是較安全的結果"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-may-bandit-mistaken-cult",
-      "year": 1,
-      "month": 5,
-      "title": "被誤認為魔教的山賊事件",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年五月下旬"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "擊敗敵人",
-          "preconditions": [],
-          "consequence": {
-            "summary": "輕功+1、獲得武學點(隨心相)與名聲",
-            "statChanges": [
-              {
-                "stat": "輕功",
-                "delta": 1
+                "delta": -20
               },
               {
-                "stat": "名聲",
-                "text": "上升"
-              }
-            ]
-          }
-        },
-        {
-          "id": "o2",
-          "text": "放過敵人",
-          "preconditions": [],
-          "consequence": {
-            "summary": "名聲與道德獲得更多;此事件可重複觸發",
-            "statChanges": [
-              {
-                "stat": "名聲",
-                "text": "上升"
+                "stat": "向心",
+                "delta": -5
               },
               {
-                "stat": "道德",
-                "text": "上升"
+                "stat": "掌門好感",
+                "delta": -1
               }
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-may-sect-meeting",
-      "year": 1,
-      "month": 5,
-      "title": "五月下旬門派會議",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年五月下旬"
-        },
-        {
-          "kind": "stat",
-          "text": "需50貢獻"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "選擇支持的領袖",
-          "preconditions": [],
-          "consequence": {
-            "summary": "耗費50貢獻;依所選影響處世、性情、道德與該人好感"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
-        }
-      ]
-    },
-    {
-      "id": "y1-may-junior-sister-marriage-collapse",
-      "year": 1,
-      "month": 5,
-      "title": "得知小師妹將嫁大師兄而昏倒",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年五月下旬"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "選項一:不想活了",
-          "preconditions": [],
-          "consequence": {
-            "summary": "支線結局"
-          }
-        },
-        {
-          "id": "o2",
-          "text": "選項二",
-          "preconditions": [],
-          "consequence": {
-            "summary": "錯過一個重要事件"
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "選項三(作者推薦完整體驗)",
-          "preconditions": [],
-          "consequence": {}
+          "text": "選「好啦好啦都我啦又我啦」",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "道德壞人及以下"
+            }
+          ],
+          "consequence": {
+            "summary": "與師兄決斗,戰敗結局為小師妹的制裁",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-10"
+          }
         }
       ],
       "sources": [
         {
-          "site": "B站(shuffleDJ_共祭)",
-          "url": "https://www.bilibili.com/opus/942900090628997161",
-          "version": "正式版",
-          "date": "2024-06-14"
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-june-fourth-brother-question",
+      "year": 1,
+      "month": 6,
+      "title": "6月上 四師兄提問",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年6月上"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll「難道是那件事」→ roll 失手燒了字畫",
+          "preconditions": [],
+          "consequence": {
+            "summary": "影響7月呂翁催債事件(觸發假字畫事件)",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-july-fake-painting"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1364,68 +1293,49 @@
       "id": "y1-june-master-disciple-offer",
       "year": 1,
       "month": 6,
-      "title": "掌門收徒提議",
+      "title": "6月上 掌門傳位",
       "trigger": "timed",
-      "routeIds": [
-        "yeyunshang"
-      ],
+      "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一年六月"
+          "text": "第一年6月上"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "「有興趣」(選項三為最佳)",
+          "text": "大師兄/二師兄/三師兄三選一",
           "preconditions": [],
           "consequence": {
-            "summary": "提升變心值;觸發由骰點決定"
+            "summary": "增加對應人物好感",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選「我自己」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "是武林大會上風雲史8「野心勃勃」解鎖的前置條件",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2026-07-07"
-        }
-      ]
-    },
-    {
-      "id": "y1-june-third-brother-visit",
-      "year": 1,
-      "month": 6,
-      "title": "三師兄來訪",
-      "trigger": "timed",
-      "routeIds": [
-        "yeyunshang"
-      ],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "第一年六月"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "「你說得對」→ 選擇嬌小活潑體弱",
-          "preconditions": [],
-          "consequence": {
-            "summary": "觸發變心劇情,心儀對象變為雲裳;若未成功需讀檔重試",
-            "saveHint": "sl"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1433,42 +1343,620 @@
       "id": "y1-june-sect-marriage-arrangement",
       "year": 1,
       "month": 6,
-      "title": "掌門指婚",
+      "title": "6月上 掌門指婚:活哥暈倒",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "六月上旬結束後自動觸發"
+          "text": "第一年6月上"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "「難道是那件事?」→「失手燒了字畫」",
+          "text": "我不活了",
           "preconditions": [],
           "consequence": {
-            "summary": "解鎖之後的呂翁催債特殊劇情",
-            "nextEventIds": [
-              "y1-august-lvweng-debt"
-            ]
+            "summary": "睡死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "hanqing-6"
           }
         },
         {
           "id": "o2",
-          "text": "「不活了」",
+          "text": "我要活著",
           "preconditions": [],
           "consequence": {
-            "summary": "睡死(汗青書6)"
+            "summary": "命運點+15",
+            "statChanges": [
+              {
+                "stat": "命運點",
+                "delta": 15
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-june-third-brother-visit"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "希望人間不要這麼險惡",
+          "preconditions": [],
+          "consequence": {
+            "summary": "命運點+30",
+            "statChanges": [
+              {
+                "stat": "命運點",
+                "delta": 30
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-june-third-brother-visit"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "能不能不用努力就變得厲害",
+          "preconditions": [],
+          "consequence": {
+            "summary": "進入 demo 線劇情,時間跳到第三年11月(內有獨占生死簿與汗青書),結束後回到第一年6月",
+            "statChanges": [],
+            "unlocks": [
+              "demo線獨占生死簿與汗青書"
+            ],
+            "misses": [],
+            "nextEventIds": [
+              "y1-june-third-brother-visit"
+            ],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-june-third-brother-visit",
+      "year": 1,
+      "month": 6,
+      "title": "6月上 活哥醒來",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "暈倒事件之後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "嘴硬",
+          "preconditions": [],
+          "consequence": {
+            "summary": "嘴力+1、道德-1、三師兄好感-1",
+            "statChanges": [
+              {
+                "stat": "嘴力",
+                "delta": 1
+              },
+              {
+                "stat": "道德",
+                "delta": -1
+              },
+              {
+                "stat": "三師兄好感",
+                "delta": -1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "你說的對",
+          "preconditions": [],
+          "consequence": {
+            "summary": "變心值+7",
+            "statChanges": [
+              {
+                "stat": "變心值",
+                "delta": 7
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-june-heart-change-dream",
+      "year": 1,
+      "month": 6,
+      "title": "變心夢",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "stat",
+          "text": "變心值超過10"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "第一次做變心夢時打開錦囊",
+          "preconditions": [],
+          "consequence": {
+            "summary": "心上人變為瑞杏;按文本描述選擇可將心上人變為想結緣的女角;若尚未結識符合描述的女角,心上人會變成自己並獲得【自戀】",
+            "statChanges": [],
+            "unlocks": [
+              "【自戀】"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-july-regular-meeting",
+      "year": 1,
+      "month": 7,
+      "title": "7月上 唐門例會",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年7月上"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "大師兄看望趙活,建議選「心虛」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "向心+5、三師兄好感+1、掌門好感+1;首次參加例會,之後每月貢獻消耗減為30",
+            "statChanges": [
+              {
+                "stat": "向心",
+                "delta": 5
+              },
+              {
+                "stat": "三師兄好感",
+                "delta": 1
+              },
+              {
+                "stat": "掌門好感",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-july-guangzhou-anecdote",
+      "year": 1,
+      "month": 7,
+      "title": "7月上 廣州軼事(假趙活)",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "修整唐門大院(門派等級升為2)後自動觸發"
+        },
+        {
+          "kind": "stat",
+          "text": "名聲不低於10"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選「小的樂意效勞」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "增加貢獻、減少心相(推薦選項)",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-fake-zhaohuo"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選「自己去挑啦」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與唐門女弟子決斗,輸贏都沒好事",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-lvweng-debt",
+      "year": 1,
+      "month": 7,
+      "title": "7月上 呂翁催債",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年7月上"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll「聽說你們唐門的丹藥也很靈驗」,選「二師兄,這方子不會有毒吧」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "二師兄好感+1、門派資產+200、煉丹點+3(推薦)",
+            "statChanges": [
+              {
+                "stat": "二師兄好感",
+                "delta": 1
+              },
+              {
+                "stat": "門派資產",
+                "delta": 200
+              },
+              {
+                "stat": "煉丹點",
+                "delta": 3
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "roll「呂某有個小兒子年方弱冠未曾嫁娶」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "活哥暴怒(修養暴躁及以下)時與先生決斗;戰敗心相-10、三師兄好感-1;戰勝追擊呂翁觸發轉盤 roll 伏兵/小師妹/宋悲,建議 SL 各看一次,可提前結識宋悲",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": -10,
+                "text": "戰敗時"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "saveHint": "sl"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-july-fake-painting",
+      "year": 1,
+      "month": 7,
+      "title": "7月上 假字畫事件",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "6月上四師兄提問選「難道是那件事」並 roll 失手燒了字畫"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll「立刻想點辦法」→「那是什麼可怕念頭」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "修養+1,事件結束(持有【大師兄的塗鴉】有額外劇情)",
+            "statChanges": [
+              {
+                "stat": "修養",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "roll「立刻想點辦法」→「只能幹掉他了」",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "道德壞人及以下"
+            }
+          ],
+          "consequence": {
+            "summary": "與先生決斗,戰敗結局為我在唐門谷底;戰勝後把先生扔下山谷毀屍滅跡",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-8"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "roll「附和兩句」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "學問+1、修養+1,事件結束",
+            "statChanges": [
+              {
+                "stat": "學問",
+                "delta": 1
+              },
+              {
+                "stat": "修養",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "roll「看書打發時間」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "觸發轉盤,隨便 roll 都加一點屬性",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-july-exam",
+      "year": 1,
+      "month": 7,
+      "title": "7月下 段考",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年7月下"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll 主考官二師兄或三師兄",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲勝後增加對應人物好感",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "三師兄:戰敗被拉到講經堂補習,選「好」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "心相+10、學問+1",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": 10
+              },
+              {
+                "stat": "學問",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "二師兄:戰敗被拉到煉丹房試藥,roll「可疑的藥」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "毒死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-4"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "二師兄:戰敗被拉到煉丹房試藥,roll「毒藥」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "抗毒+1、抗麻+1、內力+1",
+            "statChanges": [
+              {
+                "stat": "抗毒",
+                "delta": 1
+              },
+              {
+                "stat": "抗麻",
+                "delta": 1
+              },
+              {
+                "stat": "內力",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-treasure-talk",
+      "year": 1,
+      "month": 8,
+      "title": "8月上 三師兄談岳武穆寶藏",
+      "trigger": "timed",
+      "routeIds": [
+        "yeyunshang"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第一年8月上"
+        },
+        {
+          "kind": "stat",
+          "text": "三師兄好感度高於2.5星,或持有3份《江湖快報》"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選項隨意",
+          "preconditions": [],
+          "consequence": {
+            "summary": "自動觸發,選項不影響後續",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-yue-treasure-ye-move-in"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1476,130 +1964,1018 @@
       "id": "y1-august-yue-treasure-ye-move-in",
       "year": 1,
       "month": 8,
-      "title": "岳王寶藏與葉家兄妹入住唐門",
+      "title": "8月上 葉家兄妹客棧遇險",
+      "trigger": "chained",
+      "routeIds": [
+        "yeyunshang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "岳武穆寶藏事件後外出自動觸發;未觸發下山買牛也可觸發"
+        },
+        {
+          "kind": "stat",
+          "text": "名聲不低於10,否則無法幫忙,事件結束"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選在樓下等",
+          "preconditions": [],
+          "consequence": {
+            "summary": "團戰:客棧旅客江湖路人俠亂戰",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-diancang-pursuit"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選上樓看看",
+          "preconditions": [],
+          "consequence": {
+            "summary": "若下山買牛時幫葉雲舟買藥,銀兩+5500",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 5500
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-diancang-pursuit"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "與路人俠決斗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "戰敗被下馬威隨手殺死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-50"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-diancang-pursuit",
+      "year": 1,
+      "month": 8,
+      "title": "8月上 點蒼師兄追擊",
+      "trigger": "chained",
+      "routeIds": [
+        "yeyunshang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "客棧遇險後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "葉雲裳的辦法(隨意 roll)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "有2個選項會增加變心值",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-tangmen-courtyard-battle"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "與點蒼師兄決斗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "第三回合葉雲舟出手斬斷師兄劍鋒;戰敗結局為點蒼劍下亡魂",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-51"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-tangmen-courtyard-battle",
+      "year": 1,
+      "month": 8,
+      "title": "8月上 唐門大院之戰",
+      "trigger": "chained",
+      "routeIds": [
+        "yeyunshang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "點蒼師兄追擊後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "團戰獲勝",
+          "preconditions": [],
+          "consequence": {
+            "summary": "葉家兄妹加入唐門;戰後選項隨意,影響不大",
+            "statChanges": [],
+            "unlocks": [
+              "葉家兄妹加入唐門"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "團戰失敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "葉家兄妹離開唐門",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [
+              "葉家兄妹加入唐門"
+            ],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-ye-facility-events",
+      "year": 1,
+      "month": 8,
+      "title": "葉家兄妹加入後的設施額外事件",
       "trigger": "timed",
       "routeIds": [
         "yeyunshang"
       ],
       "preconditions": [
         {
-          "kind": "time",
-          "text": "第一年八月"
-        },
-        {
-          "kind": "stat",
-          "text": "集滿三期江湖快報,或三師兄好感達2.5星以上(S3、S4、S5 一致,S5 稱十月前買滿三期)"
+          "kind": "choice",
+          "text": "葉家兄妹已加入唐門"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "在樓下等待(S4 推薦)",
+          "text": "煉丹房:選幫葉雲舟",
           "preconditions": [],
           "consequence": {
-            "summary": "取勝後葉家兄妹會住進唐門;S4 稱名聲需至少10,否則不來、路線斷裂"
+            "summary": "刀劍+1、葉雲舟好感+2、二師兄好感-1",
+            "statChanges": [
+              {
+                "stat": "刀劍",
+                "delta": 1
+              },
+              {
+                "stat": "葉雲舟好感",
+                "delta": 2
+              },
+              {
+                "stat": "二師兄好感",
+                "delta": -1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "上樓",
+          "text": "後山工作:roll「衝向你」(遭遇葉雲裳肉蛋蔥雞),體力30以下",
           "preconditions": [],
           "consequence": {
-            "summary": "S4:獲得金錢但大舅哥好感下降;S3:戰敗會被武力震懾而死(生死簿50)",
-            "statChanges": [
-              {
-                "stat": "大舅哥好感",
-                "text": "下降"
-              }
-            ]
+            "summary": "結局我在唐門谷底",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-8"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "後山工作:roll「衝向你」,體力高於30",
+          "preconditions": [],
+          "consequence": {
+            "summary": "葉雲裳好感增加",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
-        },
-        {
-          "site": "PTT(disp.cc 鏡像)",
-          "url": "https://disp.cc/m/Games/hJbh",
-          "version": "未標示",
-          "date": "2025-09-21"
+          "date": "2024-08-31"
         }
       ]
     },
     {
-      "id": "y1-august-post-fight-choice",
+      "id": "y1-august-shangguan-gift",
       "year": 1,
       "month": 8,
-      "title": "岳王寶藏戰後抉擇",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "choice",
-          "text": "先前觸發岳王寶藏事件"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "選項二",
-          "preconditions": [],
-          "consequence": {
-            "summary": "二師兄好感上升"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
-        }
-      ]
-    },
-    {
-      "id": "y1-august-lvweng-debt",
-      "year": 1,
-      "month": 8,
-      "title": "呂翁催債",
+      "title": "8月上 上官大小姐來訪:四師兄送禮",
       "trigger": "timed",
       "routeIds": [],
       "preconditions": [
         {
           "kind": "time",
-          "text": "八月上旬後自動觸發"
+          "text": "第一年8月上"
         },
         {
-          "kind": "choice",
-          "text": "燒字畫選項(六月掌門指婚)可開啟特殊劇情"
+          "kind": "stat",
+          "text": "門派資產第一次達到-9000時自動觸發"
         }
       ],
-      "options": [],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll 全新廚具",
+          "preconditions": [],
+          "consequence": {
+            "summary": "廚藝+2、名聲+1(推薦;廚藝影響部分對白差分)",
+            "statChanges": [
+              {
+                "stat": "廚藝",
+                "delta": 2
+              },
+              {
+                "stat": "名聲",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-shangguan-visit"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "roll 全真劍法秘籍",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲得《全真劍法》(之後可買到)",
+            "statChanges": [],
+            "unlocks": [
+              "《全真劍法》"
+            ],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-shangguan-visit"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
+          "date": "2024-08-31"
         }
       ]
     },
     {
-      "id": "y1-longxiang-meeting",
+      "id": "y1-august-shangguan-visit",
       "year": 1,
       "month": 8,
-      "title": "結識龍湘(烤雞事件)",
+      "title": "8月上 上官螢來訪與初識",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "四師兄送禮之後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "三師兄是指派我的",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與唐門師兄決斗,戰勝後趙活可親自迎接上官螢",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "你愛去便去",
+          "preconditions": [],
+          "consequence": {
+            "summary": "唐門師兄迎接上官螢",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "初識上官螢:收見面禮(兩個選項皆如此)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "門派資產+500,兩個選項都降低上官螢好感度",
+            "statChanges": [
+              {
+                "stat": "門派資產",
+                "delta": 500
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-shangguan-reception",
+              "y1-august-shangguan-debt"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-shangguan-reception",
+      "year": 1,
+      "month": 8,
+      "title": "8月上 接待上官螢",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "初識上官螢之後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選泡茶",
+          "preconditions": [],
+          "consequence": {
+            "summary": "上官螢不想喝唐門的茶;若已在江陵壽宴結識上官螢,泡龍鳳團茶並 roll 點40以上則上官螢好感增加",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選焚香,且煉丹房彼岸仙香已開發,選「你若愛惜生命,嘿嘿」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與上官螢決斗,戰敗結局為上官螢的制裁",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-49"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "之後與上官螢的對話",
+          "preconditions": [],
+          "consequence": {
+            "summary": "選項隨意,影響不大",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-shangguan-debt",
+      "year": 1,
+      "month": 8,
+      "title": "8月中 上官螢追債(晁和假字據)",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "上官大小姐來訪後自動觸發"
+        },
+        {
+          "kind": "stat",
+          "text": "保持門派等級為1"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "自證清白,蓋指印就蓋指印",
+          "preconditions": [],
+          "consequence": {
+            "summary": "性情+1、處世+1(推薦)。1個月後滄幫送晁和上門",
+            "statChanges": [
+              {
+                "stat": "性情",
+                "delta": 1
+              },
+              {
+                "stat": "處世",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-fake-zhaohuo"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-fake-zhaohuo",
+      "year": 1,
+      "month": 8,
+      "title": "8月中 假趙活晁和打包上門",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "觸發廣州軼事滿1個月,或觸發上官螢追債滿1個月"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "道德低於好人:乞丐送晁和上門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "狗妹好感高於3星時由狗妹親自送,結識狗妹",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-handle-chaohe"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "道德好人及以上:宋悲送晁和上門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "結識宋悲",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-handle-chaohe"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "上官螢追債線:滄幫送晁和上門,選白銀",
+          "preconditions": [],
+          "consequence": {
+            "summary": "銀兩+3000、貢獻+20",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 3000
+              },
+              {
+                "stat": "貢獻",
+                "delta": 20
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-handle-chaohe"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "上官螢追債線:選布料",
+          "preconditions": [],
+          "consequence": {
+            "summary": "貢獻+40、向心+10",
+            "statChanges": [
+              {
+                "stat": "貢獻",
+                "delta": 40
+              },
+              {
+                "stat": "向心",
+                "delta": 10
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-handle-chaohe"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-handle-chaohe",
+      "year": 1,
+      "month": 8,
+      "title": "8月中 如何處置麻辣仙人晁和",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "晁和上門後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "徵詢二師兄意見,再選「戰他娘親」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "二師兄好感增加,與晁和決斗(推薦)",
+            "statChanges": [
+              {
+                "stat": "二師兄好感",
+                "text": "增加"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-real-vs-fake"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "我要殺了他",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "道德壞人及以下"
+            }
+          ],
+          "consequence": {
+            "summary": "與晁和決斗",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-august-real-vs-fake"
+            ],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "寬恕",
+          "preconditions": [],
+          "consequence": {
+            "summary": "不推薦",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-august-real-vs-fake",
+      "year": 1,
+      "month": 8,
+      "title": "8月中 真趙活 vs 假趙活",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "與晁和決斗"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "決斗戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "被盜版逼到沒有活路",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-61"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "戰勝後選「我要跟你們拼了」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與唐門師兄決斗(根性4次);戰敗結局為被盜版逼到沒有活路;戰勝後向心-10、貢獻-40",
+            "statChanges": [
+              {
+                "stat": "向心",
+                "delta": -10
+              },
+              {
+                "stat": "貢獻",
+                "delta": -40
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-chaohe-joins"
+            ],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-61"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "戰勝後選「別讓我再看見你」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "心相-20(推薦)",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": -20
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-chaohe-joins"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-chaohe-joins",
+      "year": 1,
+      "month": 8,
+      "title": "8月下 麻辣仙人晁和拜入唐門",
+      "trigger": "chained",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "假趙活晁和打包上門1旬後自動觸發"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll「你們全體圍毆趙活」→ roll「迫於淫威莫敢不從」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "趙活1v50團戰(堅持1分鐘不死即可);二師兄、小師妹好感高於2星時參與助戰,劇情很燃",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "roll「李泉,你去和趙活對練」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與李泉決斗",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "roll「你們全體對練」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "唐門分為兩隊,團戰;事件最後晁和拜入唐門成為弟子",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-chaohe-facility-events",
+      "year": 1,
+      "month": 9,
+      "title": "晁和拜入唐門後的設施事件",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "晁和已拜入唐門"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "晁和偷劈柴",
+          "preconditions": [],
+          "consequence": {
+            "summary": "四師兄好感高於2時,銀兩+2000、心相+20、四師兄好感+2",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 2000
+              },
+              {
+                "stat": "心相",
+                "delta": 20
+              },
+              {
+                "stat": "四師兄好感",
+                "delta": 2
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "晁和縱馬",
+          "preconditions": [],
+          "consequence": {
+            "summary": "名聲-4",
+            "statChanges": [
+              {
+                "stat": "名聲",
+                "delta": -4
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-cherish-food",
+      "year": 1,
+      "month": 9,
+      "title": "9月上起 晁和請客(珍惜食物)",
+      "trigger": "timed",
+      "routeIds": [],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "最早第一年9月上,伙房做飯隨機觸發"
+        },
+        {
+          "kind": "choice",
+          "text": "晁和已入門;留到第二年小梅加入後觸發 roll 大失敗有發糖劇情"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選炒都炒了,怎麼能糟蹋食物,roll 大成功",
+          "preconditions": [],
+          "consequence": {
+            "summary": "掌門、二師兄、小師妹與趙活同桌吃飯,眾人好感增加、心相+20",
+            "statChanges": [
+              {
+                "stat": "心相",
+                "delta": 20
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選不可以浪費食物,roll 大失敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "食物中毒死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-62"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "roll 成功",
+          "preconditions": [],
+          "consequence": {
+            "summary": "內力+1、抗毒+1、抗麻+1",
+            "statChanges": [
+              {
+                "stat": "內力",
+                "delta": 1
+              },
+              {
+                "stat": "抗毒",
+                "delta": 1
+              },
+              {
+                "stat": "抗麻",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-sept-nice-weather",
+      "year": 1,
+      "month": 9,
+      "title": "9月上 今天天氣很好",
       "trigger": "timed",
       "routeIds": [
         "longxiang"
@@ -1607,41 +2983,278 @@
       "preconditions": [
         {
           "kind": "time",
-          "text": "第一年八至九月,自動觸發"
+          "text": "第一年9月上"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "烤雞",
+          "text": "roll 炒菜",
           "preconditions": [],
           "consequence": {
-            "summary": "聽花公子的案子;幫花公子需道德偏低以下;獲勝得《南宮風流扇》,落敗死亡(生死簿47);幫道士則多出與龍香的對話"
+            "summary": "葉雲裳和四師兄來討肉吃,投餵後二人好感增加(葉雲裳為心上人時有額外劇情)",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "不烤雞",
+          "text": "roll 練武",
           "preconditions": [],
           "consequence": {
-            "summary": "幫公子獲勝得《龍吟功》,落敗死亡(生死簿48)"
-          }
-        },
-        {
-          "id": "o3",
-          "text": "幫助道士 → 轉盤「有陰謀」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "醫術0、無石灰粉技能、抗毒低於15時,成為瞎眼劍客(汗青書17)"
+            "summary": "武學點+5;遇華仙兒師姐。選「我在練功」與師姐決斗;選「散步而已」銀兩+1000(推薦)。師姐讓趙活去抓雞給二師兄、掌門補身",
+            "statChanges": [
+              {
+                "stat": "武學點",
+                "delta": 5
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-longxiang-meeting"
+            ],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-longxiang-meeting",
+      "year": 1,
+      "month": 9,
+      "title": "9月上 破廟偶遇公子俠",
+      "trigger": "chained",
+      "routeIds": [
+        "longxiang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "抓到雞後下大雨進入破廟"
+        },
+        {
+          "kind": "stat",
+          "text": "道德壞人及以下且不烤雞時,有下毒選項"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "烤雞,幫公子俠打道士",
+          "preconditions": [],
+          "consequence": {
+            "summary": "戰敗結局為虎作倀;戰勝獲得《南宮風流扇》,未結識龍湘,事件結束",
+            "statChanges": [],
+            "unlocks": [
+              "《南宮風流扇》"
+            ],
+            "misses": [
+              "結識龍湘"
+            ],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-47",
+            "saveHint": "sl"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "不烤雞且不下毒,幫公子俠打道士",
+          "preconditions": [],
+          "consequence": {
+            "summary": "戰敗結局為卷入別人恩怨而死;戰勝獲得《龍吟功》,未結識龍湘,事件結束",
+            "statChanges": [],
+            "unlocks": [
+              "《龍吟功》"
+            ],
+            "misses": [
+              "結識龍湘"
+            ],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-48",
+            "saveHint": "sl"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "幫道士打公子俠(烤雞與否有劇情差分)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "勝敗無所謂,戰後龍湘出手,進入初識龍湘",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-longxiang-lime"
+            ],
+            "alternatives": [],
+            "saveHint": "sl"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-longxiang-lime",
+      "year": 1,
+      "month": 9,
+      "title": "9月上 初識龍湘(石灰粉)",
+      "trigger": "chained",
+      "routeIds": [
+        "longxiang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "破廟幫道士打公子俠"
+        },
+        {
+          "kind": "stat",
+          "text": "解除石灰粉條件:江湖鬼域錄 Lv1以上,或醫術1級以上,或煉丹總點數30以上"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "roll「這傢伙有陰謀」,幫龍湘擋石灰粉",
+          "preconditions": [],
+          "consequence": {
+            "summary": "若未滿足解除條件,趙活被石灰粉弄瞎,汗青書17盲劍客",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-longxiang-chat"
+            ],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "hanqing-17"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "roll「吃我石灰粉啦」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "若未滿足解除條件,龍湘被石灰粉弄瞎哭著跑出破廟,大雨沖掉石灰,事件結束",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-longxiang-chat"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
+        }
+      ]
+    },
+    {
+      "id": "y1-longxiang-chat",
+      "year": 1,
+      "month": 9,
+      "title": "9月上 處理石灰粉後與龍湘閒聊",
+      "trigger": "chained",
+      "routeIds": [
+        "longxiang"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "已滿足解除石灰粉條件"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "閒聊(選項隨意)",
+          "preconditions": [],
+          "consequence": {
+            "summary": "此後二人姐弟相稱(湘姐、活弟);若已烤雞可投餵湘姐增加好感",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "回答大師兄是否為淫賊",
+          "preconditions": [],
+          "consequence": {
+            "summary": "回答隨意,影響之後錦香惜花令劇情",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "回到唐門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "沒烤雞:貢獻+15、掌門與二師兄好感+2;已烤雞:心相-30",
+            "statChanges": [
+              {
+                "stat": "貢獻",
+                "delta": 15
+              },
+              {
+                "stat": "掌門好感",
+                "delta": 2
+              },
+              {
+                "stat": "二師兄好感",
+                "delta": 2
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y1-longxiang-challenge-senior-brother"
+            ],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
+          "version": "未標示",
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1649,33 +3262,62 @@
       "id": "y1-longxiang-challenge-senior-brother",
       "year": 1,
       "month": 9,
-      "title": "龍湘挑戰大師兄",
-      "trigger": "timed",
+      "title": "9月中 錦香惜花令(龍湘大戰大師兄)",
+      "trigger": "chained",
       "routeIds": [
         "longxiang"
       ],
       "preconditions": [
         {
           "kind": "choice",
-          "text": "先前結識龍湘"
+          "text": "破廟中對大師兄是否淫賊的回答影響對話差分"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "戰敗(未幫道士)",
+          "text": "與大師兄一同和龍湘決斗(不要用「備揍」以外的指令)",
           "preconditions": [],
           "consequence": {
-            "summary": "被捲入交火而死(生死簿53)"
+            "summary": "用其他指令會讓龍湘開始攻擊趙活;戰勝武學點+5;戰後龍湘跑開,宋悲來拿人,roll「我有個更好的人選」銀兩+1500",
+            "statChanges": [
+              {
+                "stat": "武學點",
+                "delta": 5
+              },
+              {
+                "stat": "銀兩",
+                "delta": 1500
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "戰敗且未在破廟結識龍湘",
+          "preconditions": [],
+          "consequence": {
+            "summary": "高手過招被波及而死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-53"
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1683,282 +3325,144 @@
       "id": "y1-longxiang-apology",
       "year": 1,
       "month": 9,
-      "title": "龍湘道歉",
+      "title": "9月中 龍湘遭竊",
       "trigger": "timed",
       "routeIds": [
         "longxiang"
       ],
       "preconditions": [
         {
-          "kind": "time",
-          "text": "龍湘挑戰之後外出時隨機"
-        },
-        {
           "kind": "choice",
-          "text": "先前龍湘挑戰事件"
+          "text": "龍湘大戰大師兄後外出隨機觸發"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "轉盤「發覺」→「追上去」",
+          "text": "roll「發覺」→ 跟上去,與乞丐決斗",
           "preconditions": [],
           "consequence": {
-            "summary": "戰敗被蛇咬死(生死簿85);獲勝則視醫術而定,醫術3時選「救他」並善後或送醫館,得稱號「辣眼郎中」",
+            "summary": "第五回合開始時狗妹助戰;戰勝狗妹好感增加並獲得【龍湘的碎銀】;醫術3級以上可救活乞丐,送李老頭醫館獲得稱號辣眼郎中;追上龍湘可歸還銀兩,若私吞則在四師兄處可賣5000銀兩",
+            "statChanges": [],
             "unlocks": [
-              "稱號:辣眼郎中"
-            ]
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-longxiang-buns",
-      "year": 1,
-      "month": 9,
-      "title": "龍湘買包子",
-      "trigger": "timed",
-      "routeIds": [
-        "longxiang"
-      ],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "外出隨機"
-        },
-        {
-          "kind": "stat",
-          "text": "道德偏低以下且膽量高於平均"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "「砸店」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "戰敗噎死(生死簿86)"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-fake-zhaohuo",
-      "year": 1,
-      "month": 9,
-      "title": "假趙活事件",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "time",
-          "text": "九月上旬自動觸發"
-        },
-        {
-          "kind": "stat",
-          "text": "道德好以上遇宋悲,否則丐幫來訪"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "詢問二師兄 →「戰他娘親」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "戰敗被山寨貨逼入死路(生死簿61)"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-chaohe-joins",
-      "year": 1,
-      "month": 9,
-      "title": "假趙活(晁和)入門",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "choice",
-          "text": "先前假趙活事件"
-        },
-        {
-          "kind": "time",
-          "text": "約一旬後"
-        }
-      ],
-      "options": [],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-cherish-food",
-      "year": 1,
-      "month": 10,
-      "title": "珍惜食物(廚房)",
-      "trigger": "timed",
-      "routeIds": [],
-      "preconditions": [
-        {
-          "kind": "choice",
-          "text": "晁和入門後廚房隨機"
-        },
-        {
-          "kind": "time",
-          "text": "月份來源未明,暫列十月"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "「不能糟蹋食物」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "轉盤失敗再選「吃掉」會食物中毒(生死簿62);成功則與師父、二師兄、小師妹、趙活共進家宴"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
-          "version": "未標示",
-          "date": "2024-06-20"
-        }
-      ]
-    },
-    {
-      "id": "y1-monk-and-beggar",
-      "year": 1,
-      "month": 10,
-      "title": "和尚與乞丐(男弟子房)",
-      "trigger": "timed",
-      "routeIds": [
-        "yeyunshang"
-      ],
-      "preconditions": [
-        {
-          "kind": "choice",
-          "text": "晁和入門後男弟子房隨機"
-        },
-        {
-          "kind": "stat",
-          "text": "S4:需先贖回外堡、晁和已入門、心相偏低進男弟子房"
-        }
-      ],
-      "options": [
-        {
-          "id": "o1",
-          "text": "不起床 →「讓他睡」→「選二師兄讓你幹活」",
-          "preconditions": [],
-          "consequence": {
-            "summary": "得到《太平惠聖方》;兩次外出後馬富貴與福蘊必定出現(S4 稱為李富貴)",
-            "unlocks": [
-              "秘籍:太平惠聖方"
+              "【龍湘的碎銀】",
+              "稱號辣眼郎中"
             ],
-            "nextEventIds": [
-              "y1-fuyun-meeting"
-            ]
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "起床 → 轉盤2「我的敗北」",
+          "text": "決斗戰敗",
           "preconditions": [],
           "consequence": {
-            "summary": "被捲入交火(生死簿53);兩次外出後同樣會遇福蘊",
-            "nextEventIds": [
-              "y1-fuyun-meeting"
-            ]
+            "summary": "被蛇咬死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-85"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "開始時不追乞丐,選跟上龍湘,大師兄召喚術(銀兩-100),roll「竟然成功了」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "觸發石彈子對決事件,增加李富貴、小和尚好感(需已觸發和尚乞丐外堡群毆事件)",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": -100
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
+          "date": "2024-08-31"
         }
       ]
     },
     {
       "id": "y1-fuyun-meeting",
       "year": 1,
-      "month": 10,
-      "title": "遇見福蘊",
-      "trigger": "chained",
+      "month": 9,
+      "title": "9月中 嵩山派與丐幫群毆",
+      "trigger": "timed",
       "routeIds": [],
-      "preconditions": [],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "晁和拜入唐門後,男弟子房概率觸發"
+        }
+      ],
       "options": [
         {
           "id": "o1",
-          "text": "「我來接你的招」",
+          "text": "選「我要接著睡」,roll「讓這傢伙睡吧」",
           "preconditions": [],
           "consequence": {
-            "summary": "獲勝得《羅漢拳譜》,許大鯨加入(改名唐大鯨)",
+            "summary": "在二師兄處 roll「使喚使喚你」可獲得醫書《太平惠聖方》",
+            "statChanges": [],
             "unlocks": [
-              "秘籍:羅漢拳譜"
-            ]
+              "《太平惠聖方》"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "「臭和尚敢欺負我的朋友」",
+          "text": "出門觸發福蘊 vs 許大鯨,roll 幫助許大鯨",
           "preconditions": [],
           "consequence": {
-            "summary": "獲勝可購買《逐浪決》或《翻浪刀法》"
+            "summary": "與福蘊決斗;戰勝後可向許大鯨購買秘籍《逐浪訣》《翻浪刀法》",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "選「我沒有錢也想要」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "與許大鯨決斗;戰勝後趙活殺死許大鯨並獲得2本秘籍;戰敗結局為黑吃黑失敗",
+            "statChanges": [],
+            "unlocks": [
+              "《逐浪訣》",
+              "《翻浪刀法》"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-87"
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
+          "date": "2024-08-31"
         }
       ]
     },
@@ -1966,142 +3470,158 @@
       "id": "y1-nangong-birthday-banquet",
       "year": 1,
       "month": 10,
-      "title": "南宮壽宴",
+      "title": "10月 南宮禮物(唐門例會)",
       "trigger": "timed",
-      "routeIds": [],
+      "routeIds": [
+        "xiaoshimei"
+      ],
       "preconditions": [
         {
           "kind": "time",
-          "text": "九月下旬後自動觸發(S3);S4 稱十月"
+          "text": "第一年10月"
+        },
+        {
+          "kind": "choice",
+          "text": "例會上小師妹好像欲言又止"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "送禮 → 轉盤「大師兄禮物」",
+          "text": "選擇「小師妹欲言又止」",
           "preconditions": [],
           "consequence": {
-            "summary": "解鎖偷糧真相"
+            "summary": "小師妹會參加江陵壽宴;好感5星以上時壽宴上有糖。否則她留守唐門,好感5星以上時趙活歸來帶最貴蜜餞並冰鎮,糖分爆炸(小師妹單推人必走此路線)",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "讓二師兄下毒",
+          "text": "派三師兄去",
           "preconditions": [],
           "consequence": {
-            "summary": "戰敗被砍倒(生死簿1)"
+            "summary": "依江湖快報購買數對之後劇情產生影響",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "選二師兄相關選項(S4)",
+          "text": "派二師兄去",
           "preconditions": [],
           "consequence": {
-            "summary": "二師兄好感上升並獲得另一本佛門秘籍"
+            "summary": "二師兄好感大於4星時,剪多藥有額外屬性提升",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "派大師兄去",
+          "preconditions": [],
+          "consequence": {
+            "summary": "出發劇情隨小師妹好感變化;道德壞人以下時,江陵前客棧休息有女裝色誘譚霸刀選項;大師兄擊敗譚霸刀後若醫術大於2級可醫治他,增加道德等屬性",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "到江陵後上街閒逛,roll「這人好眼熟」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "重遇大師姐,可到安濟坊打工並與乞丐戰鬥,8回合後大師兄出現幫忙;戰敗被圍毆致死;戰勝獲得秘笈《阿摩搪牆拳》,戰後有大師兄與大師姐劇情。二師兄好感大於4星時出現醫館打工選項:醫術0級可得1級醫術,醫術大於3級可獲稱號鬼面郎中",
+            "statChanges": [],
+            "unlocks": [
+              "《阿摩搪牆拳》",
+              "稱號鬼面郎中"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-11"
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
+          "date": "2024-08-31"
         }
       ]
     },
     {
       "id": "y1-nangong-banquet-aftermath",
       "year": 1,
-      "month": 10,
-      "title": "南宮壽宴後續",
+      "month": 12,
+      "title": "12月 南宮壽宴",
       "trigger": "timed",
-      "routeIds": [],
+      "routeIds": [
+        "xiaoshimei"
+      ],
       "preconditions": [
         {
-          "kind": "choice",
-          "text": "先前參加南宮壽宴"
+          "kind": "time",
+          "text": "第一年12月"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "到街上閒逛 → 轉盤「熟悉的人」",
-          "preconditions": [],
+          "text": "之前採納大師兄建議(綁了譚霸刀),說相聲時選擇不上台",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "大師兄好感低於3.5星且修養低於40"
+            }
+          ],
           "consequence": {
-            "summary": "戰敗被打死(生死簿11);獲勝得《阿摩搪牆拳》"
+            "summary": "結局孤獨死",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "hanqing-7"
           }
         },
         {
           "id": "o2",
-          "text": "二師兄好感3星以上 → 看診",
-          "preconditions": [
-            {
-              "kind": "stat",
-              "text": "二師兄好感3星以上"
-            }
-          ],
-          "consequence": {
-            "summary": "醫術0變1;醫術高於2得稱號「鬼面郎中」",
-            "unlocks": [
-              "稱號:鬼面郎中"
-            ]
-          }
-        },
-        {
-          "id": "o3",
-          "text": "性情偏低 → 收下大師兄的王八刀 →「退隱江湖」",
-          "preconditions": [
-            {
-              "kind": "stat",
-              "text": "性情偏低"
-            }
-          ],
-          "consequence": {
-            "summary": "孤獨而死(汗青書7)"
-          }
-        },
-        {
-          "id": "o4",
-          "text": "坐末席並「讓位」(非敵人送禮時)",
+          "text": "飯桌劇情",
           "preconditions": [],
           "consequence": {
-            "summary": "得到《太祖長拳》",
-            "unlocks": [
-              "秘籍:太祖長拳"
-            ],
-            "alternatives": [
-              {
-                "summary": "把座位讓給和尚,和尚回贈一本佛門秘籍,補齊核心路線屬性需求",
-                "source": {
-                  "site": "遊民星空",
-                  "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-                  "version": "未標示",
-                  "date": "2026-07-07"
-                }
-              }
-            ]
+            "summary": "依趙活對上官螢外貌的點評與小師妹好感高低產生變化;南宮淺好感高時會提出想去唐門留學",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
         {
-          "site": "B站(玛莉卡塔)",
-          "url": "https://www.bilibili.com/opus/945043356666298369",
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35925853",
           "version": "未標示",
-          "date": "2024-06-20"
-        },
-        {
-          "site": "遊民星空",
-          "url": "https://www.gamersky.com/handbook/202607/2167899.shtml",
-          "version": "未標示",
-          "date": "2026-07-07"
+          "date": "2024-08-31"
         }
       ]
     }

@@ -1,0 +1,3402 @@
+{
+  "routes": [
+    {
+      "id": "longxiang",
+      "name": "龍湘線"
+    },
+    {
+      "id": "xiaoshimei",
+      "name": "小師妹線"
+    },
+    {
+      "id": "xiahoulan",
+      "name": "夏侯蘭線"
+    },
+    {
+      "id": "assassination",
+      "name": "刺殺線"
+    },
+    {
+      "id": "west-alliance",
+      "name": "西武林盟線"
+    },
+    {
+      "id": "disband-tang",
+      "name": "解散唐門線"
+    },
+    {
+      "id": "stay-tangmen",
+      "name": "留守唐門線"
+    }
+  ],
+  "endings": [
+    {
+      "id": "hanqing-6",
+      "name": "汗青書6",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:睡死",
+        "昏倒時選「我不活了」,或偽demo線中選擇跟隨離開;第三年五月金烏夜襲後日期跳至十一月",
+        "火焰貓琳:第一年六月掌門傳位後趙活昏倒時選「我不活了」"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "hanqing-9",
+      "name": "汗青書9",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:竹之城",
+        "第三年一月下旬選不下山,小竹為心上人且不告白"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "hanqing-10",
+      "name": "汗青書10",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:隱退江湖",
+        "同汗青書9,但選擇告白;原文另載需留學崆峒、小梅小竹好感皆高、醫術5級以上"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "hanqing-11",
+      "name": "汗青書11",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:魂歸故里",
+        "第三年救治大師兄時,小梅已加入唐門並選擇停手"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "hanqing-12",
+      "name": "汗青書12",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:孤獨終老",
+        "第三年三月下旬四師兄遠行時,心上人非小師妹或小師妹好感3星以下"
+      ],
+      "keyEventIds": [
+        "y3-03-fourth-brother-leaves"
+      ]
+    },
+    {
+      "id": "hanqing-13",
+      "name": "汗青書13",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:西遊記",
+        "四師兄遠行時小師妹為心上人,好感約3至5星(回覆稱改版後4至5星即可)"
+      ],
+      "keyEventIds": [
+        "y3-03-fourth-brother-leaves"
+      ]
+    },
+    {
+      "id": "hanqing-14",
+      "name": "汗青書14",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:天下寂寥事,與君闊別時",
+        "四師兄遠行時小師妹為心上人,好感超過5星"
+      ],
+      "keyEventIds": [
+        "y3-03-fourth-brother-leaves"
+      ]
+    },
+    {
+      "id": "hanqing-16",
+      "name": "汗青書16",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:猿鶴蟲沙",
+        "第三年五月外堡群毆戰敗,道德中庸以上且未拜夏侯蘭"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "hanqing-22",
+      "name": "汗青書22",
+      "kind": "be",
+      "conditions": [
+        "結局名:恩怨的盡頭",
+        "已拜夏侯蘭,外堡與金烏決戰並勝利(原文汗青書條目)",
+        "夏侯蘭結局清單稱為BE:群毆戰敗後唐門解散,夏侯蘭與無塵帶主角赴崆峒復仇,復仇後主角死亡"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "hanqing-24",
+      "name": "汗青書24",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:趕海人",
+        "解散唐門線;與其他女角結緣,十一月後山觸發龍湘心魔並向龍湘告白",
+        "火焰貓琳:解散唐門線:與其他女角結緣後,十一月後山觸發龍湘心魔並告白龍湘,下山前去後山"
+      ],
+      "keyEventIds": [
+        "y3-11-longxiang-inner-demon",
+        "y3-12-tang-split"
+      ]
+    },
+    {
+      "id": "hanqing-25",
+      "name": "汗青書25",
+      "kind": "good",
+      "conditions": [
+        "結局名:退隱江湖",
+        "解散唐門線,單身、小師妹線或龍湘線(夏侯蘭線討論串稱退隱分支皆為幸福結局)",
+        "火焰貓琳:解散唐門線:單身、小師妹線或龍湘線"
+      ],
+      "keyEventIds": [
+        "y3-12-tang-split"
+      ]
+    },
+    {
+      "id": "hanqing-31",
+      "name": "汗青書31",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:傳說之人",
+        "解散唐門線,夏侯蘭線且道德好人以上(留言稱需道德60以上,未經證實)",
+        "火焰貓琳:解散唐門線:夏侯蘭線且道德為好人以上"
+      ],
+      "keyEventIds": [
+        "y3-12-tang-split"
+      ]
+    },
+    {
+      "id": "hanqing-32",
+      "name": "汗青書32",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:殉志之死",
+        "第四年各線戰敗結局之一(例如西武林盟線護衛三師兄時單挑戰敗)",
+        "火焰貓琳:第四年刺殺線/西武林盟線護衛三師兄的單挑二連戰任一場戰敗;外堡路線中,決策全力固守外堡的第二場團戰或夏侯蘭在場時選「我要上山」;兵分兩路回防時與南宮深/上官隼決鬥戰敗且未達成復活大師兄條件(原文另在刺殺線山道之戰「片甲不留」團戰戰敗處寫作「be32殉志之死」,疑為同一條目筆誤)"
+      ],
+      "keyEventIds": [
+        "y4-02-west-guard-duel1",
+        "y4-02-west-fort-decision",
+        "y4-02-west-defend-courtyard"
+      ]
+    },
+    {
+      "id": "hanqing-33",
+      "name": "汗青書33",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:全軍覆沒",
+        "第四年西武林盟線外堡戰敗",
+        "火焰貓琳:第四年刺殺線/西武林盟線外堡決策全力固守外堡,第二場團戰戰敗"
+      ],
+      "keyEventIds": [
+        "y4-02-west-fort-decision"
+      ]
+    },
+    {
+      "id": "hanqing-34",
+      "name": "汗青書34",
+      "kind": "be",
+      "conditions": [
+        "結局名:行尸走肉",
+        "第四年一月中旬夏侯蘭在場時選「我聽妳的」並離開(道德高低結局不同)",
+        "結局名:行屍走肉",
+        "火焰貓琳:第四年刺殺線/西武林盟線夏侯蘭在場時外堡決策戰後選「我聽妳的」(原文稱高低道德結局不同)"
+      ],
+      "keyEventIds": [
+        "y4-02-west-fort-decision"
+      ]
+    },
+    {
+      "id": "hanqing-35",
+      "name": "汗青書35",
+      "kind": "be",
+      "conditions": [
+        "結局名:慷慨就義",
+        "第四年唐門大院團戰戰敗;夏侯蘭線討論串列為壞結局",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線唐門大院之戰任一戰鬥戰敗(結緣女角與趙活同死,單身則由小樊相陪);西武林盟線唐門大院團戰戰敗"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-courtyard",
+        "y4-02-west-guard-courtyard",
+        "y4-02-west-defend-courtyard"
+      ]
+    },
+    {
+      "id": "hanqing-36",
+      "name": "汗青書36",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:唐門的暗器",
+        "刺殺線與瑞笙決戰戰敗(同時獲風雲史16「最後的暗器」)",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終「刺殺瑞笙」戰敗(同時獲得風雲史16)"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "hanqing-37",
+      "name": "汗青書37",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:唐門薪火",
+        "刺殺線且為小師妹線",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終戰後結局,小師妹線"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "hanqing-43",
+      "name": "汗青書43",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:失寵",
+        "刺殺線夏侯蘭線;第四年一月中旬選「對不住,師父,我意已決」且夏侯蘭留在唐門並打贏全部戰鬥(來源之一稱GE,另一稱NE)",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終戰後結局,夏侯蘭線"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "hanqing-44",
+      "name": "汗青書44",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:雞腿大亨",
+        "刺殺線龍湘線",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終戰後結局,龍湘線"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "hanqing-45",
+      "name": "汗青書45",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:最後的唐門弟子",
+        "刺殺線,單身且未復活大師兄",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終戰後結局,單身且未復活大師兄"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "hanqing-46",
+      "name": "汗青書46",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:相聲二人組",
+        "刺殺線,單身且已復活大師兄(同時獲風雲史18「飛俠歸來」)",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終戰後結局,單身且已復活大師兄(同時獲得風雲史18)"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "hanqing-47",
+      "name": "汗青書47",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:君所願兮江湖行",
+        "西武林盟線決戰眉山,單挑瑞笙戰敗",
+        "火焰貓琳:第四年刺殺線/西武林盟線西武林盟線眉山之巔決戰單挑瑞笙戰敗(結緣女角不同,對白有差分)"
+      ],
+      "keyEventIds": [
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "hanqing-49",
+      "name": "汗青書49",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:喪家之犬",
+        "西武林盟線,南宮深好感≥2星時戰敗可能改為此結局",
+        "火焰貓琳:第四年刺殺線/西武林盟線西武林盟線唐門大院團戰或決鬥戰敗,且南宮深好感高於2星,南宮深救下趙活讓他與心上人共度餘生"
+      ],
+      "keyEventIds": [
+        "y4-02-west-guard-courtyard",
+        "y4-02-west-defend-courtyard"
+      ]
+    },
+    {
+      "id": "fengyun-13",
+      "name": "風雲史13",
+      "kind": "good",
+      "conditions": [
+        "結局名:雪山派大弟子",
+        "夏侯蘭線結局;遊民星空稱好結局為夏侯蘭回大雪山重建雪山派並育有一子一女",
+        "火焰貓琳:第四年刺殺線/西武林盟線西武林盟線結局,夏侯蘭線"
+      ],
+      "keyEventIds": [
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "fengyun-14",
+      "name": "風雲史14",
+      "kind": "good",
+      "conditions": [
+        "結局名:唐門女婿",
+        "小師妹線結局;小師妹心上人、好感4星以上,擊殺金烏後擲骰須擲出「小師妹是我的」,結緣需扣200貢獻度;多女角結緣時小師妹結局優先",
+        "火焰貓琳:第四年刺殺線/西武林盟線西武林盟線結局,小師妹線"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night",
+        "y3-05-way-home",
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "fengyun-15",
+      "name": "風雲史15",
+      "kind": "good",
+      "conditions": [
+        "結局名:忘憂俠侶",
+        "龍湘線結局;龍湘為心上人,去錦香宮前好感至少40點,最後於第三年十二月下旬收到飛鴿傳書答覆",
+        "火焰貓琳:第四年刺殺線/西武林盟線西武林盟線結局,龍湘線"
+      ],
+      "keyEventIds": [
+        "y3-12-flying-pigeon",
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "fengyun-17",
+      "name": "風雲史17",
+      "kind": "good",
+      "conditions": [
+        "結局名:武林傳奇",
+        "西武林盟線決戰眉山後取得(夏侯蘭線討論串列為唯一好結局)",
+        "火焰貓琳:第四年刺殺線/西武林盟線西武林盟線眉山之巔決戰戰勝"
+      ],
+      "keyEventIds": [
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "fengyun-16",
+      "name": "風雲史16",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:最後的暗器",
+        "刺殺線與瑞笙決戰(勝負皆獲得)",
+        "火焰貓琳:第四年刺殺線/西武林盟線刺殺線最終戰(戰勝或戰敗皆獲得)"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final"
+      ]
+    },
+    {
+      "id": "be-1",
+      "name": "生死簿 be1",
+      "kind": "be",
+      "conditions": [
+        "結局名:砍死",
+        "閻關三煞決鬥第一戰戰敗",
+        "火焰貓琳:第一年四月下山買牛遇閻關三煞,進入決鬥1後戰敗(五回合不敗則葉雲舟出手秒殺三人)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-2",
+      "name": "生死簿 be2",
+      "kind": "be",
+      "conditions": [
+        "結局名:摔死",
+        "女弟子房偷看被發現",
+        "火焰貓琳:第一年四月女弟子房選偷看,有機率摔下山谷"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-4",
+      "name": "生死簿 be4",
+      "kind": "be",
+      "conditions": [
+        "結局名:毒死",
+        "煉丹房選「正是找死」;段考可疑藥",
+        "火焰貓琳:炼丹房閒聊時選「正是找死」;或七月下段考被二師兄抽中戰敗後,被拉去試藥時選「可疑的藥」"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-5",
+      "name": "生死簿 be5",
+      "kind": "be",
+      "conditions": [
+        "結局名:爆頭",
+        "閻關三煞喇嗲失敗;崆峒鐵拳門戰敗逃跑失敗",
+        "火焰貓琳:閻關三煞事件中選「裝傻」且擲骰失敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-6",
+      "name": "生死簿 be6",
+      "kind": "be",
+      "conditions": [
+        "結局名:誰也別想欺負我小師妹",
+        "閻關三煞決鬥第三戰戰敗",
+        "火焰貓琳:閻關三煞事件選「我就是葉雲舟」並擲骰「欺詐」,進入決鬥3後戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-7",
+      "name": "生死簿 be7",
+      "kind": "be",
+      "conditions": [
+        "結局名:屁力焦蛙",
+        "伙房驚嚇判定失敗",
+        "火焰貓琳:伙房事件中「驚嚇指數」擲到嚇死"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-8",
+      "name": "生死簿 be8",
+      "kind": "be",
+      "conditions": [
+        "結局名:我在唐門穀底",
+        "後山被推;假字畫戰敗",
+        "結局名:我在唐門谷底",
+        "火焰貓琳:後山遇險選「步調慢點」後擲到被推;七月假字畫事件選「只能幹掉他了」決鬥戰敗;葉家兄妹加入後後山遇葉雲裳「衝向你」且體力低於30"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-10",
+      "name": "生死簿 be10",
+      "kind": "be",
+      "conditions": [
+        "結局名:小師妹的制裁",
+        "五月、六月貢獻點評決鬥戰敗;段考戰敗",
+        "火焰貓琳:第一年五、六月貢獻點評選「好啦好啦都我啦又我啦」(需道德壞人及以下)與師兄決鬥戰敗;或五月下首次段考戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-11",
+      "name": "生死簿 be11",
+      "kind": "be",
+      "conditions": [
+        "結局名:被圍毆致死",
+        "江陵安濟坊戰敗",
+        "火焰貓琳:第一年十月陪大師兄到江陵,在安濟坊打工與乞丐戰鬥,戰敗(八回合後大師兄會出現幫忙)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-12",
+      "name": "生死簿 be12",
+      "kind": "be",
+      "conditions": [
+        "結局名:一刀兩斷",
+        "崆峒戰隊戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-13",
+      "name": "生死簿 be13",
+      "kind": "be",
+      "conditions": [
+        "結局名:謀財害命",
+        "無色廣場賭場不給錢戰敗;鶴手事件戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-14",
+      "name": "生死簿 be14",
+      "kind": "be",
+      "conditions": [
+        "結局名:活活打死",
+        "無色廣場擂臺打輸;蝸居戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-15",
+      "name": "生死簿 be15",
+      "kind": "be",
+      "conditions": [
+        "結局名:自食惡果",
+        "飛天殿吹牛被火龍仙君噴死"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-16",
+      "name": "生死簿 be16",
+      "kind": "be",
+      "conditions": [
+        "結局名:被情敵殺死",
+        "鐵拳巷連進戰敗;小梅跑步偶遇情敵"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-19",
+      "name": "生死簿 be19",
+      "kind": "be",
+      "conditions": [
+        "結局名:殺人滅口",
+        "女飛賊埋伏戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-20",
+      "name": "生死簿 be20",
+      "kind": "be",
+      "conditions": [
+        "結局名:爆體而亡",
+        "魏菊傳功擲骰低於80"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-21",
+      "name": "生死簿 be21",
+      "kind": "be",
+      "conditions": [
+        "結局名:山中法度",
+        "拒當崆峒弟子並與魏菊決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-26",
+      "name": "生死簿 be26",
+      "kind": "be",
+      "conditions": [
+        "結局名:被馬踩死",
+        "返程墜馬判定失敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-27",
+      "name": "生死簿 be27",
+      "kind": "be",
+      "conditions": [
+        "結局名:妨礙別人談戀愛被打死",
+        "情侶爭執戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-28",
+      "name": "生死簿 be28",
+      "kind": "be",
+      "conditions": [
+        "結局名:被吵架情侶拳劍合璧打死",
+        "情侶爭執另一選項戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-29",
+      "name": "生死簿 be29",
+      "kind": "be",
+      "conditions": [
+        "結局名:被煉死",
+        "召回弟子時放錯主爐"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-30",
+      "name": "生死簿 be30",
+      "kind": "be",
+      "conditions": [
+        "結局名:清理門戶",
+        "師叔誘降,選投靠廣州唐門後戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-31",
+      "name": "生死簿 be31",
+      "kind": "be",
+      "conditions": [
+        "結局名:鬥毆致死",
+        "第三年一月客棧與路人亂戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-inn-rest"
+      ]
+    },
+    {
+      "id": "be-32",
+      "name": "生死簿 be32",
+      "kind": "be",
+      "conditions": [
+        "結局名:被雞腿殺死",
+        "第三年一月回程客棧,龍湘同行選「交給我吧」且嘴力低於40"
+      ],
+      "keyEventIds": [
+        "y3-01-return-inn"
+      ]
+    },
+    {
+      "id": "be-33",
+      "name": "生死簿 be33",
+      "kind": "be",
+      "conditions": [
+        "結局名:被龍湘誤殺",
+        "龍湘同行與其戰鬥戰敗且擲骰被嚇壞"
+      ],
+      "keyEventIds": [
+        "y3-01-return-inn"
+      ]
+    },
+    {
+      "id": "be-34",
+      "name": "生死簿 be34",
+      "kind": "be",
+      "conditions": [
+        "結局名:爛死",
+        "第三年一月回程遭路人亂戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-return-inn"
+      ]
+    },
+    {
+      "id": "be-35",
+      "name": "生死簿 be35",
+      "kind": "be",
+      "conditions": [
+        "結局名:分身而死",
+        "小梅迎接時選兩人都不放手"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-36",
+      "name": "生死簿 be36",
+      "kind": "be",
+      "conditions": [
+        "結局名:被憤怒的鐵匠槌死",
+        "鐵匠迎接(小梅未入唐門)"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-37",
+      "name": "生死簿 be37",
+      "kind": "be",
+      "conditions": [
+        "結局名:被女飛賊埋伏刺殺",
+        "金烏旁邊的女飛賊戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-38",
+      "name": "生死簿 be38",
+      "kind": "be",
+      "conditions": [
+        "結局名:被小梅刺殺",
+        "與小梅戰鬥,小梅好感4.5星以下戰敗"
+      ],
+      "keyEventIds": [
+        "y3-01-tangbuyi-death"
+      ]
+    },
+    {
+      "id": "be-39",
+      "name": "生死簿 be39",
+      "kind": "be",
+      "conditions": [
+        "結局名:遭到連累死",
+        "煉丹房傳功輸掉與飛天門或青城的戰鬥"
+      ],
+      "keyEventIds": [
+        "y3-01-save-dashixiong"
+      ]
+    },
+    {
+      "id": "be-40",
+      "name": "生死簿 be40",
+      "kind": "be",
+      "conditions": [
+        "結局名:人為財死",
+        "招親當晚半夜勒索師弟戰敗"
+      ],
+      "keyEventIds": [
+        "y3-05-xiaoshimei-wedding"
+      ]
+    },
+    {
+      "id": "be-41",
+      "name": "生死簿 be41",
+      "kind": "be",
+      "conditions": [
+        "結局名:被壓死",
+        "招親武試爬上屋頂"
+      ],
+      "keyEventIds": [
+        "y3-05-xiaoshimei-wedding"
+      ]
+    },
+    {
+      "id": "be-43",
+      "name": "生死簿 be43",
+      "kind": "be",
+      "conditions": [
+        "結局名:惡貫滿盈",
+        "外堡群毆戰敗,道德壞人以下"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-44",
+      "name": "生死簿 be44",
+      "kind": "be",
+      "conditions": [
+        "結局名:逃跑失敗被處決",
+        "崆峒四連戰飛天門或奪魄門戰敗後逃跑失敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-46",
+      "name": "生死簿 be46",
+      "kind": "be",
+      "conditions": [
+        "結局名:恐懼而死",
+        "小師妹不在場時單挑金烏後續失敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-47",
+      "name": "生死簿 be47",
+      "kind": "be",
+      "conditions": [
+        "結局名:為虎作倀",
+        "烤雞後幫公子俠打道士戰敗",
+        "火焰貓琳:第一年九月破廟事件選烤雞、並幫公子俠打道士,戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-48",
+      "name": "生死簿 be48",
+      "kind": "be",
+      "conditions": [
+        "結局名:捲入別人恩怨而死",
+        "不烤雞幫公子俠戰敗",
+        "火焰貓琳:第一年九月破廟事件選不烤雞且不下毒、幫公子俠打道士,戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-49",
+      "name": "生死簿 be49",
+      "kind": "be",
+      "conditions": [
+        "結局名:上官螢的制裁",
+        "彼岸仙香相關,選焚香、威脅後與上官螢決鬥戰敗",
+        "火焰貓琳:第一年八月上官螢來訪,接待時選焚香,且炼丹房彼岸仙香已開發,選「你若愛惜生命,嘿嘿」後與上官螢決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-50",
+      "name": "生死簿 be50",
+      "kind": "be",
+      "conditions": [
+        "結局名:被下馬威隨手殺死",
+        "客棧路人俠戰敗",
+        "火焰貓琳:第一年八月葉家兄妹客棧遇險,選上樓看看後與路人俠決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-51",
+      "name": "生死簿 be51",
+      "kind": "be",
+      "conditions": [
+        "結局名:點蒼劍下亡魂",
+        "點蒼師兄追擊決鬥戰敗",
+        "火焰貓琳:第一年八月點蒼師兄追擊,與點蒼師兄決鬥戰敗(第三回合葉雲舟出手斬斷劍鋒)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-53",
+      "name": "生死簿 be53",
+      "kind": "be",
+      "conditions": [
+        "結局名:高手過招被波及而死",
+        "錦香惜花令戰敗且未在破廟結識龍湘",
+        "火焰貓琳:第一年九月中錦香惜花令,趙活與大師兄對戰龍湘戰敗,且未在破廟結識龍湘"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-57",
+      "name": "生死簿 be57",
+      "kind": "be",
+      "conditions": [
+        "結局名:被雷劈死",
+        "初版遊戲瑞笙戰後觸發,現版本已無法獲得",
+        "火焰貓琳:舊版第三年唐門滅門線,與劉顎決鬥戰勝(現行版已刪除);另舊版崆峒大比中赢瑞笙,會被瑞杏雷劈而死(現行版已修改)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-60",
+      "name": "生死簿 be60",
+      "kind": "be",
+      "conditions": [
+        "結局名:被誤殺而死",
+        "大比第三場擲出狗妹,戰敗後選不停手"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-61",
+      "name": "生死簿 be61",
+      "kind": "be",
+      "conditions": [
+        "結局名:被盜版逼到沒有活路",
+        "晁和假趙活決戰戰敗",
+        "火焰貓琳:第一年八月真趙活對假趙活戰敗;或戰勝晁和後選「我要跟你們拼了」與師兄決鬥(根性4次)戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-62",
+      "name": "生死簿 be62",
+      "kind": "be",
+      "conditions": [
+        "結局名:食物中毒死",
+        "晁和請客擲骰大失敗選不可以浪費食物",
+        "火焰貓琳:第一年晁和請客事件擲到大失敗,選「不可以浪費食物」"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-63",
+      "name": "生死簿 be63",
+      "kind": "be",
+      "conditions": [
+        "結局名:累死",
+        "金烏單挑後回唐門的師弟攔截戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-65",
+      "name": "生死簿 be65",
+      "kind": "be",
+      "conditions": [
+        "結局名:出師未捷身先死",
+        "泥教惡鬼道與地獄道戰敗"
+      ],
+      "keyEventIds": [
+        "y3-09-road-to-wulin"
+      ]
+    },
+    {
+      "id": "be-66",
+      "name": "生死簿 be66",
+      "kind": "be",
+      "conditions": [
+        "結局名:被道士當妖怪誤殺",
+        "全真派門派等級低於3時遇到戰敗"
+      ],
+      "keyEventIds": [
+        "y3-09-road-to-wulin"
+      ]
+    },
+    {
+      "id": "be-67",
+      "name": "生死簿 be67",
+      "kind": "be",
+      "conditions": [
+        "結局名:含恨而死",
+        "已拜夏侯蘭,與金烏決戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-05-jinwu-night"
+      ]
+    },
+    {
+      "id": "be-68",
+      "name": "生死簿 be68",
+      "kind": "be",
+      "conditions": [
+        "結局名:被揍死",
+        "萬里鵬程緊閉大門,謹慎且內力≥20,戰勝時血量低於一半也視為戰敗(第四年)",
+        "火焰貓琳:第四年西武林盟線外堡,對萬里鵬程音波功選緊閉大門,謹慎以上、內力大於20且夏侯蘭在場時與萬里鵬程決鬥戰敗(戰勝時血量低於一半也視為戰敗)"
+      ],
+      "keyEventIds": [
+        "y4-02-west-sonic-attack"
+      ]
+    },
+    {
+      "id": "be-71",
+      "name": "生死簿 be71",
+      "kind": "be",
+      "conditions": [
+        "結局名:眼睜睜看著你死",
+        "雪山遭遇戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-06-snow-mountain-trek"
+      ]
+    },
+    {
+      "id": "be-72",
+      "name": "生死簿 be72",
+      "kind": "be",
+      "conditions": [
+        "結局名:被豬拱死",
+        "抵達雪山時戰敗"
+      ],
+      "keyEventIds": [
+        "y3-06-snow-mountain-trek"
+      ]
+    },
+    {
+      "id": "be-73",
+      "name": "生死簿 be73",
+      "kind": "be",
+      "conditions": [
+        "結局名:小菜之死",
+        "決戰第三香戰敗",
+        "來源另一說:夏侯蘭為心上人才能對戰第三香,此時戰敗為此結局"
+      ],
+      "keyEventIds": [
+        "y3-07-third-fragrance"
+      ]
+    },
+    {
+      "id": "be-74",
+      "name": "生死簿 be74",
+      "kind": "be",
+      "conditions": [
+        "結局名:與花合葬",
+        "師傅傳功對戰戰敗"
+      ],
+      "keyEventIds": [
+        "y3-07-master-teaching"
+      ]
+    },
+    {
+      "id": "be-76",
+      "name": "生死簿 be76",
+      "kind": "be",
+      "conditions": [
+        "結局名:找死",
+        "錦香宮賴著不走,打輸或被殺"
+      ],
+      "keyEventIds": [
+        "y3-10-jinxianggong"
+      ]
+    },
+    {
+      "id": "be-79",
+      "name": "生死簿 be79",
+      "kind": "be",
+      "conditions": [
+        "結局名:天地無聲",
+        "錦香宮團戰後對南宮深或上官隼戰敗"
+      ],
+      "keyEventIds": [
+        "y3-10-wulin-conference"
+      ]
+    },
+    {
+      "id": "be-80",
+      "name": "生死簿 be80",
+      "kind": "be",
+      "conditions": [
+        "結局名:被人借刀殺死",
+        "南宮淺追出會場戰敗"
+      ],
+      "keyEventIds": [
+        "y3-10-wulin-conference"
+      ]
+    },
+    {
+      "id": "be-81",
+      "name": "生死簿 be81",
+      "kind": "be",
+      "conditions": [
+        "結局名:洩恨不成反被殺",
+        "追黑猴話袁神戰敗"
+      ],
+      "keyEventIds": [
+        "y3-10-wulin-conference"
+      ]
+    },
+    {
+      "id": "be-84",
+      "name": "生死簿 be84",
+      "kind": "be",
+      "conditions": [
+        "結局名:被嚇死",
+        "萬里鵬程音波功,選緊閉大門且懦夫或內力<20(第四年)",
+        "火焰貓琳:第四年西武林盟線外堡,對萬里鵬程音波功選緊閉大門,性情為懦夫及以下或內力小於20"
+      ],
+      "keyEventIds": [
+        "y4-02-west-sonic-attack"
+      ]
+    },
+    {
+      "id": "be-85",
+      "name": "生死簿 be85",
+      "kind": "be",
+      "conditions": [
+        "結局名:被蛇咬死",
+        "龍湘遭竊戰敗",
+        "火焰貓琳:第一年九月中龍湘遭竊事件,與乞丐決鬥戰敗(第五回合開始狗妹助戰)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-87",
+      "name": "生死簿 be87",
+      "kind": "be",
+      "conditions": [
+        "結局名:黑吃黑失敗",
+        "與許大鯨決鬥戰敗",
+        "火焰貓琳:第一年九月中嵩山派與丐幫群毆事件,選「我沒有錢也想要」與許大鯨決鬥戰敗"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-55",
+      "name": "生死簿 be55",
+      "kind": "be",
+      "conditions": [
+        "結局名:被太陽曬死",
+        "火焰貓琳:舊版(614初版)第二年十月留守唐門線,道德壞人及以下、龍淵千面人魔事件後拐走小師妹,被二師兄囚禁後不聽從「不得見陽光」的囑咐(此段劇情已被現行版刪除)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "be-56",
+      "name": "生死簿 be56",
+      "kind": "be",
+      "conditions": [
+        "結局名:被海盜餵魚死",
+        "火焰貓琳:舊版第三年唐門滅門線,未收留葉家兄妹時,與劉顎決鬥戰敗(現行版已刪除)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hanqing-7",
+      "name": "汗青書7",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:孤獨死",
+        "火焰貓琳:第一年十二月南宮壽宴:已採納大師兄建議綁了譚霸刀,說相聲時選擇不上台(需大師兄好感低於3.5星、修養低於40)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "hanqing-17",
+      "name": "汗青書17",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:盲劍客",
+        "火焰貓琳:第一年九月初識龍湘的破廟,擲「這傢伙有陰謀」幫龍湘擋石灰粉,而未滿足解除石灰粉條件(習得江湖鬼域錄lv1以上、醫術1級以上、或煉丹總點數30以上皆可解)"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "fengyun-1",
+      "name": "風雲史1",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:命中有數",
+        "火焰貓琳:一周目通關(刺殺線、西武林盟線結局文皆列出)"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final",
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "fengyun-7",
+      "name": "風雲史7",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:一心一意",
+        "火焰貓琳:作變心夢的次數為0或1;第一年葉家兄妹閒聊等處有選項會增加變心值,需留意"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final",
+        "y4-03-west-final"
+      ]
+    },
+    {
+      "id": "fengyun-8",
+      "name": "風雲史8",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:野心勃勃",
+        "火焰貓琳:第一年六月掌門傳位時選「我自己」,為武林大會上解鎖此史的前置條件"
+      ],
+      "keyEventIds": []
+    },
+    {
+      "id": "fengyun-18",
+      "name": "風雲史18",
+      "kind": "neutral",
+      "conditions": [
+        "結局名:飛俠歸來",
+        "火焰貓琳:第四年刺殺線/西武林盟線大師兄復活(刺殺線單身已復活結局;西武林盟線戰後閒聊問「大師兄你是怎麼回事」)",
+        "另:舊版刪除段落中,小師妹被拐後選聽從二師兄處置時,該文寫作「風雲史18 被關到老」,與「飛俠歸來」名稱不同,原文可能筆誤(B站 火焰貓琳 cv35745211)"
+      ],
+      "keyEventIds": [
+        "y4-01-assn-final",
+        "y4-02-west-guard-courtyard"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "y3-12-assn-shigongyuan",
+      "year": 3,
+      "month": 12,
+      "title": "石公遠助戰唐門",
+      "trigger": "timed",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十二月下旬"
+        },
+        {
+          "kind": "choice",
+          "text": "走刺殺線"
+        },
+        {
+          "kind": "choice",
+          "text": "第三年一月跟隨大師兄下山時選擇冒險的絕招"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "劇情自動進行",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "飛石幫在此時加入唐門助戰。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-assn-xiaoshimei-visit",
+      "year": 4,
+      "month": 1,
+      "title": "小師妹省親(刺殺線)",
+      "trigger": "timed",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年一月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "走刺殺線"
+        },
+        {
+          "kind": "choice",
+          "text": "小師妹已出嫁"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "聽小師妹說出想法(擲骰)",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "擲骰大於90時,若小師妹為心上人會有額外對白。趙活在後山回憶往昔時小師妹回唐門省親。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-assn-eve",
+      "year": 4,
+      "month": 1,
+      "title": "決戰前夕誓師大會",
+      "trigger": "timed",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年一月中旬"
+        },
+        {
+          "kind": "choice",
+          "text": "走刺殺線"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:一個也沒走",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-courtyard"
+            ],
+            "alternatives": [],
+            "summary": "增加向心。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "擲骰:全部走光",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-courtyard"
+            ],
+            "alternatives": [],
+            "summary": "門人變為0,後續戰鬥有變化(大院之戰變為趙活1對5波武林盟群瞎的決鬥)。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-assn-courtyard",
+      "year": 4,
+      "month": 1,
+      "title": "唐門大院之戰(刺殺線)",
+      "trigger": "chained",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "走刺殺線,誓師大會後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:100名武林盟群瞎",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-mountain"
+            ],
+            "alternatives": [],
+            "summary": "100人團戰;若門人已全走光,改為趙活1對5波的決鬥。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "擲骰:三個高手",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-mountain"
+            ],
+            "alternatives": [],
+            "summary": "從3人中選一人決鬥,可選結緣女角、狗妹或福韞其中一人助戰。"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "擲骰:絕世高手",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-mountain"
+            ],
+            "alternatives": [],
+            "summary": "與萬里鵬程決鬥,戰勝時血量須高於50%,否則視為戰敗。"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "(任一戰鬥戰敗)",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "戰敗結局相同:結緣女角與趙活一同赴死,單身則由小樊相陪。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-35"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-assn-mountain",
+      "year": 4,
+      "month": 1,
+      "title": "山道之戰",
+      "trigger": "chained",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "刺殺線大院之戰獲勝,衝下山"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "全力突圍!",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-street"
+            ],
+            "alternatives": [],
+            "summary": "直接下山(門人數可能減少,原文帶問號)。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "片甲不留!",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-street"
+            ],
+            "alternatives": [],
+            "summary": "進入團戰;戰敗即死亡(原文寫作「be32殉志之死」,疑指汗青書32)。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-32"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-assn-street",
+      "year": 4,
+      "month": 1,
+      "title": "街市之戰",
+      "trigger": "chained",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "刺殺線山道之戰後"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "唐門對200人大團戰",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-assn-final"
+            ],
+            "alternatives": [],
+            "summary": "戰敗:第一年晁和拜入唐門時欺負趙活的情侶舍身掩護趙活突入;戰勝:三師兄、四師兄與眾唐門同袍拖住南宮深掩護趙活。勝敗無影響,之後觸發對應角色支走瑞笙助戰者的劇情並進入決戰。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-assn-final",
+      "year": 4,
+      "month": 1,
+      "title": "最後的暗器,刺殺瑞笙",
+      "trigger": "chained",
+      "routeIds": [
+        "assassination"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "刺殺線街市之戰後"
+        },
+        {
+          "kind": "stat",
+          "text": "瑞笙助戰角色滿足對應高好感度可被支走(最少時只剩點蒼雙絕)"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "戰敗",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得汗青書36與風雲史16。支走助戰:狗妹支走李富貴、福韞支走釋明、解無塵支走向無憂;若武林大會上丘處機收趙活為徒,尹志平會在逆踏北斗七星陣後加入助戰;結緣女角最多3人同時出場;道德不低於中庸時決鬥前義正辭嚴指責武林盟,瑞笙開場扣氣力。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-36"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "戰勝:單身未復活大師兄",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "單身,未復活大師兄"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史16與汗青書45。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-45"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "戰勝:單身已復活大師兄",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "單身,已復活大師兄"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史16、風雲史18與汗青書46。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-46"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "戰勝:小師妹線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "小師妹線"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史16與汗青書37。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-37"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "戰勝:龍湘線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "龍湘線"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史16與汗青書44。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-44"
+          }
+        },
+        {
+          "id": "o6",
+          "text": "戰勝:夏侯蘭線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "夏侯蘭線"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史16與汗青書43。多名女角結緣時,小師妹結局優先度最高。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-43"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv37356526",
+          "version": "未標示",
+          "date": "2024-08-20"
+        }
+      ]
+    },
+    {
+      "id": "y3-12-west-meeting",
+      "year": 3,
+      "month": 12,
+      "title": "唐門例會,籌備成立西武林盟",
+      "trigger": "timed",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十二月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "與解散唐門線、刺殺線同為十二月上旬分界點;滿足提出條件之一自動進入西武林盟線"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "由趙活提出",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "小師妹招親時在外堡擊殺金烏上人"
+            },
+            {
+              "kind": "stat",
+              "text": "戰術等級不低於8級,或戰術等級不低於5級且學問不低於60(原文兩處寫法略有出入)"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y3-12-west-envoys"
+            ],
+            "alternatives": [],
+            "summary": "提出時震驚在場所有人,小師妹在場會感嘆自己配不上師兄;福韞好感高於2星會參會並加入唐門助戰陣營;三師兄若曾於第三年一月隨大師兄下山會質疑申屠龍事件真偽,龍湘與福韞在場可作證。若下個月拉盟友時峨嵋、青城、崆峒、丐幫全部不支持唐門,仍會轉為刺殺線。",
+            "saveHint": "sl"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "由李富貴提出",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "李富貴好感高於2星(無論是否擊殺金烏,優先度較高)"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y3-12-west-ligui-camp",
+              "y3-12-west-envoys"
+            ],
+            "alternatives": [],
+            "summary": "對白與後續劇情與趙活提出時有大差分。丐幫必然支持唐門,不會轉刺殺線。建議十一月先備份存檔,把李富貴好感控制在剛好超過2星,十二月可同時觸發雙線。",
+            "saveHint": "sl"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y3-12-west-ligui-camp",
+      "year": 3,
+      "month": 12,
+      "title": "練功場與李富貴交談",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "由李富貴提出西武林盟"
+        },
+        {
+          "kind": "time",
+          "text": "十二月中旬,他會在練功場紮營"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "丐幫的情況:選友善對待",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-west-ligui-beggars"
+            ],
+            "alternatives": [],
+            "summary": "可得知部分丐幫隱情。完成此事件後丐幫才視為支持西武林盟。狗妹在場有額外對白。",
+            "saveHint": "sl"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "王二壯:選「你若有隱情,就說服我吧」",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-west-ligui-beggars"
+            ],
+            "alternatives": [],
+            "summary": "可得知部分李富貴與王二壯的故事。完成此事件後丐幫才視為支持西武林盟。",
+            "saveHint": "sl"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y3-12-west-envoys",
+      "year": 3,
+      "month": 12,
+      "title": "正心堂,四師兄出使各派",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十二月中旬"
+        },
+        {
+          "kind": "choice",
+          "text": "西武林盟線;須在前一段劇情結束後立刻去正心堂,時間很短,晚去四師兄無法出使崆峒"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "出使崆峒(推薦)",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "已擊殺金烏"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y3-12-west-emei"
+            ],
+            "alternatives": [],
+            "summary": "決戰時崆峒大部隊未趕到,但丹霞子會單槍匹馬前來助戰(詳見出使結果)。原文另一處寫為十一月中旬於正心堂安排。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "出使青城",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "第三年一月沒有下山"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y3-12-west-emei"
+            ],
+            "alternatives": [],
+            "summary": "未下山時唐門弟子會自動出使青城,原文建議不要選。"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "出使峨眉",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y3-12-west-emei"
+            ],
+            "alternatives": [],
+            "summary": "四師兄拒絕。"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "出使各大中小門派或留在家中",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y3-12-west-emei"
+            ],
+            "alternatives": [],
+            "summary": "唐門弟子會自動出使中小門派;留在家中會少劇情,原文建議不要選。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y3-12-west-emei",
+      "year": 3,
+      "month": 12,
+      "title": "福韞出使峨眉",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第三年十二月下旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "劇情自動進行",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-west-emei-third"
+            ],
+            "alternatives": [],
+            "summary": "現版本有多人可出使峨眉;若福韞此時不在唐門,下個月由三師兄親自出使。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-west-ligui-beggars",
+      "year": 4,
+      "month": 1,
+      "title": "李富貴下山說服丐幫",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年一月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "由李富貴提出西武林盟"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "劇情自動進行",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "必定成功說服丐幫助陣。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-west-emei-third",
+      "year": 4,
+      "month": 1,
+      "title": "三師兄出使峨眉",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年一月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "前面無人出使峨眉,三師兄才會親自出使"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:暫時交給你了,再擲:隱藏住野心",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "道德為壞人及以下(觸發保管掌門令牌轉盤)"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-01-west-token-training"
+            ],
+            "alternatives": [],
+            "summary": "趙活暫時保管掌門令牌,成為唐門代代掌門,可觸發代代掌門的特訓。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "不觸發令牌轉盤(道德高於壞人)",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "三師兄出使峨眉,結果見出使結果事件。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-west-token-training",
+      "year": 4,
+      "month": 1,
+      "title": "代代掌門的特訓",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "item",
+          "text": "持有掌門令牌"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "選特訓",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "唐門對練團戰,打贏可加心相、武學、名聲、銀兩及在場女角好感。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "選設置陷阱",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "影響決戰時劇情,陷阱觸發時會減少東武林盟向心(回防上山途中生效)。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-01-west-envoy-results",
+      "year": 4,
+      "month": 1,
+      "title": "出使結果,西武林正派集結",
+      "trigger": "timed",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年一月下旬"
+        },
+        {
+          "kind": "choice",
+          "text": "西武林盟線"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "查看各派表態",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "丐幫:須由李富貴提出才支持。峨眉:福韞出使必支持;唐衫與狄奧同去擲骰成功則支持;三師兄出使擲骰成功則支持;若峨眉不支持且解無塵好感大於3星,解無塵加入助戰。青城:需第三年一月沒下山,擲骰成功則支持,鄒胖守護掌門、申屠龍防守外堡。飛石幫:需第三年一月陪大師兄下山並選冒險的絕招,飛石幫加入助戰;若仍未贖回外堡,石幫主將外堡送給唐門。崆峒:需讓四師兄出使,擲骰成功則決戰當日崆峒大部隊遲到、戰後丹霞子請罪;失敗則金烏死後崆峒四門火併,丹霞子獨自前來助戰。各大中小門派:擲骰成功則支持,影響向心。錦香宮:華仙兒回歸唐門傳達助陣消息,需已收留龍湘或在武林大會上支持錦香宮。",
+            "saveHint": "sl"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-xiaoshimei-visit",
+      "year": 4,
+      "month": 2,
+      "title": "小師妹省親(西武林盟線)",
+      "trigger": "timed",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年二月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "小師妹已出嫁"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "告知小師妹正在組建西武林盟",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "小師妹問原因,趙活答是為了保護唐門與人間正氣。擲骰大於90時,若小師妹為心上人會有額外對白。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-eve",
+      "year": 4,
+      "month": 2,
+      "title": "大會前夕",
+      "trigger": "timed",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年二月中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "劇情自動進行",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-oath"
+            ],
+            "alternatives": [],
+            "summary": "唐門弟子回報各大武林正派將於次日集結;得知峨眉大部隊在半路攔截點蒼派進擊;可與所有已結緣女角及狗妹對話。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-oath",
+      "year": 4,
+      "month": 2,
+      "title": "西武林盟誓師大會",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年二月中旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "劇情自動進行",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-nangong"
+            ],
+            "alternatives": [],
+            "summary": "所有支持唐門的武林正派前來助戰,助戰門派數影響西武林盟向心。福韞在場時出現18銅人陣,影響後續戰鬥;四師兄在場時會準備陷阱,減少東武林盟向心。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-nangong",
+      "year": 4,
+      "month": 2,
+      "title": "說客南宮深",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "stat",
+          "text": "南宮深好感高於2星時對白有差分;游說中不會出現已支持唐門的門派"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:福韞",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-split"
+            ],
+            "alternatives": [],
+            "summary": "福韞出場反駁南宮深。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "擲骰:反論",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-split"
+            ],
+            "alternatives": [],
+            "summary": "趙活親自反駁,高嘴力高學問使南宮深啞口無言,道德影響對白差分;在場江湖人士被打動。武林正派對東西武林盟的態度影響雙方向心增減。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-split",
+      "year": 4,
+      "month": 2,
+      "title": "護衛三師兄與前往外堡的分歧點",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "stat",
+          "text": "戰術5與戰術2且學問50以上、性情勇敢以上會影響對話差分"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "護衛三師兄",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-duel1"
+            ],
+            "alternatives": [],
+            "summary": "可與結緣女角同行或分頭行動。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "前往外堡",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-outer-fort"
+            ],
+            "alternatives": [],
+            "summary": "可與結緣女角同行或分頭行動。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-guard-duel1",
+      "year": 4,
+      "month": 2,
+      "title": "護衛三師兄:單挑二連戰第一戰",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "選擇護衛三師兄"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:想戴罪立功的罪犯",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-duel2"
+            ],
+            "alternatives": [],
+            "summary": "對手譚霸刀;小師妹在場會將其秒殺。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "擲骰:想揚名立萬的少俠",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-duel2"
+            ],
+            "alternatives": [],
+            "summary": "對手方震天。"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "擲骰:想一雪前恥的叛徒",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "唐衫未加入唐門(已加入則無此項)"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-duel2"
+            ],
+            "alternatives": [],
+            "summary": "對手唐衫。"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "(任一場單挑戰敗)",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "戰敗結局相同。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-32"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-guard-duel2",
+      "year": 4,
+      "month": 2,
+      "title": "護衛三師兄:單挑二連戰第二戰",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "青城加入西武林盟時鄒胖助戰"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:居心叵測的陰謀家",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "崆峒未加入西武林盟(已加入則無此項)"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-courtyard"
+            ],
+            "alternatives": [],
+            "summary": "對手為已習得鐵琵琶功的金烏下人,掌派夫人虞小梅助戰,戰後有糟心劇情;若金烏已死則改打火龍仙君。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "擲骰:道貌岸然的謝頂客",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-courtyard"
+            ],
+            "alternatives": [],
+            "summary": "對手釋明;上官螢在場時戰後有額外劇情。"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "擲骰:深藏不露的路人甲",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-guard-courtyard"
+            ],
+            "alternatives": [],
+            "summary": "對手店小二(千面人魔)。第二年選留守唐門線可在戰前認出其身分;戰後選不殺店小二→「反手把千燈樓抄了」並擲骰賭一把,可讓店小二活下去。"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "(任一場單挑戰敗)",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "戰敗結局相同。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-32"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-guard-courtyard",
+      "year": 4,
+      "month": 2,
+      "title": "唐門大院之戰(護衛三師兄線)",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "走護衛三師兄分歧"
+        },
+        {
+          "kind": "time",
+          "text": "戰前可打坐調息並與結緣女角、狗妹對話;東武林盟的消耗用擲骰決定向心減少量,建議三種結果都擲一次"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "團戰:戰勝",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-03-west-dawn"
+            ],
+            "alternatives": [],
+            "summary": "18銅人參戰,東武林盟向心減少。瑞笙出戰祭出太白仙跡斬向趙活,大師兄復活擋下劍鋒(未達復活條件則唐門小劍損壞,需打鐵修復)。東西雙方約定10日後決戰眉山之巔。戰後閒聊問大師兄「你是怎麼回事」可得風雲史18;崆峒已加入時丹霞子請罪,劇情依道德高低有大差分。",
+            "saveHint": "sl"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "團戰:戰敗",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "南宮深好感高於2星時會救下趙活讓他與心上人共度餘生(汗青書49);否則為汗青書35。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-35"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "團戰戰敗且南宮深好感高於2星",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "南宮深好感高於2星"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "南宮深救下趙活,讓他與心上人共度餘生。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-49"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-outer-fort",
+      "year": 4,
+      "month": 2,
+      "title": "唐門出擊,守衛外堡",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "選擇前往外堡"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "由丹霞子指揮",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "丹霞子在場"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-sonic-attack"
+            ],
+            "alternatives": [],
+            "summary": "丹霞子指揮外堡守衛。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "趙活自己指揮",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "戰術等級大於3且性情勇敢以上"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-sonic-attack"
+            ],
+            "alternatives": [],
+            "summary": "趙活親自指揮外堡守衛。"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "其他指揮",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-sonic-attack"
+            ],
+            "alternatives": [],
+            "summary": "原文未詳述其他指揮選項。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-sonic-attack",
+      "year": 4,
+      "month": 2,
+      "title": "萬里鵬程音波功",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "不觸發錦香宮倒戈:武林大會上不收留龍湘且不支持錦香宮(觸發倒戈則改為錦香宮加入西武林盟共守外堡,直接開門團戰)"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "吼回去",
+          "preconditions": [
+            {
+              "kind": "item",
+              "text": "已習得《龍吟功》"
+            },
+            {
+              "kind": "stat",
+              "text": "內力大於80"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-fort-decision"
+            ],
+            "alternatives": [],
+            "summary": "趙活可與萬里鵬程對吼。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "開門出城驅趕",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-fort-decision"
+            ],
+            "alternatives": [],
+            "summary": "團戰;戰敗減向心、減名聲;戰勝加武學點、加名聲,並擲骰決定武林盟消耗(兩種結果都擲一次)。",
+            "saveHint": "sl"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "緊閉大門(懦夫以下或內力小於20)",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "性情為懦夫及以下,或內力小於20"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "被嚇死。",
+            "leadsTo": "be",
+            "endingId": "be-84"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "緊閉大門(謹慎以上、內力大於20且夏侯蘭在場)",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "性情謹慎以上且內力大於20"
+            },
+            {
+              "kind": "choice",
+              "text": "夏侯蘭在場"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-fort-decision"
+            ],
+            "alternatives": [],
+            "summary": "與萬里鵬程決鬥;戰勝時血量低於一半也視為戰敗。戰敗被揍死;戰勝後開門團戰(戰敗減向心名聲,戰勝加武學點名聲並擲骰決定武林盟消耗)。",
+            "leadsTo": "be",
+            "endingId": "be-68"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-fort-decision",
+      "year": 4,
+      "month": 2,
+      "title": "外堡戰後決策",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "外堡戰後休息,可詢問在場結緣女角、狗妹、四師兄、丹霞子、申屠龍、畫中仙及各派弟子意見"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "全力固守外堡",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "進入外堡第二場團戰。原文記載:戰勝→汗青書32;戰敗→汗青書33;夏侯蘭在場且戰勝後選「我要上山」→汗青書32,選「我聽妳的」→汗青書34(高低道德結局不同)。(戰勝仍為殉志之死的描述出自原文,未能自行驗證。)",
+            "leadsTo": "ending",
+            "endingId": "hanqing-32"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "全力固守外堡:第二場團戰戰敗",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "全軍覆沒。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-33"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "夏侯蘭在場:戰勝後選「我聽妳的」",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "夏侯蘭在場"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "行屍走肉(高低道德結局不同)。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-34"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "兵分兩路,趙活上山回防,另一半戰友守外堡",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-02-west-defend-courtyard"
+            ],
+            "alternatives": [],
+            "summary": "上山途中遭攔截,代代掌門特訓時布下的陷阱會生效、減少東武林盟向心;福韞已加入則由十八銅人在山道之戰全殲敵人、我方無人陣亡;福韞未加入則由戰友拖住敵人,趙活與伴侶突圍上山。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-02-west-defend-courtyard",
+      "year": 4,
+      "month": 2,
+      "title": "回防唐門大院",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "兵分兩路上山回防"
+        },
+        {
+          "kind": "time",
+          "text": "青城加入西武林盟時,二師兄守衛掌門的過場改為鄒胖守衛"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "擲骰:來的及時",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-03-west-dawn"
+            ],
+            "alternatives": [],
+            "summary": "東西武林盟決一死戰的團戰:戰勝進入後續;戰敗見下。"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "擲骰:戰況激烈",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-03-west-dawn"
+            ],
+            "alternatives": [],
+            "summary": "龍湘與夏侯蘭不在唐門則擲南宮深或上官隼與趙活決鬥;兩人在唐門則趙活對南宮深(鳳凰肩甲),夏侯蘭(優先)或龍湘對上官隼(金背龍王刀)。龍湘結緣時選「湘姐,我幫你報仇」者,龍湘會以覺醒形態對上官隼。若趙活戰敗但已達成復活大師兄條件,大師兄復活擋下攻擊並秒殺南宮深,戰後擲骰決定是否讓他服軟、是否打壞鳳凰肩甲。"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "擲骰:唐門大勢已去",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-03-west-dawn"
+            ],
+            "alternatives": [],
+            "summary": "與戰況激烈類似,但缺少龍湘與夏侯蘭對上官隼的戰鬥,趙活對南宮深(鳳凰肩甲)。戰勝後瑞笙出戰,大師兄復活擋下劍鋒;東西雙方約定10日後決戰眉山之巔。戰後寻找龍湘可觸發龍湘作雞腿打油詩。"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "團戰戰敗",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "決一死戰團戰戰敗。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-35"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "決鬥戰敗(未達復活大師兄條件)",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "未達成復活大師兄條件"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "殉志之死。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-32"
+          }
+        },
+        {
+          "id": "o6",
+          "text": "戰敗且南宮深好感高於2星",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "南宮深好感高於2星"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "南宮深救下趙活,讓他與心上人共度餘生。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-49"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-03-west-dawn",
+      "year": 4,
+      "month": 3,
+      "title": "決戰當日清晨",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第四年三月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "劇情自動進行",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y4-03-west-final"
+            ],
+            "alternatives": [],
+            "summary": "趙活回憶童年往事,大師兄是否復活、已結緣女角、處事與道德影響對白差分;臨行前向掌門跪拜辭行(已獲唐錚認可時,二師兄會在趙活離開後出現)。"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y4-03-west-final",
+      "year": 4,
+      "month": 3,
+      "title": "決戰眉山之巔:唐門外姓弟子對武林盟主",
+      "trigger": "chained",
+      "routeIds": [
+        "west-alliance"
+      ],
+      "preconditions": [
+        {
+          "kind": "choice",
+          "text": "趙活單挑瑞笙,無人助戰"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "戰敗",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "結緣女角不同,對話有差分。",
+            "leadsTo": "ending",
+            "endingId": "hanqing-47"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "戰勝後:「干了那麼多壞事還想體面?去死!」",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "捅死瑞笙。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-17"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "戰勝後:「有人必須為此負責」",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "瑞笙佯裝失態、放話並背負此世之惡力竭倒地,留話讓趙活小心杏花仙。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-17"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "戰勝後:「你有什麼遺言?」→「你應該將功贖罪」",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "放過瑞笙,東武林盟認輸。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-17"
+          }
+        },
+        {
+          "id": "o5",
+          "text": "戰勝後:「你有什麼遺言?」→「你已經做出選擇了,就該負起責任」",
+          "preconditions": [],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "瑞笙佯裝失態、放話並力竭倒地。力竭後申屠龍轉身離去,大師兄與二師兄聯手處決千面人魔與老和尚。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-17"
+          }
+        },
+        {
+          "id": "o6",
+          "text": "結局分支:小師妹線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "小師妹線"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史14。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-14"
+          }
+        },
+        {
+          "id": "o7",
+          "text": "結局分支:夏侯蘭線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "夏侯蘭線"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史13。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-13"
+          }
+        },
+        {
+          "id": "o8",
+          "text": "結局分支:龍湘線",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "龍湘線"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史15。多名女角結緣時,小師妹結局優先度最高。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-15"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv36449218",
+          "version": "未標示",
+          "date": "2024-07-28"
+        }
+      ]
+    },
+    {
+      "id": "y2-oct-removed-kidnap",
+      "year": 2,
+      "month": 10,
+      "title": "拐走小師妹(舊版刪除劇情)",
+      "trigger": "timed",
+      "routeIds": [
+        "stay-tangmen"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第二年十月,留守唐門線,龍淵千面人魔事件之後"
+        },
+        {
+          "kind": "stat",
+          "text": "道德壞人及以下"
+        },
+        {
+          "kind": "choice",
+          "text": "舊版(614初版)才有,現行版已刪除"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "已收留葉家兄妹:不聽從二師兄囑咐",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "已收留葉家兄妹"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "趙活養傷時起歹念拐走葉雲裳,被小師妹機智打倒送官,二師兄留他一命並叮囑不得見陽光;不聽從則被太陽曬死。",
+            "leadsTo": "be",
+            "endingId": "be-55"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "已收留葉家兄妹:聽從二師兄囑咐",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "已收留葉家兄妹"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "獲得風雲史18(該文寫作「被關到老」,與「飛俠歸來」名稱不同,原文可能筆誤)。",
+            "leadsTo": "ending",
+            "endingId": "fengyun-18"
+          }
+        },
+        {
+          "id": "o3",
+          "text": "未收留葉家兄妹:與劉顎決鬥戰勝",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "未收留葉家兄妹"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "小師妹後在白鲨幫被劉顎照顧並回歸唐門;第三年唐門滅門線中趙活再遇劉顎決鬥,戰勝則被雷劈死。",
+            "leadsTo": "be",
+            "endingId": "be-57"
+          }
+        },
+        {
+          "id": "o4",
+          "text": "未收留葉家兄妹:與劉顎決鬥戰敗",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "未收留葉家兄妹"
+            }
+          ],
+          "consequence": {
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "summary": "被海盜餵魚而死。",
+            "leadsTo": "be",
+            "endingId": "be-56"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35745211",
+          "version": "614 初版(對照現行版)",
+          "date": "2024-06-24"
+        }
+      ]
+    }
+  ]
+}

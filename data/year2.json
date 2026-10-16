@@ -105,7 +105,7 @@
       "id": "y2-feb-study-choice",
       "year": 2,
       "month": 2,
-      "title": "唐門例會：討論留學",
+      "title": "唐門例會：討論留學（二月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -120,23 +120,20 @@
       "options": [
         {
           "id": "o1",
-          "text": "去崆峒派留學",
+          "text": "我要去崆峒派留學",
           "preconditions": [
             {
               "kind": "stat",
-              "text": "貢獻至少 80"
+              "text": "貢獻至少 80（開會前）"
             }
           ],
           "consequence": {
-            "summary": "進入崆峒留學線。需扣 50 貢獻，例會本身另扣 30 貢獻，開會前至少要有 80 貢獻，不足就不能選留學；選擇後銀兩-1000、唐惟元好感上升。夏侯蘭線需此時選留學。",
+            "summary": "進入崆峒留學線。例會本身扣 30 貢獻，選留學另扣 50 貢獻，所以開會前至少要有 80 貢獻，不足就無法選留學。另有來源稱選擇後銀兩-1000、唐惟元好感上升，夏侯蘭線需此時選留學。",
             "statChanges": [
               {
                 "stat": "貢獻",
-                "delta": -50
-              },
-              {
-                "stat": "銀兩",
-                "delta": -1000
+                "delta": -80,
+                "text": "例會 -30、留學 -50"
               }
             ],
             "unlocks": [
@@ -145,7 +142,9 @@
             ],
             "misses": [
               "留守唐門線"
-            ]
+            ],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -153,17 +152,32 @@
           "text": "留在唐門",
           "preconditions": [],
           "consequence": {
-            "summary": "進入留守唐門線，趙活之後會不辭而別離開唐門並觸發相關事件（遊俠網）。",
+            "summary": "進入留守唐門線（作者表示此線現版本尚未完成、缺很多劇情，故原文未寫）。其他來源稱趙活之後會不辭而別離開唐門。",
+            "statChanges": [],
             "unlocks": [
               "留守唐門線"
             ],
             "misses": [
               "崆峒留學線"
-            ]
+            ],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -194,7 +208,7 @@
       "id": "y2-mar-sect-lottery",
       "year": 2,
       "month": 3,
-      "title": "初識魏菊、抽選門派",
+      "title": "初識魏菊、選擇門派（三月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -208,19 +222,25 @@
         },
         {
           "kind": "choice",
-          "text": "選擇崆峒留學"
+          "text": "二月選擇崆峒留學"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "抽選門派（隨機決定入門）",
+          "text": "拒絕高木同學欽點，roll 門派",
           "preconditions": [],
           "consequence": {
-            "summary": "依 roll 點分配門派：<25 鐵拳門（學鐵臂神拳）、<50 玄功門（三選一：飛天腳／無影爪／鐵臂神拳）、<75 奪魄門、>=75 飛天門。選項會影響魏菊、小梅、小竹、高木等人好感。",
+            "summary": "來到崆峒後，選「是」增加小梅好感；選唱反調增加魏菊好感；拒絕高木同學的欽點後 roll 門派，會繼續加高木同學好感。想走夏侯蘭線只能入奪魄門；飛天門有小梅額外劇情、鐵拳門有小竹額外劇情、玄功門（魏菊）劇情最多。選好門派後拜見掌門，獲贈本門秘笈。",
+            "statChanges": [],
+            "unlocks": [
+              "夏侯蘭線（僅奪魄門）"
+            ],
+            "misses": [],
+            "nextEventIds": [],
             "alternatives": [
               {
-                "summary": "另一來源寫入門秘笈：飛天門得《飛天腳》、鐵拳門得《十八種奇兵鍛法雜記》、奪魄門得《無影爪》；玄功門三選一，之後魏掌門補送未選的一本。夏侯蘭線只能選奪魄門；飛天門有小梅劇情，鐵拳門有小竹劇情，玄功門劇情最多。",
+                "summary": "另一來源寫 roll 點對應：<25 鐵拳門、<50 玄功門、<75 奪魄門、>=75 飛天門。",
                 "source": {
                   "site": "巴哈姆特",
                   "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -230,9 +250,79 @@
               }
             ]
           }
+        },
+        {
+          "id": "o2",
+          "text": "入飛天門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲贈《飛天腳》，可在飛天殿練功。",
+            "statChanges": [],
+            "unlocks": [
+              "飛天腳"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "入鐵拳門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲贈《十八種奇兵鍛法雜記》，可在鐵拳巷練功。",
+            "statChanges": [],
+            "unlocks": [
+              "十八種奇兵鍛法雜記"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "入奪魄門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "獲贈《無影爪》，可在奪魄峰練功。",
+            "statChanges": [],
+            "unlocks": [
+              "無影爪"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "入玄功門",
+          "preconditions": [],
+          "consequence": {
+            "summary": "《飛天腳》《無影爪》《鐵臂神拳》三選一；之後事件中魏掌門會再送一本沒選的。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://home.gamer.com.tw/artwork.php?sn=5982359",
@@ -257,7 +347,7 @@
       "id": "y2-mar-kongtong-life",
       "year": 2,
       "month": 3,
-      "title": "崆峒日常與設施",
+      "title": "崆峒日常與設施（三月上起）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study"
@@ -275,54 +365,185 @@
       "options": [
         {
           "id": "o1",
-          "text": "窩居",
+          "text": "蝸居",
           "preconditions": [],
           "consequence": {
-            "summary": "回復心相；偶有比武切磋；名聲 40 以上的「別派觀望」事件中，選打死你可 roll 出宋兵並得《楊家練兵操》，戰敗為 be14。"
+            "summary": "回復心相。可能隨機觸發「別派觀望」事件（修養達君子以上無法觸發）：名聲 40 以上時選「我要打死你」可 roll 出宋兵，勝得《楊家練兵操》，戰敗為 be14（活活打死）。也可能觸發小梅找你出去玩，加小梅好感與輕功。",
+            "statChanges": [],
+            "unlocks": [
+              "楊家練兵操"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-14"
           }
         },
         {
           "id": "o2",
-          "text": "無色廣場（逛街／賭場／擂臺）",
+          "text": "無色廣場擂臺",
           "preconditions": [],
           "consequence": {
-            "summary": "逛街花 300 銀兩隨機加小梅或小竹好感，遇四師兄 +100 心相；賭場成功 +1000、大成功 +3000、失敗 -1000，贏到 5000 會被搶劫，不給錢則戰鬥（be13）；擂臺輸為 be14，贏得銀兩與武學點，連贏 3 次以上額外加嘴力、學問、內力。"
+            "summary": "輸了為 be14（活活打死）；贏得 500 銀兩、武學點與所屬門派屬性，連贏 3 次以上額外加嘴力、學問、內力。",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 500,
+                "text": "打贏"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-14"
           }
         },
         {
           "id": "o3",
-          "text": "飛天殿",
+          "text": "無色廣場賭場",
           "preconditions": [],
           "consequence": {
-            "summary": "練功額外 +1 輕功；吹牛達人場所大量扣好感，吹牛 5 次得風雲史「煩人修仙」，也可能被火龍仙君噴死（be15）。3DM 另稱此處訓練可能觸發死法「自食惡果」。"
+            "summary": "成功 +1000 銀兩、大成功 +3000、失敗 -1000，並扣道德與修養；累計贏到 5000 銀兩會觸發搶劫事件。",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 1000,
+                "text": "成功；大成功+3000；失敗-1000"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y2-mar-casino-robbery"
+            ],
+            "alternatives": [
+              {
+                "summary": "另一來源另提到逛街花 300 銀兩可隨機加小梅或小竹好感。",
+                "source": {
+                  "site": "巴哈姆特",
+                  "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+                  "version": "未標示",
+                  "date": "2024-08-24"
+                }
+              }
+            ]
           }
         },
         {
           "id": "o4",
-          "text": "鐵拳巷",
+          "text": "飛天殿",
           "preconditions": [],
           "consequence": {
-            "summary": "練功額外 +1 體力，大成功有機會加小竹好感；可升級裝備；連續進入 2 次會初識小竹，戰敗為 be16「被情敵殺死」。"
+            "summary": "每次練功額外 +1 輕功。「吹牛達人」場所不要進：每個事件都扣大量人物好感，尤其小梅；吹牛 5 次得風雲史 3「煩人修仙」；隨機觸發被火龍仙君噴死，為 be15（自食惡果）。",
+            "statChanges": [
+              {
+                "stat": "輕功",
+                "delta": 1,
+                "text": "練功額外"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-15"
           }
         },
         {
           "id": "o5",
-          "text": "玄功洞",
+          "text": "鐵拳巷",
           "preconditions": [],
           "consequence": {
-            "summary": "練功額外 +1 拳腳，讀書加學問、回心相；讀小說、詩詞、古文達一定次數會觸發魏掌門事件。"
+            "summary": "每次練功額外 +1 體力。打鐵成果比唐門好很多，大成功時額外加暗器，並有高機率增加小竹好感。",
+            "statChanges": [
+              {
+                "stat": "體力",
+                "delta": 1,
+                "text": "練功額外"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y2-mar-xiaozhu"
+            ],
+            "alternatives": []
           }
         },
         {
           "id": "o6",
-          "text": "奪魄峰／奪魄森林",
+          "text": "玄功洞",
           "preconditions": [],
           "consequence": {
-            "summary": "奪魄峰練功額外 +1 暗器，下棋加學問、性情、修養；奪魄森林（拜夏侯蘭後開啟）練功隨機加拳腳、刀劍、體力。"
+            "summary": "每次練功額外 +1 拳腳。讀書加學問、回復心相；讀小說 4 次、詩詞 3 次、古文 3 次後，各有對應的魏掌門事件。",
+            "statChanges": [
+              {
+                "stat": "拳腳",
+                "delta": 1,
+                "text": "練功額外"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o7",
+          "text": "奪魄峰",
+          "preconditions": [],
+          "consequence": {
+            "summary": "每次練功額外 +1 暗器；下棋可同時小幅加武學、學問、性情、修養，可視為另類練功。",
+            "statChanges": [
+              {
+                "stat": "暗器",
+                "delta": 1,
+                "text": "練功額外"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o8",
+          "text": "奪魄森林（拜夏侯蘭為師後開啟）",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "已拜夏侯蘭為師"
+            }
+          ],
+          "consequence": {
+            "summary": "每次練功隨機額外加拳腳、刀劍或體力，比一般練功加得多。練功惹師傅生氣 3 次、或讓師傅不耐煩 4 次，各有對應的夏侯蘭事件。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -338,10 +559,138 @@
       ]
     },
     {
+      "id": "y2-mar-casino-robbery",
+      "year": 2,
+      "month": 3,
+      "title": "賭場搶劫（贏滿 5000）",
+      "trigger": "chained",
+      "routeIds": [
+        "kongtong-study"
+      ],
+      "preconditions": [
+        {
+          "kind": "stat",
+          "text": "在無色廣場賭場累計贏到 5000 銀兩"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "不給錢",
+          "preconditions": [],
+          "consequence": {
+            "summary": "戰鬥。修養為暴躁以下時只能選此項。戰敗為 be13（謀財害命）；小竹好感大於 2 星時她會前來助戰，戰後好感-2。",
+            "statChanges": [
+              {
+                "stat": "小竹好感",
+                "delta": -2,
+                "text": "小竹助戰後"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-13"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "給錢",
+          "preconditions": [],
+          "consequence": {
+            "summary": "扣 1500 銀兩。小竹好感大於 2 星時她會幫你把錢搶回來，好感-2（下次再贏到 5000 被搶，小竹就不會來了）。性情謹慎以下時改為崆峒門派好感-2、不被搶劫。",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": -1500
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        }
+      ]
+    },
+    {
+      "id": "y2-mar-xiaozhu",
+      "year": 2,
+      "month": 3,
+      "title": "初識小竹（三月上）",
+      "trigger": "chained",
+      "routeIds": [
+        "kongtong-study"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第二年三月上旬"
+        },
+        {
+          "kind": "stat",
+          "text": "連續進入鐵拳巷 2 次"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "be16（被情敵殺死）。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-16"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "事件最後選「我硬朗的很」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "增加小竹好感。",
+            "statChanges": [
+              {
+                "stat": "小竹好感",
+                "text": "上升"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        }
+      ]
+    },
+    {
       "id": "y2-mar-heshou-guide",
       "year": 2,
       "month": 3,
-      "title": "鶴手導遊、初識小梅（玄功門限定）",
+      "title": "鶴手事件、初識小梅（三月中）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -351,46 +700,98 @@
         {
           "kind": "time",
           "text": "第二年三月中旬"
-        },
-        {
-          "kind": "choice",
-          "text": "入玄功門"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "接受導遊",
+          "text": "一般導遊選項（路過飛天殿選「容我拒絕」）",
           "preconditions": [],
           "consequence": {
-            "summary": "性情上升，心相-5（共三次），虞小梅好感上升，心相+20。",
-            "statChanges": [
+            "summary": "開頭怎麼選都會加好感。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y2-mar-kongtong-team"
+            ],
+            "alternatives": [
               {
-                "stat": "虞小梅好感",
-                "text": "上升"
+                "summary": "另一來源：接受導遊使性情上升、心相-5（共三次）、虞小梅好感上升、心相+20；拒絕並承認心動則心相+30。",
+                "source": {
+                  "site": "巴哈姆特",
+                  "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
+                  "version": "未標示",
+                  "date": "2024-08-24"
+                }
               }
             ]
           }
         },
         {
           "id": "o2",
-          "text": "拒絕並承認心動",
-          "preconditions": [],
+          "text": "（玄功門限定）魏菊挽留時選「你們不要為了我而爭吵」",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "入玄功門"
+            }
+          ],
           "consequence": {
-            "summary": "心相+30，虞小梅好感上升。"
+            "summary": "同時增加小梅與魏菊好感；小梅與趙活約定跑步，可觸發後續崆峒戰隊事件。",
+            "statChanges": [
+              {
+                "stat": "小梅好感",
+                "text": "上升"
+              },
+              {
+                "stat": "魏菊好感",
+                "text": "上升"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y2-mar-kongtong-team",
+              "y2-mar-xiaomei-run"
+            ],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "後續與魏菊切磋",
-          "preconditions": [],
+          "text": "（玄功門限定）選「到魏菊身邊」並先練一套拳",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "入玄功門"
+            }
+          ],
           "consequence": {
-            "summary": "勝利後得知崆峒四姝的真相；敗北為 be13（謀財害命）。處世>=60 時可替小梅說話。",
-            "leadsTo": "be"
+            "summary": "若已練過入門時選的秘笈，可再從其中選一本。隨後與魏菊師姐打一場：戰敗為 be13（謀財害命）；獲勝後得知設置崆峒四姝的真相。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-13"
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://home.gamer.com.tw/artwork.php?sn=5982359",
@@ -409,8 +810,8 @@
       "id": "y2-mar-kongtong-team",
       "year": 2,
       "month": 3,
-      "title": "崆峒戰隊挑釁",
-      "trigger": "timed",
+      "title": "崆峒戰隊（三月中）",
+      "trigger": "chained",
       "routeIds": [
         "kongtong-study"
       ],
@@ -418,6 +819,10 @@
         {
           "kind": "time",
           "text": "第二年三月中旬，鶴手事件後自動觸發"
+        },
+        {
+          "kind": "choice",
+          "text": "玄功門需在魏菊挽留時選「你們不要為了我而爭吵」"
         }
       ],
       "options": [
@@ -426,23 +831,76 @@
           "text": "迎戰三人車輪戰",
           "preconditions": [],
           "consequence": {
-            "summary": "只需耗盡對方隊伍生命。7 回合內獲勝：性情上升、名聲+3、心相+30；7 回合後瑞笙會出手助戰（最早可結識瑞笙的時間點）。戰敗為 be12「一刀兩斷」。",
-            "leadsTo": "be",
+            "summary": "戰敗為 be12（一刀兩斷）。7 回合後瑞笙出場助戰，這是最早能結識瑞笙的時間點。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
             "alternatives": [
               {
-                "summary": "3DM：虞小梅帶你到競技場，三打一，過程中瑞笙出手協助；未寫戰敗後果。",
+                "summary": "另一來源：只需耗盡對方隊伍生命；7 回合內獲勝性情上升、名聲+3、心相+30。",
                 "source": {
-                  "site": "3DM",
-                  "url": "https://www.3dmgame.com/gl/3941109_22.html",
+                  "site": "巴哈姆特",
+                  "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
                   "version": "未標示",
-                  "date": "2024-08-19"
+                  "date": "2024-08-24"
                 }
               }
-            ]
+            ],
+            "leadsTo": "be",
+            "endingId": "be-12"
+          }
+        },
+        {
+          "id": "o2",
+          "text": "戰後選「真羨慕」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "瑞笙好感+1。",
+            "statChanges": [
+              {
+                "stat": "瑞笙好感",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "戰後選「我嫉妒的面目全非」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "變心值+4。",
+            "statChanges": [
+              {
+                "stat": "變心值",
+                "delta": 4
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://home.gamer.com.tw/artwork.php?sn=5982359",
@@ -464,10 +922,78 @@
       ]
     },
     {
+      "id": "y2-mar-xiaomei-run",
+      "year": 2,
+      "month": 3,
+      "title": "小梅跑步",
+      "trigger": "chained",
+      "routeIds": [
+        "kongtong-study",
+        "xiaomei"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "鶴手事件後，在門派據點練功時概率觸發"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "一起跑步",
+          "preconditions": [],
+          "consequence": {
+            "summary": "隨機增加小梅好感、輕功、體力。",
+            "statChanges": [
+              {
+                "stat": "小梅好感",
+                "text": "隨機上升"
+              },
+              {
+                "stat": "輕功",
+                "text": "隨機"
+              },
+              {
+                "stat": "體力",
+                "text": "隨機"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "遇到情敵並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "be16（被情敵殺死）。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-16"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        }
+      ]
+    },
+    {
       "id": "y2-apr-xiahoulan",
       "year": 2,
       "month": 4,
-      "title": "夏侯蘭拜師",
+      "title": "夏侯蘭拜師（四月上，奪魄門限定）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -486,32 +1012,101 @@
       "options": [
         {
           "id": "o1",
-          "text": "拜師",
+          "text": "向夏侯蘭道謝：選拜師禮",
           "preconditions": [],
           "consequence": {
-            "summary": "衣服遭竊後遇偷襲，需 roll 躲過點穴，再與峨眉弟子決鬥；拜師開啟奪魄森林。",
+            "summary": "趙活拜夏侯蘭為師，開啟奪魄森林。",
+            "statChanges": [],
             "unlocks": [
               "奪魄森林",
               "夏侯蘭線"
-            ]
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "平輩禮",
+          "text": "向夏侯蘭道謝：選平輩禮",
           "preconditions": [],
           "consequence": {
-            "summary": "得《白猿通臂拳》並關閉夏侯蘭線。",
+            "summary": "獲得《白猿通臂拳》，並關閉夏侯蘭線。",
+            "statChanges": [],
             "unlocks": [
               "白猿通臂拳"
             ],
             "misses": [
               "夏侯蘭線"
-            ]
+            ],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "初識夏侯蘭：選「沒想到這麼年輕」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "夏侯蘭好感+1。",
+            "statChanges": [
+              {
+                "stat": "夏侯蘭好感",
+                "delta": 1
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "初識夏侯蘭：選「沒想到這麼美貌」",
+          "preconditions": [],
+          "consequence": {
+            "summary": "變心值+5。",
+            "statChanges": [
+              {
+                "stat": "變心值",
+                "delta": 5
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "（過程）衣服被竊後遭偷襲，roll 是否躲過點穴",
+          "preconditions": [],
+          "consequence": {
+            "summary": "躲過點穴後與峨嵋弟子決鬥（第一場勝、第二場敗）。若開頭沒躲過點穴，後續有小梅發糖劇情，作者推薦 SL 觀賞一遍。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "saveHint": "sl"
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -564,7 +1159,7 @@
       "id": "y2-may-kongtong-contest",
       "year": 2,
       "month": 5,
-      "title": "崆峒季試／大比",
+      "title": "崆峒大比（五月下）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study"
@@ -578,10 +1173,15 @@
       "options": [
         {
           "id": "o1",
-          "text": "稱呼小梅（小梅／小梅娘子／小梅姑娘／小梅仙子）",
+          "text": "開頭稱呼選「小梅姑娘」",
           "preconditions": [],
           "consequence": {
-            "summary": "不同稱呼對虞小梅及其他數值的影響不同；稱小梅姑娘可學得「喇逼雕」。"
+            "summary": "可學得「喇逼雕」。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -589,30 +1189,110 @@
           "text": "拒絕挑戰",
           "preconditions": [],
           "consequence": {
-            "summary": "性情下降，武學+2，南宮淺好感上升。"
+            "summary": "已拜夏侯蘭為師時不可放棄大比。另一來源：拒絕挑戰性情下降、武學+2、南宮淺好感上升。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "接受挑戰並連戰三場",
+          "text": "第一場（roll 出南宮淺）",
           "preconditions": [],
           "consequence": {
-            "summary": "第一場 roll 南宮淺或青城弟子；第二場隨機（點蒼可學烈火彈、嵩山可學石灰粉、錦香、峨嵋）；第三場 roll 樊嘯天、上官螢或瑞笙，瑞笙可能造成死亡或心相-30。獎勵依勝場：1 勝《文房四寶》、2 勝《孔夫子劍》、3 勝《宋詞詩選》，3 勝可賣給上官螢換銀兩+5000、門派資產+500、貢獻+20。",
-            "alternatives": [
-              {
-                "summary": "另一來源：第三場若 roll 出狗妹且戰敗又 roll 不停手為 be60；玄功門若想與上官螢對戰，拜師時需故意輸；獎勵依門派與勝場數有專屬秘笈。",
-                "source": {
-                  "site": "巴哈姆特",
-                  "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
-                  "version": "未標示",
-                  "date": "2024-08-24"
-                }
-              }
-            ]
+            "summary": "與南宮淺打時防禦拖 10 回合後再打贏他，可增加好感。若輸給南宮淺，趙活因學藝不精被師傅狠狠操練一番，有 CG。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "第二場",
+          "preconditions": [],
+          "consequence": {
+            "summary": "roll 到哪個敵人都沒差別，打贏即可。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "第三場 roll 出狗妹並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "再 roll 不停手則被誤殺，為 be60。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-60"
+          }
+        },
+        {
+          "id": "o6",
+          "text": "第三場 roll 出瑞笙並戰敗",
+          "preconditions": [],
+          "consequence": {
+            "summary": "若已拜夏侯蘭為師，師傅會幫你研究出對抗瑞笙「敗絮功」的秘笈，第三年雪山所得秘笈變為《雪山飛鴻爪》（正常為《奪魄幽靈爪》）。初版遊戲中戰勝瑞笙會觸發瑞杏不悅劇情，隨後 be57（被雷劈死），現版本已無法取得。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o7",
+          "text": "第三場 roll 出上官螢",
+          "preconditions": [],
+          "consequence": {
+            "summary": "拜玄功門時要故意輸，獎勵與三場全勝相同；贏了反而只給 2 勝獎勵。上官螢高好感時戰前戰後有額外劇情。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o8",
+          "text": "三場全勝",
+          "preconditions": [],
+          "consequence": {
+            "summary": "風雲史 10「嶄露頭角」。獎勵依門派見大比獎勵事件。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y2-may-contest-rewards"
+            ],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://home.gamer.com.tw/artwork.php?sn=5982359",
@@ -634,10 +1314,112 @@
       ]
     },
     {
+      "id": "y2-may-contest-rewards",
+      "year": 2,
+      "month": 5,
+      "title": "大比獎勵（五月下）",
+      "trigger": "chained",
+      "routeIds": [
+        "kongtong-study"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第二年五月下旬，崆峒大比後"
+        },
+        {
+          "kind": "stat",
+          "text": "依所屬門派與勝場數"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "鐵拳門",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "入鐵拳門"
+            }
+          ],
+          "consequence": {
+            "summary": "1 勝《鐵壁神拳》；2 勝《崆峒玄兵鍛法》；3 勝《小竹搥背券》。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "飛天門",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "入飛天門"
+            }
+          ],
+          "consequence": {
+            "summary": "獎品依小梅好感是否高於 2.5 星而不同。1 勝：低好感《飛天腳》／高好感《烈火禪》；2 勝：《烈火禪》／《仙鶴迷蹤拳》；3 勝：《仙鶴迷蹤拳》／《焚心火印》（另有小梅色誘額外獎勵）。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "玄功門",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "入玄功門"
+            }
+          ],
+          "consequence": {
+            "summary": "1 勝《文房四寶》；2 勝《文房四寶》《孔夫子劍》二選一；3 勝《文房四寶》《孔夫子劍》《宋詞詩選》三選一（作者建議選宋詞詩選）。魏菊與上官螢好感皆高時，上官螢會要強行收購《宋詞詩選》，選「這是魏菊掌門給我的，非賣品」，高木同學會再手抄一本。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "奪魄門",
+          "preconditions": [
+            {
+              "kind": "choice",
+              "text": "入奪魄門"
+            }
+          ],
+          "consequence": {
+            "summary": "未拜夏侯蘭為師則無獎勵。已拜師時 1、2 勝只是被師傅狠狠操練（有 CG）；3 勝得【崆峒磨樂喝】，並有師傅買單的市集一夜遊。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        }
+      ]
+    },
+    {
       "id": "y2-aug-leave-kongtong",
       "year": 2,
       "month": 8,
-      "title": "留學結束與送別",
+      "title": "留學結束與送別（八月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -657,14 +1439,75 @@
       "options": [
         {
           "id": "o1",
-          "text": "離開崆峒返回唐門",
+          "text": "師傅（夏侯蘭）送別",
           "preconditions": [],
           "consequence": {
-            "summary": "夏侯蘭送別，得 2000 銀兩與好感；小竹好感最高時送別需付 2000 車馬費。小梅好感高於 2 星會於 10 月加入唐門；小菊好感高於 3 星且為心上人，江陵圍城後可習得鐵琵琶功（內力需 46 以上）。"
+            "summary": "得 2000 銀兩與好感。",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": 2000
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "小竹送別（小竹好感為四姝最高時）",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "小竹好感為四姝最高"
+            }
+          ],
+          "consequence": {
+            "summary": "扣 2000 銀兩江陵車馬費。",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": -2000
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "離開崆峒的後續影響",
+          "preconditions": [],
+          "consequence": {
+            "summary": "小梅好感高於 2 星，十月加入唐門，對第三年劇情有重大影響；魏菊好感高於 3 星且為心上人，趙活會在江陵圍城最後習得鐵琵琶功（內力需 46 以上）。",
+            "statChanges": [],
+            "unlocks": [
+              "小梅十月加入唐門",
+              "鐵琵琶功（魏菊線）"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -683,7 +1526,7 @@
       "id": "y2-sep-jianglin-outside",
       "year": 2,
       "month": 9,
-      "title": "江陵城外",
+      "title": "江陵城外（九月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -702,11 +1545,11 @@
           "preconditions": [
             {
               "kind": "stat",
-              "text": "輕功>50"
+              "text": "輕功大於 50"
             }
           ],
           "consequence": {
-            "summary": "得 1500 銀兩，向心-3。",
+            "summary": "銀兩+1500，向心-3。",
             "statChanges": [
               {
                 "stat": "銀兩",
@@ -716,7 +1559,11 @@
                 "stat": "向心",
                 "delta": -3
               }
-            ]
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -725,21 +1572,49 @@
           "preconditions": [
             {
               "kind": "stat",
-              "text": "處世>豪爽"
+              "text": "處世大於豪爽"
             }
           ],
           "consequence": {
-            "summary": "花 1000 銀兩，增加向心、心相、處世。",
+            "summary": "銀兩-1000，增加向心、心相、處世。",
             "statChanges": [
               {
                 "stat": "銀兩",
                 "delta": -1000
+              },
+              {
+                "stat": "向心",
+                "text": "上升"
+              },
+              {
+                "stat": "心相",
+                "text": "上升"
+              },
+              {
+                "stat": "處世",
+                "text": "上升"
               }
-            ]
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -752,7 +1627,7 @@
       "id": "y2-sep-jianglin-inn",
       "year": 2,
       "month": 9,
-      "title": "江陵客棧",
+      "title": "江陵客棧（九月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -767,18 +1642,58 @@
       "options": [
         {
           "id": "o1",
-          "text": "四師兄你要去哪",
+          "text": "四師兄你要去哪？",
           "preconditions": [
             {
               "kind": "stat",
-              "text": "醫術>=1"
+              "text": "醫術 1 級以上"
             }
           ],
           "consequence": {
-            "summary": "破廟救狗妹，可打聽丐幫；狗妹好感低於 1.5 星可用狗雞要脅樊哮天，得《揍狗拳》，狗妹好感清零、道德-3。",
+            "summary": "狗妹求醫，到破廟治好狗雞，增加狗妹好感，可向狗妹打聽丐幫的事。",
+            "statChanges": [
+              {
+                "stat": "狗妹好感",
+                "text": "上升"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "用狗雞性命要脅樊嘯天（初生選項）",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "狗妹好感低於 1.5 星"
+            },
+            {
+              "kind": "choice",
+              "text": "先完成選項 o1 的破廟事件"
+            }
+          ],
+          "consequence": {
+            "summary": "戰勝後獲得《揍狗拳》，狗妹好感清零，道德-3。",
+            "statChanges": [
+              {
+                "stat": "道德",
+                "delta": -3
+              },
+              {
+                "stat": "狗妹好感",
+                "text": "清零"
+              }
+            ],
             "unlocks": [
               "揍狗拳"
-            ]
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -787,31 +1702,63 @@
           "preconditions": [
             {
               "kind": "stat",
-              "text": "戰術>=1"
+              "text": "戰術 1 級以上"
             }
           ],
           "consequence": {
-            "summary": "roll 出崇拜可使天武門加入唐門。"
+            "summary": "roll 出崇拜時天武門加入唐門，影響武林大會劇情，門人數+10。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "練功",
+          "text": "練功，選戰唐門弟子",
           "preconditions": [],
           "consequence": {
-            "summary": "與唐門弟子對戰，敗則請師兄指點，獲得屬性。"
+            "summary": "戰敗則請師兄指點，師兄傳授唐門要領並加屬性。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o4",
           "text": "吃飽再睡",
-          "preconditions": [],
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "心相小於 30 且命運點大於 15（夢見瑞杏）"
+            }
+          ],
           "consequence": {
-            "summary": "心相<30 且命運點>15 可夢見瑞杏。"
+            "summary": "心相小於 30 且命運點大於 15 時可夢見瑞杏。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -824,7 +1771,7 @@
       "id": "y2-sep-jianglin-front",
       "year": 2,
       "month": 9,
-      "title": "江陵城前（團戰）",
+      "title": "江陵城前（九月上，團戰）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -839,22 +1786,52 @@
       "options": [
         {
           "id": "o1",
-          "text": "看情況（丐幫優勢）",
+          "text": "先看看情況（roll 出丐幫優勢）",
           "preconditions": [],
           "consequence": {
-            "summary": "戰術為 0 時瑞笙救場；唐門撤退遭泥教丐幫攔截，大師兄帶來解無塵，團戰勝得《很是用力踢》並扣 1000 銀兩。"
+            "summary": "若此時戰術等級為 0，瑞笙救場。唐門撤退到客棧，遇泥教丐幫；選「大師兄去哪了」→「去見朋友」→風神解無塵登場，與丐幫團戰。打贏後銀兩-1000，獲得風神絕技《很是用力踢》。觸發此事件後，若已拜夏侯蘭為師，第三年後山祭拜大師兄時解無塵會贈《蛇兔鷹猿搏》。",
+            "statChanges": [
+              {
+                "stat": "銀兩",
+                "delta": -1000
+              }
+            ],
+            "unlocks": [
+              "很是用力踢",
+              "蛇兔鷹猿搏（第三年，已拜夏侯蘭）"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "官兵優勢",
+          "text": "先看看情況（roll 出官兵優勢）",
           "preconditions": [],
           "consequence": {
-            "summary": "狗妹會被抓。"
+            "summary": "官兵五成外加狂犬一隻，官兵會把狗妹抓進城內，影響後續劇情。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -873,7 +1850,7 @@
       "id": "y2-sep-jianglin-city",
       "year": 2,
       "month": 9,
-      "title": "江陵城內自由行動",
+      "title": "江陵城內自由行動（九月上起）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -888,18 +1865,69 @@
       "options": [
         {
           "id": "o1",
-          "text": "與南宮遠切磋",
+          "text": "無所事事乘涼 roll 到南宮遠，選不給零用錢並切磋",
           "preconditions": [],
           "consequence": {
-            "summary": "roll 出才會觸發，名聲過高則 roll 不到，建議先壓低名聲。依剩餘血量給秘笈：>80% 《南宮武備論》；40–80% 《南宮心法》（滿級南宮護心訣，影響傳功救大師兄）；<40% 《南宮風流扇》。"
+            "summary": "名聲太高時 roll 不到，建議前期壓低名聲。七回合後戰鬥結束，依趙活剩餘血量給秘笈：>80% 《南宮武備論》（南宮尋歡講解南宮家肩甲意義）；40–80% 《南宮心法》（滿級南宮護心訣，影響傳功救大師兄）；<40% 《南宮風流扇》（無用）。另一來源指出其他兩本可向四師兄購買。另可隨機觸發南宮遠與尹志平對弈，高學問時與南宮遠對話加大公子好感。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "院中練武／乘涼",
+          "text": "院中練武 roll 出南宮深",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "南宮深好感低於 1 星"
+            }
+          ],
+          "consequence": {
+            "summary": "連續被揍 12 回合（南宮深好感需低於 1 星），觸發南宮深的欣賞；選「客套客套」好感+3，大公子此後態度友好，可觸發遊湖事件。",
+            "statChanges": [
+              {
+                "stat": "南宮深好感",
+                "delta": 3
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o5",
+          "text": "乘涼 roll 出南宮深",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "南宮深好感高於 1 星"
+            }
+          ],
+          "consequence": {
+            "summary": "觸發邀請遊湖事件，加好感。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o6",
+          "text": "乘涼 roll 出二公子，不生氣並接受要求",
           "preconditions": [],
           "consequence": {
-            "summary": "院中練武 roll 出南宮深（好感<1 星）可備揍並觸發欣賞；乘涼遇南宮深（好感>1 星）可觸發遊湖。大公子與二公子路線互斥。"
+            "summary": "增加好感。大公子與二公子的好感事件在同一周目互斥，作者建議先走大公子高好感路線，這會影響之後主線中南宮世家對趙活與唐門的態度；武林大會上親眼見證南宮淺黑化需要南宮淺好感 4 星以上，很難湊到。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -908,6 +1936,10 @@
           "preconditions": [],
           "consequence": {
             "summary": "3DM：戰勝南宮家的人可得到一次修煉機會。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
             "alternatives": []
           }
         },
@@ -916,11 +1948,28 @@
           "text": "出城廝殺",
           "preconditions": [],
           "consequence": {
-            "summary": "3DM：前期有些金錢收益，後期難度升高，難以獲勝。"
+            "summary": "3DM：前期有些金錢收益，後期難度升高，難以獲勝。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -939,7 +1988,7 @@
       "id": "y2-sep-black-clothed",
       "year": 2,
       "month": 9,
-      "title": "黑衣人事件",
+      "title": "黑衣人事件（九月中）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -957,23 +2006,65 @@
       ],
       "options": [
         {
-          "id": "o1",
-          "text": "追上去",
+          "id": "o3",
+          "text": "夜遊遭遇南宮淺：選切磋",
           "preconditions": [],
           "consequence": {
-            "summary": "得知黑衣人是大師兄與王二壯；與王二壯決鬥 8 回合不敗，並得知大師兄金國行動，解鎖九月下旬刺金事件。"
+            "summary": "作者建議投降以加好感。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o1",
+          "text": "我要追上去看看",
+          "preconditions": [],
+          "consequence": {
+            "summary": "得知黑衣人是大師兄與王二壯，roll 格擋；與王二壯決鬥 8 回合不敗，得知他部分真實想法，並得悉大師兄的金國行動，之後可觸發九月下旬刺金事件。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [
+              "y2-sep-dashixiong-assassination"
+            ],
+            "alternatives": []
           }
         },
         {
           "id": "o2",
-          "text": "即刻稟報",
-          "preconditions": [],
+          "text": "還是即刻稟報",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "性情勇敢以下"
+            }
+          ],
           "consequence": {
-            "summary": "性情勇敢以下時可選；可在江陵決戰前觸發南宮老爺子釣魚。"
+            "summary": "可在江陵決戰前觸發南宮老爺子釣魚。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -986,8 +2077,8 @@
       "id": "y2-sep-dashixiong-assassination",
       "year": 2,
       "month": 9,
-      "title": "大師兄刺金行動",
-      "trigger": "timed",
+      "title": "大師兄刺金行動（九月下）",
+      "trigger": "chained",
       "routeIds": [
         "kongtong-study",
         "jianglin-siege"
@@ -999,16 +2090,21 @@
         },
         {
           "kind": "choice",
-          "text": "黑衣人事件選擇追上去"
+          "text": "黑衣人事件選追上去，且未被敲暈"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "不要去",
+          "text": "不要去了",
           "preconditions": [],
           "consequence": {
-            "summary": "與大師兄決鬥，無論勝敗大師兄都會脫逃；輕功>80 有額外劇情。"
+            "summary": "與大師兄決斗，無論勝敗大師兄都會成功逃脫；輕功大於 80 時戰勝後有額外劇情。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -1017,18 +2113,34 @@
           "preconditions": [
             {
               "kind": "stat",
-              "text": "大師兄好感>3 星"
+              "text": "大師兄好感高於 3 星"
             }
           ],
           "consequence": {
-            "summary": "被敲暈並獲得《楊家練兵操》。",
+            "summary": "被敲暈，獲得《楊家練兵操》。",
+            "statChanges": [],
             "unlocks": [
               "楊家練兵操"
-            ]
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -1041,7 +2153,7 @@
       "id": "y2-oct-eve-battle",
       "year": 2,
       "month": 10,
-      "title": "決戰前夜",
+      "title": "決戰前夕（十月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -1051,6 +2163,10 @@
         {
           "kind": "time",
           "text": "第二年十月上旬"
+        },
+        {
+          "kind": "choice",
+          "text": "未觸發南宮老爺子釣魚事件"
         }
       ],
       "options": [
@@ -1059,19 +2175,65 @@
           "text": "堅持怒睡",
           "preconditions": [],
           "consequence": {
-            "summary": "3DM：大幅提升心相。另一來源：心相<30 且命運點>15 可夢見瑞杏；心上人為夏侯蘭可夢見夏侯蘭；其他情況遭迷魂大盜夜襲。"
+            "summary": "心相小於 30 且命運點大於 15 時可夢見瑞杏（原文標註需心上人為瑞杏，尚存疑）；心上人為夏侯蘭時可夢見夏侯蘭（原文疑需變心值）；其他情況迷魂大盜夜襲趙活，宋悲大人前來抓捕。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [
+              {
+                "summary": "3DM：大幅提升心相。",
+                "source": {
+                  "site": "3DM",
+                  "url": "https://www.3dmgame.com/gl/3941109_27.html",
+                  "version": "未標示",
+                  "date": "2024-08-19"
+                }
+              }
+            ]
           }
         },
         {
           "id": "o2",
-          "text": "打拳散心",
+          "text": "去打拳散心",
           "preconditions": [],
           "consequence": {
-            "summary": "3DM：獲得一次修煉機會。另一來源：處世>知禮(40) 得《巫山洞府九寶圖》；處世低於知禮且已收葉家兄妹遇葉雲舟；未收且心相>30 遇女飛賊，戰敗為 be19。"
+            "summary": "處世大於知禮（40）獲得《巫山洞府九寶圖》；處世小於知禮且已收留葉家兄妹，遇到葉雲舟（心上人為葉雲裳時對話有差分）；處世小於知禮、未收留葉家兄妹且心相高於 30，修煉暗器時遇埋伏女飛賊，戰敗為 be19（殺人滅口），戰勝後小梅現身，與趙活鬥嘴後跑走。",
+            "statChanges": [],
+            "unlocks": [
+              "巫山洞府九寶圖（處世>40）"
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [
+              {
+                "summary": "3DM：打拳可獲得一次修煉機會。",
+                "source": {
+                  "site": "3DM",
+                  "url": "https://www.3dmgame.com/gl/3941109_27.html",
+                  "version": "未標示",
+                  "date": "2024-08-19"
+                }
+              }
+            ],
+            "leadsTo": "be",
+            "endingId": "be-19"
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -1090,7 +2252,7 @@
       "id": "y2-oct-angler",
       "year": 2,
       "month": 10,
-      "title": "南宮老爺子釣魚",
+      "title": "南宮老爺子釣魚（十月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -1103,16 +2265,26 @@
         },
         {
           "kind": "stat",
-          "text": "需南宮世家與南宮淺好感高、城內未出戰等多項條件（一周目較難觸發）"
+          "text": "南宮世家與南宮淺好感度高；城內不能選出戰（多練功逛街，狗妹在城內也會一起跟去）；黑衣人事件選不追（疑似追上去被敲暈也可），一周目很難觸發"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "晚輩從命",
+          "text": "晚輩自當從命",
           "preconditions": [],
           "consequence": {
-            "summary": "見王二壯後釣魚；與王二壯 5 回合不敗得 20 武學點，南宮淺獲傳功。"
+            "summary": "前往丐幫大營見王二壯，得知他部分真實想法；釣魚時 roll 收穫頗豐；之後與王二壯決鬥 5 回合不敗，+20 武學點，南宮淺得王二壯傳功。",
+            "statChanges": [
+              {
+                "stat": "武學點",
+                "delta": 20
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
@@ -1125,11 +2297,33 @@
             }
           ],
           "consequence": {
-            "summary": "增加南宮淺好感。"
+            "summary": "增加南宮淺好感。",
+            "statChanges": [
+              {
+                "stat": "南宮淺好感",
+                "text": "上升"
+              }
+            ],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -1142,7 +2336,7 @@
       "id": "y2-oct-jianglin-battle",
       "year": 2,
       "month": 10,
-      "title": "江陵決戰——丐世英雄",
+      "title": "江陵決戰：丐世英雄（十月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study",
@@ -1160,11 +2354,77 @@
           "text": "參加三場團戰",
           "preconditions": [],
           "consequence": {
-            "summary": "上官螢（為心上人且好感>4 星）會助戰；王二壯叫陣時解無塵觀戰提升屬性；高木同學出陣時，魏菊為心上人且好感>3 星則趙活替其擋掌重傷，否則由瑞笙接掌；王二壯離世後，龍湘好感>3 星有溫夫人對話。"
+            "summary": "戰前自動觸發：南宮深想迎娶花魁為妾，上官大小姐敗犬中（心上人為上官螢時，依道德修養有對話差分）。三場團戰最好都打贏；上官螢為心上人且好感高於 4 星時會前來助戰。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o2",
+          "text": "王二壯叫陣：roll 出想挽回名聲的高手",
+          "preconditions": [],
+          "consequence": {
+            "summary": "解無塵出手，觀戰增加屬性（原文補充：親眼目睹高手戰鬥會提升自身屬性，對總武學點與學問有要求）。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o3",
+          "text": "王二壯叫陣：roll 出不妙的人",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "魏菊為心上人且好感高於 3 星（擋掌）"
+            }
+          ],
+          "consequence": {
+            "summary": "玄功掌門高木同學出陣。僅當魏菊為心上人且好感高於 3 星時，趙活替魏菊擋下一掌並重傷；否則瑞笙出場接掌。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        },
+        {
+          "id": "o4",
+          "text": "王二壯悲壯離世",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "龍湘好感高於 3 星"
+            }
+          ],
+          "consequence": {
+            "summary": "龍湘好感高於 3 星時，追加溫夫人與龍湘的對話，了解上一代恩怨情仇。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -1183,7 +2443,7 @@
       "id": "y2-oct-weiju-transfer",
       "year": 2,
       "month": 10,
-      "title": "魏菊傳功（鐵琵琶功）",
+      "title": "魏菊傳功（十月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study"
@@ -1192,40 +2452,72 @@
         {
           "kind": "time",
           "text": "第二年十月上旬"
+        },
+        {
+          "kind": "stat",
+          "text": "魏菊為心上人（鐵琵琶功路線）"
         }
       ],
       "options": [
         {
           "id": "o1",
-          "text": "接受傳功並 roll 點",
+          "text": "接受魏菊傳功，選「好」並 roll 點",
           "preconditions": [],
           "consequence": {
-            "summary": "roll<80 為 be20 爆體；>80 覺醒鐵琵琶功，影響第三年多處劇情。",
-            "leadsTo": "be"
+            "summary": "roll 小於 80 為 be20（爆體而亡）；大於 80 覺醒鐵琵琶功，影響第三年申屠龍吸功、傳功救大師兄、錦香宮人間道等劇情差分。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-20"
           }
         },
         {
           "id": "o2",
-          "text": "選當崆峒弟子（玄功傳承）",
+          "text": "玄功傳承：選「當了崆峒弟子，還能留在唐門嗎」",
           "preconditions": [],
           "consequence": {
-            "summary": "仍可留唐門，得《鐵琵琶功》。",
+            "summary": "得到《鐵琵琶功》。",
+            "statChanges": [],
             "unlocks": [
               "鐵琵琶功"
-            ]
+            ],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
           }
         },
         {
           "id": "o3",
-          "text": "選不當崆峒弟子",
+          "text": "玄功傳承：選「我才不要當什麼崆峒弟子」",
           "preconditions": [],
           "consequence": {
-            "summary": "與魏菊決鬥：戰敗 be21，勝則唐門與崆峒敵對。",
-            "leadsTo": "be"
+            "summary": "與魏菊師姐決鬥：戰敗為 be21（山中法度）；獲勝則唐門與崆峒派敵對，影響之後小師妹招親時的江湖仇殺令劇情。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-21"
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -1235,10 +2527,93 @@
       ]
     },
     {
+      "id": "y2-oct-nangong-farewell",
+      "year": 2,
+      "month": 10,
+      "title": "告別南宮世家（十月上）",
+      "trigger": "timed",
+      "routeIds": [
+        "jianglin-siege"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第二年十月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "告別南宮世家",
+          "preconditions": [],
+          "consequence": {
+            "summary": "南宮深友好度高低影響對話差分；魏菊為心上人時，小竹好感在 3 星上下有差分對話。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        }
+      ]
+    },
+    {
+      "id": "y2-oct-nangong-regret",
+      "year": 2,
+      "month": 10,
+      "title": "南宮深悔婚（十月上）",
+      "trigger": "timed",
+      "routeIds": [
+        "jianglin-siege"
+      ],
+      "preconditions": [
+        {
+          "kind": "time",
+          "text": "第二年十月上旬"
+        }
+      ],
+      "options": [
+        {
+          "id": "o1",
+          "text": "南宮深悔婚",
+          "preconditions": [
+            {
+              "kind": "stat",
+              "text": "南宮深好感高於 2 星"
+            }
+          ],
+          "consequence": {
+            "summary": "南宮深好感高於 2 星可見其內心獨白；心上人為上官螢且好感高於 4 星時有發糖劇情。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": []
+          }
+        }
+      ],
+      "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        }
+      ]
+    },
+    {
       "id": "y2-oct-return-horse",
       "year": 2,
       "month": 10,
-      "title": "返程墜馬",
+      "title": "返程途中墜馬（十月上）",
       "trigger": "timed",
       "routeIds": [
         "kongtong-study"
@@ -1252,25 +2627,33 @@
       "options": [
         {
           "id": "o1",
-          "text": "返程途中遇墜馬事件",
+          "text": "返程途中隨機觸發墜馬",
           "preconditions": [],
           "consequence": {
-            "summary": "roll 出人命為 be26；若有人逞強，醫術越高結果越好。",
-            "alternatives": [
-              {
-                "summary": "3DM：返鄉途中大概率摔下馬，ROLL 點不夠低會解鎖死法「被馬踩死」。",
-                "source": {
-                  "site": "3DM",
-                  "url": "https://www.3dmgame.com/gl/3941109_27.html",
-                  "version": "未標示",
-                  "date": "2024-08-19"
-                }
-              }
-            ]
+            "summary": "roll 出人命為 be26（被馬踩死）；roll 出有人不會騎馬還逞強時，醫術等級越高結果越好，並增加貢獻、銀兩、向心。",
+            "statChanges": [],
+            "unlocks": [],
+            "misses": [],
+            "nextEventIds": [],
+            "alternatives": [],
+            "leadsTo": "be",
+            "endingId": "be-26"
           }
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35998966",
+          "version": "未標示",
+          "date": "2024-08-27"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
@@ -1372,6 +2755,18 @@
         }
       ],
       "sources": [
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
+        {
+          "site": "B站 火焰猫琳",
+          "url": "https://www.bilibili.com/read/cv35976623",
+          "version": "未標示",
+          "date": "2024-08-24"
+        },
         {
           "site": "巴哈姆特",
           "url": "https://forum.gamer.com.tw/C.php?bsn=73317&snA=1939",
