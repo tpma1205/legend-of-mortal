@@ -32,6 +32,7 @@ function Consequence({ guide, option }: { guide: Guide; option: GuideOption }) {
     !c.misses.length &&
     !c.nextEventIds.length &&
     !ending &&
+    !c.leadsTo &&
     !c.saveHint &&
     !c.alternatives.length;
   return (
@@ -48,6 +49,9 @@ function Consequence({ guide, option }: { guide: Guide; option: GuideOption }) {
       )}
       {c.unlocks.length > 0 && <p className="meta">解鎖：{c.unlocks.join("、")}</p>}
       {c.misses.length > 0 && <p className="meta warn">錯過：{c.misses.join("、")}</p>}
+      {!ending && c.leadsTo && (
+        <p className={c.leadsTo === "be" ? "meta warn" : "meta"}>通往{c.leadsTo === "be" ? "壞結局（BE）" : "結局"}（來源未指明是哪一個）</p>
+      )}
       {ending && (
         <p className={c.leadsTo === "be" || ending.kind === "be" ? "meta warn" : "meta"}>
           通往{ending.kind === "be" ? "壞結局" : "結局"}：<a href={endingHref(ending.id)}>{ending.name}</a>
