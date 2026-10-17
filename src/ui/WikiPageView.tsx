@@ -85,6 +85,31 @@ function BlockView({ block, index, header }: { block: Block; index: WikiIndex; h
   }
 }
 
+function Backlinks({ page, index }: { page: WikiPage; index: WikiIndex }) {
+  const from = (index.backlinks.get(page.id) ?? []).map((id) => index.byId.get(id)!).filter(Boolean);
+  if (from.length === 0) return null;
+  const kinds = [...new Set(from.map((p) => p.kind))];
+  return (
+    <section className="backlinks">
+      <h2>相關頁面</h2>
+      {kinds.map((kind) => (
+        <p key={kind} className="meta">
+          {KIND_LABEL[kind]}：
+          {from
+            .filter((p) => p.kind === kind)
+            .slice(0, 40)
+            .map((p, i) => (
+              <span key={p.id}>
+                {i > 0 && "、"}
+                <a href={wikiHref(p.id)}>{p.title}</a>
+              </span>
+            ))}
+        </p>
+      ))}
+    </section>
+  );
+}
+
 export function WikiPageView({ page, index }: { page: WikiPage; index: WikiIndex }) {
   const origin = `https://smilin.net/LoM-wiki/${page.id.replace(/\/index$/, "/")}${page.id.endsWith("/index") ? "" : ".html"}`;
   return (
@@ -96,6 +121,7 @@ export function WikiPageView({ page, index }: { page: WikiPage; index: WikiIndex
       {page.blocks.map((b, i) => (
         <BlockView key={i} block={b} index={index} header={HEADER_KINDS.has(page.kind)} />
       ))}
+      <Backlinks page={page} index={index} />
       <p className="meta origin">
         資料版本 {index.source?.version}・
         <a href={origin} target="_blank" rel="noreferrer">

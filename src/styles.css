@@ -38,13 +38,13 @@ button, input, select { font: inherit; color: inherit; }
 .shell {
   display: grid;
   grid-template-columns: minmax(260px, 340px) 1fr;
-  grid-template-rows: auto auto minmax(0, 1fr) auto;
-  grid-template-areas: "top top" "demo demo" "side main" "foot foot";
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas: "top top" "side main" "foot foot";
   height: 100%;
 }
 .shell.no-side {
   grid-template-columns: 1fr;
-  grid-template-areas: "top" "demo" "main" "foot";
+  grid-template-areas: "top" "main" "foot";
 }
 .top {
   grid-area: top;
@@ -170,3 +170,7 @@ h1 { margin: 0.25rem 0 0.75rem; font-size: clamp(1.75rem, 4vw, 2.75rem); line-he
 .results .kind { margin: 0 0.75rem 0 0; font-size: 0.75rem; color: var(--ink-2); border-color: var(--line); }
 .event.wiki-page { max-width: 56rem; }
 @media (max-width: 800px) { .foot { padding: 0.5rem 1rem; } .global-search { width: 100%; } }
+
+.month-head { margin: 0.75rem 0 0.15rem; font-size: 0.875rem; font-weight: 600; color: var(--ink-2); letter-spacing: 0.1em; }
+.sidebar li a { grid-template-columns: 2.4rem 1fr; }
+.backlinks h2 { margin-top: 2.5rem; }

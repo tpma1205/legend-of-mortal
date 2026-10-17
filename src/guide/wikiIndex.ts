@@ -9,6 +9,8 @@ export interface WikiIndex {
   resolve(to: string | undefined): string | undefined;
   /** link targets that point at pages we do not have, each listed once */
   unresolved: string[];
+  /** page id -> ids of the pages that link to it, each once, in page order, never itself */
+  backlinks: Map<string, string[]>;
 }
 
 export class WikiIndexError extends Error {}
@@ -50,9 +52,18 @@ export function buildWikiIndex(datasets: WikiDataset[]): WikiIndex {
   };
 
   const unresolved = new Set<string>();
+  const backlinks = new Map<string, string[]>();
   for (const page of pages) {
     for (const block of page.blocks) {
-      for (const run of inlinesOf(block)) if (run.to && !resolve(run.to)) unresolved.add(run.to);
+      for (const run of inlinesOf(block)) {
+        if (!run.to) continue;
+        const target = resolve(run.to);
+        if (!target) unresolved.add(run.to);
+        else if (target !== page.id) {
+          const from = backlinks.get(target) ?? [];
+          if (!from.includes(page.id)) backlinks.set(target, [...from, page.id]);
+        }
+      }
     }
   }
 
@@ -63,6 +74,7 @@ export function buildWikiIndex(datasets: WikiDataset[]): WikiIndex {
     ofKind: (...kinds) => pages.filter((p) => kinds.includes(p.kind)),
     resolve,
     unresolved: [...unresolved].sort(),
+    backlinks,
   };
 }
 

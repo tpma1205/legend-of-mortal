@@ -48,4 +48,15 @@ describe("buildWikiIndex", () => {
     };
     expect(buildWikiIndex([dataset(page)]).unresolved).toEqual(["@無名氏", "missing/page"]);
   });
+
+  it("lists which pages link to a page (excluding itself), each once", () => {
+    const link = (to: string): WikiPage["blocks"] => [{ type: "p", text: [{ text: "x", to }, { text: "y", to }] }];
+    const a: WikiPage = { id: "a", kind: "other", title: "A", tags: [], blocks: link("b") };
+    const b: WikiPage = { id: "b", kind: "other", title: "B", tags: [], blocks: link("b") };
+    const c: WikiPage = { id: "c", kind: "character", title: "C", tags: [], blocks: link("@B") };
+    const idx = buildWikiIndex([dataset(a, b, c)]);
+    expect(idx.backlinks.get("b")).toEqual(["a", "c"]);
+    expect(idx.backlinks.has("a")).toBe(false);
+  });
 });
+
