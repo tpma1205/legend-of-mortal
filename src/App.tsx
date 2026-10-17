@@ -4,6 +4,8 @@ import type { WikiIndex } from "./guide/wikiIndex";
 import { TimelineSidebar } from "./ui/TimelineSidebar";
 import { SectionSidebar, pagesOfSection } from "./ui/SectionSidebar";
 import { SearchView } from "./ui/SearchView";
+import { PlaceholderView } from "./ui/PlaceholderView";
+import { entryForPageId } from "./guide/endingList";
 import { WikiPageView } from "./ui/WikiPageView";
 import { SECTIONS, sectionOfKind } from "./ui/sections";
 import { searchHref, sectionHref, useRoute, useStoredBool, type Route } from "./ui/route";
@@ -12,6 +14,7 @@ function activeNav(route: Route, index: WikiIndex | null): string {
   if (route.page === "section") return route.section;
   if (route.page === "wiki") {
     const kind = index?.byId.get(route.id)?.kind;
+    if (!kind && /^event\/(ends\/end|badends\/badend)-\d+$/.test(route.id)) return "endings";
     return (kind && sectionOfKind(kind)?.id) || "guide";
   }
   if (route.page === "search") return "";
@@ -35,7 +38,24 @@ export function App() {
   }, [route]);
 
   const page = route.page === "wiki" ? index?.byId.get(route.id) : undefined;
-  const section = route.page === "section" ? SECTIONS.find((s) => s.id === route.section) : page ? sectionOfKind(page.kind) : undefined;
+  // 汗青書 / 生死簿 numbers the wiki lists but has not written up still get their own page
+  const placeholder = (() => {
+    if (!index || route.page !== "wiki" || page) return undefined;
+    for (const [kind, dir, prefix, noun] of [["ending", "event/ends", "end-", "汗青書"], ["badend", "event/badends", "badend-", "生死簿"]] as const) {
+      const overview = index.byId.get(`${dir}/index`);
+      const entry = entryForPageId(route.id, overview, index.ofKind(kind), prefix, noun);
+      if (entry) return { entry, noun, overviewId: `${dir}/index`, sectionId: "endings" };
+    }
+    return undefined;
+  })();
+  const section =
+    route.page === "section"
+      ? SECTIONS.find((s) => s.id === route.section)
+      : page
+        ? sectionOfKind(page.kind)
+        : placeholder
+          ? SECTIONS.find((s) => s.id === placeholder.sectionId)
+          : undefined;
   const sectionPages = index && route.page === "section" && section ? pagesOfSection(index, section) : [];
   // a section made of one to three pages opens its first page straight away
   const autoOpen = sectionPages.length > 0 && sectionPages.length <= 3 ? sectionPages[0] : undefined;
@@ -43,7 +63,7 @@ export function App() {
 
   const side = index
     ? section
-      ? <SectionSidebar index={index} section={section} activeId={page?.id ?? autoOpen?.id ?? ""} />
+      ? <SectionSidebar index={index} section={section} activeId={page?.id ?? (placeholder ? placeholder.entry.pageId : autoOpen?.id) ?? ""} />
       : route.page !== "search" && <TimelineSidebar index={index} activeId={page?.id ?? ""} />
     : null;
   const nav = activeNav(route, index);
@@ -82,7 +102,7 @@ export function App() {
       <main id="main">
         {loadError && <p className="empty">資料載入失敗：{loadError}</p>}
         {!index && !loadError && <p className="empty">載入中…</p>}
-        {index && route.page === "wiki" && (page ? <WikiPageView page={page} index={index} /> : <p className="empty">找不到這一頁。</p>)}
+        {index && route.page === "wiki" && (page ? <WikiPageView page={page} index={index} /> : placeholder ? <PlaceholderView {...placeholder} /> : <p className="empty">找不到這一頁。</p>)}
         {index && route.page === "section" && section && (autoOpen ? <WikiPageView page={autoOpen} index={index} /> : (
           <div className="home">
             <h1>{section.label}</h1>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { endingEntries } from "./endingList";
+import { endingEntries, entryForPageId } from "./endingList";
 import type { Block, WikiPage } from "./wiki";
 
 const cell = (text: string) => [[{ text }]];
@@ -20,11 +20,11 @@ describe("endingEntries", () => {
     expect(out.map((e) => [e.no, e.label])).toEqual([[1, "汗青書1：甲"], [2, "汗青書2：乙"]]);
   });
 
-  it("links to the detail page when the wiki has one, and marks the rest as missing", () => {
+  it("gives every entry its own page id, and marks the ones the wiki has no content for", () => {
     const idx = index("event/ends/index", [["結局 1", "甲"], ["結局 2", "乙"]]);
     const out = endingEntries(idx, [idx, detail("event/ends/end-2", "汗青書2：乙")], "end-", "汗青書");
     expect(out.map((e) => [e.no, e.pageId, e.missing])).toEqual([
-      [1, undefined, true],
+      [1, "event/ends/end-1", true],
       [2, "event/ends/end-2", false],
     ]);
   });
@@ -32,6 +32,12 @@ describe("endingEntries", () => {
   it("reads the 生死簿 spelling of the number cell", () => {
     const idx = index("event/badends/index", [["生死簿 No.12", "樣本"]]);
     expect(endingEntries(idx, [idx], "badend-", "生死簿")[0]).toMatchObject({ no: 12, label: "生死簿12：樣本" });
+  });
+
+  it("finds the entry behind a page id, including ones with no wiki page", () => {
+    const idx = index("event/ends/index", [["結局 1", "甲"]]);
+    expect(entryForPageId("event/ends/end-1", idx, [idx], "end-", "汗青書")?.label).toBe("汗青書1：甲");
+    expect(entryForPageId("event/ends/end-9", idx, [idx], "end-", "汗青書")).toBeUndefined();
   });
 
   it("ignores rows without a number and a missing index page", () => {

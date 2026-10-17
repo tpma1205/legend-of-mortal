@@ -4,8 +4,8 @@ export interface EndingEntry {
   no: number;
   /** e.g. 「汗青書25：退隱江湖」 */
   label: string;
-  /** the wiki's detail page, when it has one */
-  pageId?: string;
+  /** this entry's own page id; the wiki has content for it unless `missing` */
+  pageId: string;
   /** true when the wiki lists this number but has not written its detail page yet */
   missing: boolean;
 }
@@ -31,8 +31,13 @@ export function endingEntries(index: WikiPage | undefined, pages: WikiPage[], id
       const name = plain(row[1] ?? []).trim();
       const pageId = `${dir}/${idPrefix}${no}`;
       const exists = have.has(pageId);
-      entries.push({ no, label: `${noun}${no}${name ? `：${name}` : ""}`, pageId: exists ? pageId : undefined, missing: !exists });
+      entries.push({ no, label: `${noun}${no}${name ? `：${name}` : ""}`, pageId, missing: !exists });
     }
   }
   return entries.sort((a, b) => a.no - b.no);
+}
+
+/** the entry behind a page id such as `event/ends/end-1`, whether or not the wiki wrote that page */
+export function entryForPageId(id: string, index: WikiPage | undefined, pages: WikiPage[], idPrefix: string, noun: string): EndingEntry | undefined {
+  return endingEntries(index, pages, idPrefix, noun).find((e) => e.pageId === id);
 }

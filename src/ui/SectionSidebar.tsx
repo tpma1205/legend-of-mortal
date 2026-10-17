@@ -16,7 +16,7 @@ interface Item {
   label: string;
   /** page this item opens */
   pageId: string;
-  /** true when the wiki lists the entry but has no detail page; the item opens the wiki's overview table */
+  /** true when the wiki lists the entry but has no detail page yet */
   missing?: boolean;
   badge?: string;
 }
@@ -36,7 +36,7 @@ function numbered(index: WikiIndex, kind: "ending" | "badend"): Group {
   const dir = kind === "ending" ? "event/ends" : "event/badends";
   const overview = index.byId.get(`${dir}/index`);
   const entries = endingEntries(overview, index.ofKind(kind), kind === "ending" ? "end-" : "badend-", noun);
-  const items: Item[] = entries.map((e) => ({ key: `${kind}-${e.no}`, label: e.label, pageId: e.pageId ?? `${dir}/index`, missing: e.missing }));
+  const items: Item[] = entries.map((e) => ({ key: `${kind}-${e.no}`, label: e.label, pageId: e.pageId, missing: e.missing }));
   if (overview) items.unshift({ key: overview.id, label: `${noun}總表`, pageId: overview.id });
   return { label: noun, items };
 }
@@ -86,8 +86,7 @@ export function SectionSidebar({ index, section, activeId }: { index: WikiIndex;
                 <a
                   className={it.missing ? "missing" : undefined}
                   href={wikiHref(it.pageId)}
-                  title={it.missing ? "wiki 尚未寫這一條的詳細頁，條件請見總表" : undefined}
-                  aria-current={!it.missing && it.pageId === activeId ? "page" : undefined}
+                  aria-current={it.pageId === activeId ? "page" : undefined}
                 >
                   <span>{it.label}</span>
                   {it.badge && <span className="badge">{it.badge}</span>}
