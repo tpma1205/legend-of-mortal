@@ -1,16 +1,40 @@
 import { useEffect, useState } from "react";
 
-export type Route = { page: "event"; id: string } | { page: "endings"; id?: string } | { page: "home" };
+export type Route =
+  | { page: "home" }
+  | { page: "event"; id: string }
+  | { page: "endings"; id?: string }
+  | { page: "section"; section: string }
+  | { page: "wiki"; id: string }
+  | { page: "search"; q: string };
+
+const dec = (s: string) => {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s;
+  }
+};
 
 export function parseHash(hash: string): Route {
-  const [, page, id] = hash.replace(/^#/, "").split("/");
-  if (page === "event" && id) return { page: "event", id: decodeURIComponent(id) };
-  if (page === "endings") return { page: "endings", id: id ? decodeURIComponent(id) : undefined };
+  const path = hash.replace(/^#\/?/, "");
+  const [head, ...rest] = path.split("/");
+  const tail = rest.join("/");
+  if (head === "event" && tail) return { page: "event", id: dec(tail) };
+  if (head === "endings") return { page: "endings", id: tail ? dec(tail) : undefined };
+  if (head === "s" && tail) return { page: "section", section: dec(tail) };
+  if (head === "w" && tail) return { page: "wiki", id: dec(tail) };
+  if (head === "search") return { page: "search", q: dec(tail) };
   return { page: "home" };
 }
 
+const enc = (id: string) => id.split("/").map(encodeURIComponent).join("/");
+
 export const eventHref = (id: string) => `#/event/${encodeURIComponent(id)}`;
 export const endingHref = (id?: string) => (id ? `#/endings/${encodeURIComponent(id)}` : "#/endings");
+export const sectionHref = (section: string) => `#/s/${encodeURIComponent(section)}`;
+export const wikiHref = (id: string) => `#/w/${enc(id)}`;
+export const searchHref = (q: string) => `#/search/${encodeURIComponent(q)}`;
 
 export function useRoute(): Route {
   const [route, setRoute] = useState(() => parseHash(location.hash));

@@ -1,0 +1,94 @@
+import { describe, expect, it } from "vitest";
+import { convertPage, kindOf } from "./convert";
+
+const page = (body: string, title = "測試") => `---\ntitle: ${title}\ntags:\n    - 武功\n    - 秘笈\n---\n\n# {{ $frontmatter.title }}\n\n${body}`;
+
+describe("convertPage", () => {
+  it("reads title, tags and drops the title heading and images", () => {
+    const p = convertPage("system/books/book_1", page('<img src="/a.webp">\n\n內文一行。', "金剛腿"));
+    expect(p.title).toBe("金剛腿");
+    expect(p.tags).toEqual(["武功", "秘笈"]);
+    expect(p.kind).toBe("book");
+    expect(p.blocks).toEqual([{ type: "p", text: [{ text: "內文一行。" }] }]);
+  });
+
+  it("turns wiki links into references", () => {
+    const p = convertPage("event/ends/end-1", page("見[[李富貴|四師兄]]與[[唐惟元]]，詳見[武林盟對策](/event/simple/3-12-1-武林盟對策)。"));
+    expect(p.blocks[0]).toEqual({
+      type: "p",
+      text: [
+        { text: "見" },
+        { text: "四師兄", to: "@李富貴" },
+        { text: "與" },
+        { text: "唐惟元", to: "@唐惟元" },
+        { text: "，詳見" },
+        { text: "武林盟對策", to: "event/simple/3-12-1-武林盟對策" },
+        { text: "。" },
+      ],
+    });
+  });
+
+  it("splits lines on <br> and keeps hover notes", () => {
+    const p = convertPage("event/simple/1-04-1-x", page('<span title="道德+1">「好言相勸」</span><br>下一行'));
+    expect(p.blocks).toEqual([
+      { type: "p", text: [{ text: "「好言相勸」", note: "道德+1" }] },
+      { type: "p", text: [{ text: "下一行" }] },
+    ]);
+  });
+
+  it("parses html tables into rows of cells of lines", () => {
+    const body = "<table><tr><td>等級</td><td>效果</td></tr><tr><td>LV1</td><td>體力1<br>輕功1</td></tr></table>";
+    const p = convertPage("system/books/book_1", page(body));
+    expect(p.blocks).toEqual([
+      {
+        type: "table",
+        rows: [
+          [[[{ text: "等級" }]], [[{ text: "效果" }]]],
+          [[[{ text: "LV1" }]], [[{ text: "體力1" }], [{ text: "輕功1" }]]],
+        ],
+      },
+    ]);
+  });
+
+  it("parses headings and nested ordered/bullet lists", () => {
+    const p = convertPage("event/badends/badend-1", page("## 條件與流程\n\n1. 第一步\n2. 第二步\n   + 子項"));
+    expect(p.blocks[0]).toEqual({ type: "h", level: 2, text: [{ text: "條件與流程" }] });
+    expect(p.blocks[1]).toEqual({
+      type: "list",
+      ordered: true,
+      items: [
+        { depth: 0, text: [{ text: "第一步" }] },
+        { depth: 0, text: [{ text: "第二步" }] },
+        { depth: 1, text: [{ text: "子項" }] },
+      ],
+    });
+  });
+
+  it("drops vitepress container markers and blockquote arrows", () => {
+    const p = convertPage("event/ends/end-1", page("::: warning包含攻略內容:::\n\n::: details\n- 項目\n:::\n\n> 引言"));
+    expect(p.blocks).toEqual([
+      { type: "p", text: [{ text: "包含攻略內容" }] },
+      { type: "list", ordered: false, items: [{ depth: 0, text: [{ text: "項目" }] }] },
+      { type: "p", text: [{ text: "引言" }] },
+    ]);
+  });
+
+  it("keeps the text of vue wrapper components but not their markup", () => {
+    const p = convertPage("event/ends/end-1", page('<EndBackground no=25 title="退隱江湖">\n你退隱之後。<br>\n波瀾。\n</EndBackground>'));
+    expect(p.blocks.map((b) => b.type)).toEqual(["p", "p"]);
+  });
+});
+
+describe("kindOf", () => {
+  it("maps wiki paths to kinds", () => {
+    expect(kindOf("people/characters/girl2")).toBe("character");
+    expect(kindOf("system/books/book_4001")).toBe("book");
+    expect(kindOf("event/ends/end-25")).toBe("ending");
+    expect(kindOf("event/badends/badend-1")).toBe("badend");
+    expect(kindOf("event/achievements/index")).toBe("achievement");
+    expect(kindOf("event/simple/1-04-1-偷懶怪")).toBe("event");
+    expect(kindOf("system/skill")).toBe("skill");
+    expect(kindOf("system/items/index")).toBe("item");
+    expect(kindOf("other/qna/x")).toBe("other");
+  });
+});

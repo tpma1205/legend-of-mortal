@@ -1,0 +1,16 @@
+{
+  "source": {
+    "site": "活俠傳 wiki",
+    "url": "https://smilin.net/LoM-wiki/",
+    "license": "CC BY-NC-SA 4.0",
+    "commit": "2a86bb0",
+    "version": "v1.0.3130",
+    "date": "2026-10-17"
+  },
+  "skipped": [
+    {
+      "id": "event/pursuit/index",
+      "reason": "no content blocks"
+    }
+  ]
+}
