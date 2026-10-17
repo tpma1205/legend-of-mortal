@@ -42,7 +42,7 @@ export function hrefToId(href: string): string | undefined {
   return p.endsWith("/") ? `${p}index` : p;
 }
 
-const INLINE = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]|\[([^\]]+)\]\(([^)\s]+)\)|<span\b[^>]*?title="([^"]*)"[^>]*>([\s\S]*?)<\/span>/g;
+const INLINE = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]|\[((?:\\.|[^\]\\])+)\]\(([^)\s]+)\)|<span\b[^>]*?title="([^"]*)"[^>]*>([\s\S]*?)<\/span>|\|\|(.+?)\|\||~~(.+?)~~/g;
 
 const plain = (s: string) =>
   decode(
@@ -61,11 +61,16 @@ function inline(line: string): Inline[] {
   let last = 0;
   for (const m of line.matchAll(INLINE)) {
     push(plain(line.slice(last, m.index)));
-    if (m[1]) push(plain(m[2] ?? m[1]), { to: `@${m[1].split("#")[0].trim()}` });
+    if (m[1]) push(plain(m[2] || m[1]), { to: `@${m[1].split("#")[0].trim()}` });
     else if (m[3]) {
       const to = hrefToId(m[4]);
-      push(plain(m[3]), to ? { to } : {});
-    } else push(plain(m[6]), { note: plain(m[5]).trim() });
+      const text = plain(m[3].replace(/\\([[\]])/g, "$1"));
+      push(text, to ? { to } : /^https?:/i.test(m[4]) ? { href: m[4] } : {});
+    } else if (m[6] !== undefined) {
+      const note = plain(m[5]).trim();
+      out.push(...inline(m[6]).map((r) => ({ ...r, note: r.note ?? note })));
+    } else if (m[7] !== undefined) out.push(...inline(m[7]).map((r) => ({ ...r, spoiler: true })));
+    else out.push(...inline(m[8]).map((r) => ({ ...r, strike: true })));
     last = m.index! + m[0].length;
   }
   push(plain(line.slice(last)));
@@ -82,6 +87,8 @@ function trimRuns(runs: Inline[]): Inline[] {
 
 const lines = (html: string): Inline[][] =>
   html
+    // a [[link]] whose name runs across a <br> stays one link
+    .replace(/\[\[[^\]]*\]\]/g, (m) => m.replace(/<br\s*\/?>/gi, " "))
     .replace(/<br\s*\/?>/gi, "\n")
     .split("\n")
     .map(inline)
@@ -145,6 +152,59 @@ function tableBlock(html: string): Block {
   return { type: "table", rows };
 }
 
+const FENCE = /^\s*```\s*([\w-]*)\s*$/;
+const HR = /^\s*(?:-{3,}|\*{3,})\s*$/;
+const PIPE_ROW = /^\s*\|.*\|\s*$/;
+const PIPE_SEP = /^\s*\|?(?:\s*:?-{2,}:?\s*\|)+\s*:?-*:?\s*$/;
+
+const stripTags = (s: string) => s.replace(/<[^>]*>/g, "");
+
+/**
+ * A mermaid flowchart of upgrades (A --> B) read as an indented list: what each item needs, and what it upgrades into.
+ * Dotted edges are refunds; their label becomes one note under the list.
+ */
+function mermaidBlocks(source: string): Block[] {
+  const nodes = new Map<string, string[]>();
+  const children = new Map<string, string[]>();
+  const hasParent = new Set<string>();
+  const refunds = new Set<string>();
+  for (const raw of source.split("\n")) {
+    const line = raw.trim();
+    if (!line || line.startsWith("%%")) continue;
+    const edge = line.match(/^([A-Za-z]\w*)\s*(-->|-\.->)\s*(?:\|([^|]*)\|\s*)?([A-Za-z]\w*)$/);
+    if (edge) {
+      if (edge[2] === "-->") {
+        children.set(edge[1], [...(children.get(edge[1]) ?? []), edge[4]]);
+        hasParent.add(edge[4]);
+      } else if (edge[3]) refunds.add(plain(stripTags(edge[3])).trim());
+      continue;
+    }
+    const node = line.match(/^([A-Za-z]\w*)\[(.*?)\]?$/);
+    if (node && !/^(?:style|linkStyle|classDef|subgraph|graph|end)\b/.test(line)) {
+      const label = node[2]
+        .replace(/<img\b[^>]*>/gi, "")
+        .split(/<br\s*\/?>/i)
+        .map((l) => plain(l).trim())
+        .filter(Boolean);
+      if (label.length) nodes.set(node[1], label);
+    }
+  }
+  if (nodes.size === 0) return [{ type: "code", text: source }];
+  const text = (id: string): Inline[] => {
+    const [name, ...rest] = nodes.get(id) ?? [id];
+    return [{ text: rest.length ? `${name}（${rest.join("，")}）` : name }];
+  };
+  const items: { depth: number; text: Inline[] }[] = [];
+  const walk = (id: string, depth: number, path: string[]) => {
+    items.push({ depth, text: text(id) });
+    for (const c of children.get(id) ?? []) if (!path.includes(c)) walk(c, depth + 1, [...path, c]);
+  };
+  for (const id of nodes.keys()) if (!hasParent.has(id)) walk(id, 0, [id]);
+  const blocks: Block[] = [{ type: "list", items, ordered: false }];
+  if (refunds.size) blocks.push({ type: "p", text: [{ text: `退還：${[...refunds].join("；")}` }] });
+  return blocks;
+}
+
 function textBlocks(chunk: string): Block[] {
   const blocks: Block[] = [];
   let para: string[] = [];
@@ -158,6 +218,10 @@ function textBlocks(chunk: string): Block[] {
     if (list.length) blocks.push({ type: "list", items: list, ordered });
     list = [];
   };
+  const flush = () => {
+    flushPara();
+    flushList();
+  };
   // footnote markers are dropped; "[^1]: text" definitions become "註1：text" lines
   const withNotes = cleanChunk(chunk)
     .split("\n")
@@ -166,34 +230,76 @@ function textBlocks(chunk: string): Block[] {
         ? l.split(/(?=\[\^\d+\]:)/).flatMap((d) => [d.replace(/^\[\^(\d+)\]:\s*/, "註$1："), ""])
         : [l.replace(/\[\^\d+\]/g, "")],
     );
-  for (const raw of withNotes) {
-    const line = raw
-      .replace(/\s+$/, "")
-      .replace(/^\s*:::\s*(?:details|tip|warning|info|danger|note)?\s*/, "")
-      .replace(/\s*:::\s*$/, "")
-      .replace(/^>\s?/, "");
-    const h = line.match(/^(#{1,6})\s+(.*)$/);
-    const li = line.match(/^(\s*)([-+*]|\d+\.)\s+(.*)$/);
-    if (!line.trim()) {
-      flushPara();
-      flushList();
-    } else if (h) {
-      flushPara();
-      flushList();
-      blocks.push({ type: "h", level: h[1].length, text: inline(h[2].replace(/<br\s*\/?>/gi, " ")) });
-    } else if (li) {
-      flushPara();
-      if (list.length === 0) ordered = /\d/.test(li[2]);
-      const depth = li[1].length === 0 ? 0 : Math.ceil(li[1].replace(/\t/g, "    ").length / 3);
-      const no = /^\d+\./.test(li[2]) ? parseInt(li[2], 10) : undefined;
-      lines(li[3]).forEach((l, k) => list.push({ depth, ...(no !== undefined && k === 0 ? { no } : {}), text: l }));
-    } else {
-      flushList();
-      para.push(line.trim());
+
+  // split off fenced code first: its lines must not be read as markdown
+  const rows: ({ text: string } | { fence: string; body: string[] })[] = [];
+  for (let i = 0; i < withNotes.length; i++) {
+    const f = withNotes[i].match(FENCE);
+    if (!f) {
+      rows.push({ text: withNotes[i] });
+      continue;
     }
+    const body: string[] = [];
+    for (i++; i < withNotes.length && !FENCE.test(withNotes[i]); i++) body.push(withNotes[i]);
+    rows.push({ fence: f[1], body });
   }
-  flushPara();
-  flushList();
+
+  const textRows = (items: { text: string }[]) => {
+    const src = items.map((r) =>
+      r.text
+        .replace(/\s+$/, "")
+        .replace(/^\s*:::\s*(?:details|tip|warning|info|danger|note)?\s*/, "")
+        .replace(/\s*:::\s*$/, "")
+        .replace(/^>\s?/, ""),
+    );
+    for (let i = 0; i < src.length; i++) {
+      const line = src[i];
+      const h = line.match(/^(#{1,6})\s+(.*)$/);
+      const li = line.match(/^(\s*)([-+*]|\d+\.)\s+(.*)$/);
+      if (!line.trim()) flush();
+      else if (HR.test(line)) {
+        flush();
+        blocks.push({ type: "hr" });
+      } else if (PIPE_ROW.test(line) && i + 1 < src.length && PIPE_SEP.test(src[i + 1])) {
+        flush();
+        const cells = (row: string) =>
+          row
+            .trim()
+            .replace(/^\||\|$/g, "")
+            .split(/\|(?![^[]*\]\])/) // not the pipe of a [[name|alias]] link
+            .map((c) => lines(c.trim()));
+        const table: Inline[][][][] = [cells(line)];
+        for (i += 2; i < src.length && PIPE_ROW.test(src[i]); i++) table.push(cells(src[i]));
+        i--;
+        blocks.push({ type: "table", rows: table });
+      } else if (h) {
+        flush();
+        blocks.push({ type: "h", level: h[1].length, text: inline(h[2].replace(/<br\s*\/?>/gi, " ")) });
+      } else if (li) {
+        flushPara();
+        if (list.length === 0) ordered = /\d/.test(li[2]);
+        const depth = li[1].length === 0 ? 0 : Math.ceil(li[1].replace(/\t/g, "    ").length / 3);
+        const no = /^\d+\./.test(li[2]) ? parseInt(li[2], 10) : undefined;
+        lines(li[3]).forEach((l, k) => list.push({ depth, ...(no !== undefined && k === 0 ? { no } : {}), text: l }));
+      } else {
+        flushList();
+        para.push(line.trim());
+      }
+    }
+    flush();
+  };
+
+  let pending: { text: string }[] = [];
+  for (const r of rows) {
+    if ("fence" in r) {
+      textRows(pending);
+      pending = [];
+      const body = r.body.join("\n").replace(/\s+$/, "");
+      if (r.fence === "mermaid") blocks.push(...mermaidBlocks(body));
+      else blocks.push({ type: "code", text: body });
+    } else pending.push(r);
+  }
+  textRows(pending);
   return blocks;
 }
 
@@ -215,5 +321,8 @@ export function convertPage(id: string, src: string): WikiPage {
     if (/^<table\b/i.test(part)) blocks.push(tableBlock(part));
     else blocks.push(...textBlocks(part));
   }
+  // the site prints the page title itself; a first heading that only repeats it is noise
+  const first = blocks[0];
+  if (first?.type === "h" && first.text.map((r) => r.text).join("") === title) blocks.shift();
   return { id, kind: kindOf(id), title, tags, blocks };
 }

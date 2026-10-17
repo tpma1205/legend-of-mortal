@@ -181,3 +181,11 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 .m-seal-colophon__date { white-space: nowrap; }
 @media (max-width: 800px) { .foot > :first-child { margin-right: 1rem; } }
 @media (max-width: 800px) { main > .foot { margin: 2rem -1rem -2.5rem; border-top: 1px solid var(--line); } }
+
+/* wiki marks: ~~struck~~ text, ||hidden|| text, rules and code */
+.wiki-page s { opacity: 0.7; text-decoration-thickness: 1px; }
+.spoiler { filter: blur(5px); cursor: pointer; transition: filter 0.25s cubic-bezier(0.16, 1, 0.3, 1); border-radius: 2px; }
+.spoiler:hover, .spoiler:focus, .spoiler:focus-visible, .spoiler:active { filter: none; outline: none; background: var(--wash); }
+.wiki-hr { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0; }
+.wiki-code { overflow-x: auto; padding: 0.75rem 1rem; background: var(--wash); border: 1px solid var(--line); font: 0.875rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; }
+@media (prefers-reduced-motion: reduce) { .spoiler { transition: none; } }

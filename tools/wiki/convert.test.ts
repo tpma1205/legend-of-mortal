@@ -121,6 +121,128 @@ describe("convertPage", () => {
     ]);
   });
 
+  it("reads ~~strike~~ and ||spoiler|| marks, keeping links inside them", () => {
+    const p = convertPage("people/characters/x", page("他是~~渣男~~，關係：||[[唐錚]] (哥哥)||。"));
+    expect(p.blocks).toEqual([
+      {
+        type: "p",
+        text: [
+          { text: "他是" },
+          { text: "渣男", strike: true },
+          { text: "，關係：" },
+          { text: "唐錚", to: "@唐錚", spoiler: true },
+          { text: " (哥哥)", spoiler: true },
+          { text: "。" },
+        ],
+      },
+    ]);
+  });
+
+  it("keeps links that sit inside a hover note, and accepts an empty alias", () => {
+    const p = convertPage("event/simple/x", page('<span title="需晁和">接[失魂醒轉](/event/simple/3-11-1-失魂醒轉#夢中仙人)</span>，見[[溫夫人|]]。'));
+    expect(p.blocks).toEqual([
+      {
+        type: "p",
+        text: [
+          { text: "接", note: "需晁和" },
+          { text: "失魂醒轉", to: "event/simple/3-11-1-失魂醒轉", note: "需晁和" },
+          { text: "，見" },
+          { text: "溫夫人", to: "@溫夫人" },
+          { text: "。" },
+        ],
+      },
+    ]);
+  });
+
+  it("turns a horizontal rule into an hr block", () => {
+    const p = convertPage("event/badends/x", page("上文\n\n---\n\n下文"));
+    expect(p.blocks.map((b) => b.type)).toEqual(["p", "hr", "p"]);
+  });
+
+  it("keeps a fenced code block as code", () => {
+    const p = convertPage("other/x", page("說明\n\n```\nline 1\n  line 2\n```\n\n後面"));
+    expect(p.blocks).toEqual([
+      { type: "p", text: [{ text: "說明" }] },
+      { type: "code", text: "line 1\n  line 2" },
+      { type: "p", text: [{ text: "後面" }] },
+    ]);
+  });
+
+  it("reads a markdown pipe table, but not a ||spoiler|| line", () => {
+    const p = convertPage("event/detailed_description/x", page("| 甲 | 乙 |\n| --- | --- |\n| 1 | 2 |\n\n||隱藏||"));
+    expect(p.blocks[0]).toEqual({
+      type: "table",
+      rows: [
+        [[[{ text: "甲" }]], [[{ text: "乙" }]]],
+        [[[{ text: "1" }]], [[{ text: "2" }]]],
+      ],
+    });
+    expect(p.blocks[1]).toEqual({ type: "p", text: [{ text: "隱藏", spoiler: true }] });
+  });
+
+  it("does not split a pipe table cell on the pipe of a [[name|alias]] link", () => {
+    const p = convertPage("event/detailed_description/x", page("| 條件 | 結果 |\n| --- | --- |\n| [[甲|別名]] | 成功 |"));
+    expect(p.blocks[0]).toEqual({
+      type: "table",
+      rows: [
+        [[[{ text: "條件" }]], [[{ text: "結果" }]]],
+        [[[{ text: "別名", to: "@甲" }]], [[{ text: "成功" }]]],
+      ],
+    });
+  });
+
+  it("drops a leading heading that only repeats the page title", () => {
+    const p = convertPage("system/forge-roadmap", page("## 路線圖\n\n內文", "路線圖"));
+    expect(p.blocks).toEqual([{ type: "p", text: [{ text: "內文" }] }]);
+  });
+
+  it("turns a mermaid upgrade chart into an indented list plus its refund note", () => {
+    const chart = [
+      "```mermaid",
+      "graph TB",
+      "  subgraph 鍛冶場",
+      '    A[唐門小劍<img src="/a.webp"><br>需要：無]',
+      '    B[唐門菁英小劍<img src="/b.webp"><br>需要：裝備等級5<br>門派規模2]',
+      "    C[切魚刀<br>需要：裝備等級5]",
+      "  end",
+      "  %% 升級箭頭",
+      "  A --> B",
+      "  A --> C",
+      "  B -.->|<font color='#00FF00'>退還消耗90%</font>| A",
+      "  linkStyle 0 stroke:#FFD700",
+      "  style A stroke:#FFF",
+      "```",
+    ].join("\n");
+    const p = convertPage("system/forge-roadmap", page(chart));
+    expect(p.blocks).toEqual([
+      {
+        type: "list",
+        ordered: false,
+        items: [
+          { depth: 0, text: [{ text: "唐門小劍（需要：無）" }] },
+          { depth: 1, text: [{ text: "唐門菁英小劍（需要：裝備等級5，門派規模2）" }] },
+          { depth: 1, text: [{ text: "切魚刀（需要：裝備等級5）" }] },
+        ],
+      },
+      { type: "p", text: [{ text: "退還：退還消耗90%" }] },
+    ]);
+  });
+
+  it("keeps external links, including escaped brackets in their text", () => {
+    const p = convertPage("people/characters/x", page("註：PTT－[\\[活俠\\] 小知識](https://www.ptt.cc/bbs/a.html)"));
+    expect(p.blocks).toEqual([
+      { type: "p", text: [{ text: "註：PTT－" }, { text: "[活俠] 小知識", href: "https://www.ptt.cc/bbs/a.html" }] },
+    ]);
+  });
+
+  it("does not split a [[link]] whose name runs across a <br>", () => {
+    const body = "<table><tr><td>[[眾人的決策#其他門派<br>飛石幫支援]]<br>下一行</td></tr></table>";
+    const p = convertPage("event/detailed_description/x", page(body));
+    expect(p.blocks).toEqual([
+      { type: "table", rows: [[[[{ text: "眾人的決策#其他門派 飛石幫支援", to: "@眾人的決策" }], [{ text: "下一行" }]]]] },
+    ]);
+  });
+
   it("keeps the text of vue wrapper components but not their markup", () => {
     const p = convertPage("event/ends/end-1", page('<EndBackground no=25 title="退隱江湖">\n你退隱之後。<br>\n波瀾。\n</EndBackground>'));
     expect(p.blocks.map((b) => b.type)).toEqual(["p", "p"]);

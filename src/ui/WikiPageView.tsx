@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { MBreadcrumb, MBreadcrumbItem, MBorder, MCard, MDivider } from "@shuimo-design/react";
 import type { Block, Inline, WikiPage } from "../guide/wiki";
 import type { WikiIndex } from "../guide/wikiIndex";
@@ -38,19 +38,50 @@ function Noted({ text, note }: { text: string; note: string }) {
   );
 }
 
+/** a run struck through or hidden in the wiki keeps that look; a hidden run opens on hover, focus or tap */
+function Styled({ run, children }: { run: Inline; children: ReactNode }) {
+  let out = children;
+  if (run.strike) out = <s>{out}</s>;
+  if (run.spoiler) {
+    out = (
+      <span className="spoiler" tabIndex={0} title="點一下或移上去看">
+        {out}
+      </span>
+    );
+  }
+  return <>{out}</>;
+}
+
 function Runs({ runs, index }: { runs: Inline[]; index: WikiIndex }) {
   return (
     <>
       {runs.map((r, i) => {
         const target = index.resolve(r.to);
-        if (target) {
-          return (
-            <a key={i} href={wikiHref(target)}>
-              {r.note ? <span className="noted-link" title={r.note}><Text text={r.text} /></span> : <Text text={r.text} />}
+        let body: ReactNode;
+        if (r.href) {
+          body = (
+            <a href={r.href} target="_blank" rel="noreferrer">
+              <Text text={r.text} />
             </a>
           );
-        }
-        return r.note ? <Noted key={i} text={r.text} note={r.note} /> : <Text key={i} text={r.text} />;
+        } else if (target) {
+          body = (
+            <a href={wikiHref(target)}>
+              {r.note ? (
+                <span className="noted-link" title={r.note}>
+                  <Text text={r.text} />
+                </span>
+              ) : (
+                <Text text={r.text} />
+              )}
+            </a>
+          );
+        } else body = r.note ? <Noted text={r.text} note={r.note} /> : <Text text={r.text} />;
+        return (
+          <Styled key={i} run={r}>
+            {body}
+          </Styled>
+        );
       })}
     </>
   );
@@ -89,6 +120,10 @@ function BlockView({ block, index, header, guessHeader, n }: { block: Block; ind
         </ul>
       );
     }
+    case "hr":
+      return <hr className="wiki-hr" />;
+    case "code":
+      return <pre className="wiki-code">{block.text}</pre>;
     case "table": {
       const asHeader = header || (kindAllowsGuess && looksLikeHeader(block.rows));
       return (

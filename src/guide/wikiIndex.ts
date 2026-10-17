@@ -27,6 +27,10 @@ export function inlinesOf(block: Block): Inline[] {
       return block.items.flatMap((i) => i.text);
     case "table":
       return block.rows.flatMap((r) => r.flatMap((c) => c.flat()));
+    case "hr":
+      return [];
+    case "code":
+      return [{ text: block.text }];
   }
 }
 

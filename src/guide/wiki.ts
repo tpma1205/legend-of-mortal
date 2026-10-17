@@ -4,13 +4,21 @@ export interface Inline {
   to?: string;
   /** hover tooltip from the wiki (e.g. stat changes next to a choice) */
   note?: string;
+  /** an external web address (e.g. a PTT thread cited by the wiki) */
+  href?: string;
+  /** ~~struck through~~ in the wiki */
+  strike?: boolean;
+  /** ||hidden until the reader asks|| in the wiki */
+  spoiler?: boolean;
 }
 
 export type Block =
   | { type: "h"; level: number; text: Inline[] }
   | { type: "p"; text: Inline[] }
   | { type: "list"; items: { depth: number; /** the number the wiki wrote (ordered items only) */ no?: number; text: Inline[] }[]; ordered: boolean }
-  | { type: "table"; rows: Inline[][][][] };  // rows[row][cell][line][run]
+  | { type: "table"; rows: Inline[][][][] }
+  | { type: "hr" }
+  | { type: "code"; text: string };  // rows[row][cell][line][run]
 
 /** One wiki page, converted to plain structure (no HTML, no images). */
 export interface WikiPage {
