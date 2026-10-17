@@ -177,3 +177,5 @@ h1 { margin: 0.25rem 0 0.75rem; font-size: clamp(1.75rem, 4vw, 2.75rem); line-he
 .badge { margin-left: 0.5rem; padding: 0 0.4rem; font-size: 0.75rem; border: 1px solid var(--seal); color: var(--seal); border-radius: 2px; white-space: nowrap; }
 .sidebar li a[aria-current="page"] .badge { color: inherit; border-color: currentColor; }
 .backlinks h2 { margin-top: 2.5rem; }
+.sidebar li a.missing { color: var(--ink-2); }
+.badge.dim { border-color: var(--line); color: var(--ink-2); }

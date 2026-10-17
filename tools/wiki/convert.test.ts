@@ -81,6 +81,11 @@ describe("convertPage", () => {
     ]);
   });
 
+  it("also reads the lowercase <Btable> spelling", () => {
+    const b = convertPage("event/badends/index", page("<Btable>\n<tr><td>編號</td></tr>\n</Btable>"));
+    expect(b.blocks).toEqual([{ type: "table", rows: [[[[{ text: "編號" }]]]] }]);
+  });
+
   it("drops footnote markers and prints footnote definitions as notes", () => {
     const p = convertPage("people/dream-sweetheart", page("- 順序如下。[^1]\n\n[^1]: 專訪[^2]: 問答集"));
     expect(p.blocks).toEqual([

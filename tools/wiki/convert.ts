@@ -173,7 +173,7 @@ function textBlocks(chunk: string): Block[] {
 /** the wiki draws tables with its own vue components; read them as plain tables */
 const normalizeTables = (s: string) =>
   s
-    .replace(/<(\/?)(?:BTable|ChTable)\b[^>]*>/g, "<$1table>")
+    .replace(/<(\/?)(?:BTable|Btable|ChTable)\b[^>]*>/g, "<$1table>")
     .replace(/<(\/?)ChTr\b[^>]*>/g, "<$1tr>")
     .replace(/<(\/?)ChTd\b[^>]*>/g, "<$1td>");
 
