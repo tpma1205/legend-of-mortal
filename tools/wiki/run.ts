@@ -8,6 +8,7 @@
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { convertPage } from "./convert";
+import { OVERRIDES, applyOverrides } from "./overrides";
 import type { WikiDataset, WikiKind, WikiPage } from "../../src/guide/wiki";
 
 const [docsDir, commit = "unknown", version = "v1.0.3130"] = process.argv.slice(2);
@@ -42,6 +43,9 @@ for (const file of walk(docsDir)) {
     skipped.push({ id, reason: String(e) });
   }
 }
+
+const edited = applyOverrides(pages, OVERRIDES);
+pages.splice(0, pages.length, ...edited);
 
 const source = {
   site: "活俠傳 wiki",

@@ -20,6 +20,8 @@ export interface WikiPage {
   title: string;
   tags: string[];
   blocks: Block[];
+  /** changes this site made to the wiki text (shown on the page, as CC BY-SA requires) */
+  edits?: string[];
 }
 
 export type WikiKind =

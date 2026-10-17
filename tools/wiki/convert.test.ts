@@ -73,6 +73,23 @@ describe("convertPage", () => {
     ]);
   });
 
+  it("reads the wiki's vue table components as tables", () => {
+    const b = convertPage("event/achievements/index", page('<BTable>\n<tr><td :unsortable="true">編號</td><td>成就</td></tr>\n</BTable>\n\n<ChTable><ChTr><ChTd isTitle=true>性別</ChTd><ChTd>女</ChTd></ChTr></ChTable>'));
+    expect(b.blocks).toEqual([
+      { type: "table", rows: [[[[{ text: "編號" }]], [[{ text: "成就" }]]]] },
+      { type: "table", rows: [[[[{ text: "性別" }]], [[{ text: "女" }]]]] },
+    ]);
+  });
+
+  it("drops footnote markers and prints footnote definitions as notes", () => {
+    const p = convertPage("people/dream-sweetheart", page("- 順序如下。[^1]\n\n[^1]: 專訪[^2]: 問答集"));
+    expect(p.blocks).toEqual([
+      { type: "list", ordered: false, items: [{ depth: 0, text: [{ text: "順序如下。" }] }] },
+      { type: "p", text: [{ text: "註1：專訪" }] },
+      { type: "p", text: [{ text: "註2：問答集" }] },
+    ]);
+  });
+
   it("keeps the text of vue wrapper components but not their markup", () => {
     const p = convertPage("event/ends/end-1", page('<EndBackground no=25 title="退隱江湖">\n你退隱之後。<br>\n波瀾。\n</EndBackground>'));
     expect(p.blocks.map((b) => b.type)).toEqual(["p", "p"]);

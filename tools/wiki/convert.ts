@@ -132,7 +132,15 @@ function textBlocks(chunk: string): Block[] {
     if (list.length) blocks.push({ type: "list", items: list, ordered });
     list = [];
   };
-  for (const raw of cleanChunk(chunk).split("\n")) {
+  // footnote markers are dropped; "[^1]: text" definitions become "註1：text" lines
+  const withNotes = cleanChunk(chunk)
+    .split("\n")
+    .flatMap((l) =>
+      /^\s*\[\^\d+\]:/.test(l)
+        ? l.split(/(?=\[\^\d+\]:)/).flatMap((d) => [d.replace(/^\[\^(\d+)\]:\s*/, "註$1："), ""])
+        : [l.replace(/\[\^\d+\]/g, "")],
+    );
+  for (const raw of withNotes) {
     const line = raw
       .replace(/\s+$/, "")
       .replace(/^\s*:::\s*(?:details|tip|warning|info|danger|note)?\s*/, "")
@@ -162,10 +170,17 @@ function textBlocks(chunk: string): Block[] {
   return blocks;
 }
 
+/** the wiki draws tables with its own vue components; read them as plain tables */
+const normalizeTables = (s: string) =>
+  s
+    .replace(/<(\/?)(?:BTable|ChTable)\b[^>]*>/g, "<$1table>")
+    .replace(/<(\/?)ChTr\b[^>]*>/g, "<$1tr>")
+    .replace(/<(\/?)ChTd\b[^>]*>/g, "<$1td>");
+
 export function convertPage(id: string, src: string): WikiPage {
   const { title, tags, body } = parseFrontmatter(src);
   const blocks: Block[] = [];
-  const parts = body.replace(/<!--[\s\S]*?-->/g, "").split(/(<table\b[\s\S]*?<\/table>)/i);
+  const parts = normalizeTables(body.replace(/<!--[\s\S]*?-->/g, "")).split(/(<table\b[\s\S]*?<\/table>)/i);
   for (const part of parts) {
     if (/^<table\b/i.test(part)) blocks.push(tableBlock(part));
     else blocks.push(...textBlocks(part));

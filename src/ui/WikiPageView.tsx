@@ -122,6 +122,17 @@ export function WikiPageView({ page, index }: { page: WikiPage; index: WikiIndex
         <BlockView key={i} block={b} index={index} header={HEADER_KINDS.has(page.kind)} />
       ))}
       <Backlinks page={page} index={index} />
+      {page.edits && (
+        <section className="edits">
+          <h2>本站修改</h2>
+          <ul className="plain">
+            {page.edits.map((e) => (
+              <li key={e}>{e}</li>
+            ))}
+          </ul>
+          <p className="meta">此頁依 CC BY-NC-SA 4.0 衍生自活俠傳 wiki 原頁，上述為與原頁不同之處。</p>
+        </section>
+      )}
       <p className="meta origin">
         資料版本 {index.source?.version}・
         <a href={origin} target="_blank" rel="noreferrer">
