@@ -9,7 +9,7 @@ export interface Inline {
 export type Block =
   | { type: "h"; level: number; text: Inline[] }
   | { type: "p"; text: Inline[] }
-  | { type: "list"; items: { depth: number; text: Inline[] }[]; ordered: boolean }
+  | { type: "list"; items: { depth: number; /** the number the wiki wrote (ordered items only) */ no?: number; text: Inline[] }[]; ordered: boolean }
   | { type: "table"; rows: Inline[][][][] };  // rows[row][cell][line][run]
 
 /** One wiki page, converted to plain structure (no HTML, no images). */

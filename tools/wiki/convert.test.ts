@@ -57,8 +57,8 @@ describe("convertPage", () => {
       type: "list",
       ordered: true,
       items: [
-        { depth: 0, text: [{ text: "第一步" }] },
-        { depth: 0, text: [{ text: "第二步" }] },
+        { depth: 0, no: 1, text: [{ text: "第一步" }] },
+        { depth: 0, no: 2, text: [{ text: "第二步" }] },
         { depth: 1, text: [{ text: "子項" }] },
       ],
     });

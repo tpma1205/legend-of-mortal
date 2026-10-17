@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
+import { MBorder, MCollapse, MCollapseItem, MInput } from "@shuimo-design/react";
 import type { WikiIndex } from "../guide/wikiIndex";
-import { buildTimeline } from "../guide/timeline";
+import { buildTimeline, parseEventId } from "../guide/timeline";
+import { useOpenGroups } from "./useOpenGroups";
 import { wikiHref } from "./route";
 
 const PERIOD = ["", "上", "中", "下"];
@@ -12,32 +14,38 @@ export function TimelineSidebar({ index, activeId }: { index: WikiIndex; activeI
   const shown = timeline
     .map((y) => ({ ...y, months: y.months.map((m) => ({ ...m, events: m.events.filter((e) => !filter || e.title.includes(filter)) })).filter((m) => m.events.length) }))
     .filter((y) => y.months.length);
+  const activeYear = parseEventId(activeId)?.year;
+  const names = shown.map((y) => `y${y.year}`);
+  const [open, setOpen] = useOpenGroups(activeYear === undefined ? undefined : `y${activeYear}`, filter !== "", names, "y1");
+
   return (
     <nav className="sidebar" aria-label="事件時間軸">
       <div className="tools">
-        <input type="search" placeholder="篩選事件名稱" aria-label="篩選事件名稱" value={filter} onChange={(e) => setFilter(e.target.value)} />
+        <MInput value={filter} onValueChange={setFilter} placeholder="篩選事件名稱" clearable aria-label="篩選事件名稱" />
       </div>
       {shown.length === 0 && <p className="empty">找不到符合的事件。</p>}
-      {shown.map((y) => (
-        <section key={y.year}>
-          <h2 className="year">{y.year === 0 ? "任意時間" : `第${y.year}年`}</h2>
-          {y.months.map((m) => (
-            <div key={m.month}>
-              {m.month > 0 && <h3 className="month-head">{MONTH[m.month]}月</h3>}
-              <ol>
-                {m.events.map((e) => (
-                  <li key={e.id}>
-                    <a className="dated" href={wikiHref(e.id)} aria-current={e.id === activeId ? "page" : undefined}>
-                      <span className="month">{e.period > 0 ? `${PERIOD[e.period]}旬` : ""}</span>
-                      <span>{e.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          ))}
-        </section>
-      ))}
+      <MCollapse value={open} onValueChange={setOpen}>
+        {shown.map((y) => (
+          <MCollapseItem key={y.year} name={`y${y.year}`} title={y.year === 0 ? "任意時間" : `第${y.year}年`}>
+            {y.months.map((m) => (
+              <div key={m.month}>
+                {m.month > 0 && <h3 className="month-head">{MONTH[m.month]}月</h3>}
+                <ol>
+                  {m.events.map((e) => (
+                    <li key={e.id}>
+                      <a className="dated" href={wikiHref(e.id)} aria-current={e.id === activeId ? "page" : undefined}>
+                        <span className="month">{e.period > 0 ? `${PERIOD[e.period]}旬` : ""}</span>
+                        <span>{e.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </MCollapseItem>
+        ))}
+      </MCollapse>
+      <MBorder right border={false} className="sidebar-edge" seed={3} strokeWidth={3} />
     </nav>
   );
 }

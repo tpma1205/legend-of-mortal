@@ -11,6 +11,7 @@
     "validate": "vitest run src/guide"
   },
   "dependencies": {
+    "@shuimo-design/react": "^1.0.0-beta.4",
     "fuse.js": "^7.5.0",
     "opencc-js": "^1.4.2",
     "react": "^19.3.1",

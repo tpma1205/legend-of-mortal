@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { groupsOf } from "./SectionSidebar";
+import { groupsOf } from "./sidebarGroups";
 import { SECTIONS } from "./sections";
 import { buildWikiIndex } from "../guide/wikiIndex";
 import type { Block, WikiPage } from "../guide/wiki";

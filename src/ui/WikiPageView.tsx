@@ -1,38 +1,70 @@
+import { useState } from "react";
+import { MBreadcrumb, MBreadcrumbItem, MBorder, MCard, MDivider } from "@shuimo-design/react";
 import type { Block, Inline, WikiPage } from "../guide/wiki";
 import type { WikiIndex } from "../guide/wikiIndex";
-import { KIND_LABEL } from "./sections";
-import { wikiHref } from "./route";
+import { parseEventId } from "../guide/timeline";
+import { KIND_LABEL, sectionOfKind } from "./sections";
+import { sectionHref, wikiHref } from "./route";
+import { splitGlyphs } from "./glyphs";
+import { looksLikeHeader } from "./tableHeader";
+
+/** emoji in the wiki text are drawn in ink instead of full colour */
+function Text({ text }: { text: string }) {
+  return (
+    <>
+      {splitGlyphs(text).map((g, i) =>
+        g.glyph ? (
+          <span key={i} className="glyph" aria-hidden="true">
+            {g.text}
+          </span>
+        ) : (
+          g.text
+        ),
+      )}
+    </>
+  );
+}
+
+/** a hover note that also opens on tap or Enter, so it works on phones and by keyboard */
+function Noted({ text, note }: { text: string; note: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button type="button" className="noted" title={note} aria-expanded={open} onClick={() => setOpen(!open)}>
+        <Text text={text} />
+      </button>
+      {open && <span className="note-text">（{note}）</span>}
+    </>
+  );
+}
 
 function Runs({ runs, index }: { runs: Inline[]; index: WikiIndex }) {
   return (
     <>
       {runs.map((r, i) => {
         const target = index.resolve(r.to);
-        const body = r.note ? (
-          <span className="noted" title={r.note}>
-            {r.text}
-          </span>
-        ) : (
-          r.text
-        );
-        return target ? (
-          <a key={i} href={wikiHref(target)}>
-            {body}
-          </a>
-        ) : (
-          <span key={i}>{body}</span>
-        );
+        if (target) {
+          return (
+            <a key={i} href={wikiHref(target)}>
+              {r.note ? <span className="noted-link" title={r.note}><Text text={r.text} /></span> : <Text text={r.text} />}
+            </a>
+          );
+        }
+        return r.note ? <Noted key={i} text={r.text} note={r.note} /> : <Text key={i} text={r.text} />;
       })}
     </>
   );
 }
 
-const HEADER_KINDS = new Set(["book", "skill", "item", "pill"]);
+const HEADER_KINDS = new Set(["book", "skill", "item", "pill", "forge", "achievement"]);
+const plain = (runs: Inline[]) => runs.map((r) => r.text).join("");
 
-function BlockView({ block, index, header }: { block: Block; index: WikiIndex; header: boolean }) {
+function BlockView({ block, index, header, guessHeader, n }: { block: Block; index: WikiIndex; header: boolean; guessHeader: boolean; n: number }) {
+  const kindAllowsGuess = guessHeader;
   switch (block.type) {
     case "h": {
-      const Tag = `h${Math.min(6, Math.max(2, block.level))}` as "h2";
+      if (block.level <= 2) return <MDivider text={plain(block.text)} align="left" seed={n + 20} thickness={3} className="wiki-h2" />;
+      const Tag = `h${Math.min(6, block.level)}` as "h3";
       return (
         <Tag>
           <Runs runs={block.text} index={index} />
@@ -46,18 +78,19 @@ function BlockView({ block, index, header }: { block: Block; index: WikiIndex; h
         </p>
       );
     case "list": {
-      const Tag = block.ordered ? "ol" : "ul";
+      // the wiki mixes numbered steps and bullets in one list, so each item carries its own marker
       return (
-        <Tag className="wiki-list">
+        <ul className="wiki-list">
           {block.items.map((it, i) => (
-            <li key={i} style={{ marginLeft: `${it.depth * 1.25}rem` }}>
+            <li key={i} className={it.no ? "num" : "bul"} data-no={it.no} style={{ marginLeft: `${it.depth * 1.25}rem` }}>
               <Runs runs={it.text} index={index} />
             </li>
           ))}
-        </Tag>
+        </ul>
       );
     }
-    case "table":
+    case "table": {
+      const asHeader = header || (kindAllowsGuess && looksLikeHeader(block.rows));
       return (
         <div className="table-wrap">
           <table>
@@ -65,7 +98,7 @@ function BlockView({ block, index, header }: { block: Block; index: WikiIndex; h
               {block.rows.map((row, r) => (
                 <tr key={r}>
                   {row.map((cell, c) => {
-                    const Cell = header && r === 0 ? "th" : "td";
+                    const Cell = asHeader && r === 0 ? "th" : "td";
                     return (
                       <Cell key={c}>
                         {cell.map((line, l) => (
@@ -82,6 +115,7 @@ function BlockView({ block, index, header }: { block: Block; index: WikiIndex; h
           </table>
         </div>
       );
+    }
   }
 }
 
@@ -91,7 +125,7 @@ function Backlinks({ page, index }: { page: WikiPage; index: WikiIndex }) {
   const kinds = [...new Set(from.map((p) => p.kind))];
   return (
     <section className="backlinks">
-      <h2>相關頁面</h2>
+      <MDivider text="相關頁面" align="left" seed={9} thickness={3} />
       {kinds.map((kind) => (
         <p key={kind} className="meta">
           {KIND_LABEL[kind]}：
@@ -110,28 +144,45 @@ function Backlinks({ page, index }: { page: WikiPage; index: WikiIndex }) {
   );
 }
 
+const MONTH_TEXT = (t: { year: number; month: number }) => (t.year === 0 ? "任意時間" : `第${t.year}年${t.month > 0 ? ` ${t.month}月` : ""}`);
+
+/** where this page sits: section, then year/month or kind, then the page itself */
+export function Crumbs({ page }: { page: WikiPage }) {
+  const time = parseEventId(page.id);
+  const section = sectionOfKind(page.kind);
+  const first = time ? { content: "事件攻略", href: "#/" } : section ? { content: section.label, href: sectionHref(section.id) } : { content: "首頁", href: "#/" };
+  const middle = time ? MONTH_TEXT(time) : section && section.kinds.length > 1 ? KIND_LABEL[page.kind] : undefined;
+  return (
+    <MBreadcrumb className="crumbs">
+      <MBreadcrumbItem href={first.href}>{first.content}</MBreadcrumbItem>
+      {middle && <MBreadcrumbItem>{middle}</MBreadcrumbItem>}
+      <MBreadcrumbItem>{page.title}</MBreadcrumbItem>
+    </MBreadcrumb>
+  );
+}
+
 export function WikiPageView({ page, index }: { page: WikiPage; index: WikiIndex }) {
   const origin = `https://smilin.net/LoM-wiki/${page.id.replace(/\/index$/, "/")}${page.id.endsWith("/index") ? "" : ".html"}`;
   return (
     <article className="event wiki-page">
+      <Crumbs page={page} />
       <header>
-        <p className="when">{KIND_LABEL[page.kind]}</p>
         <h1>{page.title}</h1>
+        <MBorder bottom border={false} seed={2} strokeWidth={4} flyingWhite={0.2} className="title-rule" />
       </header>
       {page.blocks.map((b, i) => (
-        <BlockView key={i} block={b} index={index} header={HEADER_KINDS.has(page.kind)} />
+        <BlockView key={i} block={b} index={index} header={HEADER_KINDS.has(page.kind)} guessHeader={page.kind !== "character"} n={i} />
       ))}
       <Backlinks page={page} index={index} />
       {page.edits && (
-        <section className="edits">
-          <h2>本站修改</h2>
+        <MCard title="本站修改" frame="plain" shadow="never" className="edits" seed={4}>
           <ul className="plain">
             {page.edits.map((e) => (
               <li key={e}>{e}</li>
             ))}
           </ul>
           <p className="meta">此頁依 CC BY-NC-SA 4.0 衍生自活俠傳 wiki 原頁，上述為與原頁不同之處。</p>
-        </section>
+        </MCard>
       )}
       <p className="meta origin">
         資料版本 {index.source?.version}・

@@ -148,7 +148,7 @@ function tableBlock(html: string): Block {
 function textBlocks(chunk: string): Block[] {
   const blocks: Block[] = [];
   let para: string[] = [];
-  let list: { depth: number; text: Inline[] }[] = [];
+  let list: { depth: number; no?: number; text: Inline[] }[] = [];
   let ordered = false;
   const flushPara = () => {
     if (para.length) for (const l of lines(para.join(""))) blocks.push({ type: "p", text: l });
@@ -185,7 +185,8 @@ function textBlocks(chunk: string): Block[] {
       flushPara();
       if (list.length === 0) ordered = /\d/.test(li[2]);
       const depth = li[1].length === 0 ? 0 : Math.ceil(li[1].replace(/\t/g, "    ").length / 3);
-      for (const l of lines(li[3])) list.push({ depth, text: l });
+      const no = /^\d+\./.test(li[2]) ? parseInt(li[2], 10) : undefined;
+      lines(li[3]).forEach((l, k) => list.push({ depth, ...(no !== undefined && k === 0 ? { no } : {}), text: l }));
     } else {
       flushList();
       para.push(line.trim());

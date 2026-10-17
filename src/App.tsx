@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { MBackTop, MConfigProvider, MDrawer, MEmpty, MLoading, MReadingStroke, MRicePaper, MSealColophon, MStamp } from "@shuimo-design/react";
 import { loadWiki } from "./guide/wikiData";
 import type { WikiIndex } from "./guide/wikiIndex";
+import { entryForPageId } from "./guide/endingList";
+import { Header } from "./ui/Header";
 import { TimelineSidebar } from "./ui/TimelineSidebar";
-import { SectionSidebar, pagesOfSection } from "./ui/SectionSidebar";
+import { SectionSidebar } from "./ui/SectionSidebar";
+import { pagesOfSection } from "./ui/sidebarGroups";
 import { SearchView } from "./ui/SearchView";
 import { PlaceholderView } from "./ui/PlaceholderView";
-import { entryForPageId } from "./guide/endingList";
 import { WikiPageView } from "./ui/WikiPageView";
 import { SECTIONS, sectionOfKind } from "./ui/sections";
-import { searchHref, sectionHref, useRoute, useStoredBool, type Route } from "./ui/route";
+import { sectionHref, useRoute, type Route } from "./ui/route";
+import { useNarrow } from "./ui/useNarrow";
 
 function activeNav(route: Route, index: WikiIndex | null): string {
   if (route.page === "section") return route.section;
@@ -21,20 +25,49 @@ function activeNav(route: Route, index: WikiIndex | null): string {
   return "guide";
 }
 
+const SECTION_BLURB: Record<string, string> = {
+  characters: "按門派分組的人物介紹",
+  books: "秘笈需求、各等級效果與技能表",
+  items: "道具、裝備與煉丹",
+  endings: "汗青書、生死簿與風雲史",
+  pursuit: "夢境心上人的結緣步驟",
+  mechanism: "行動點、能力值、心相、變心夢等機制",
+};
+
+function Home({ index }: { index: WikiIndex }) {
+  return (
+    <div className="home">
+      <MStamp text="活俠" size={64} seed={21} />
+      <h1>選了這個，會走到哪？</h1>
+      <p>從左側時間軸選一個事件，核對遊戲內的選項與後果；想查人物、秘笈、道具或結局，用上方分區或搜尋。</p>
+      <p className="meta">
+        收錄 {index.ofKind("event").length} 個事件、{index.ofKind("character").length} 位人物、{index.ofKind("book").length} 本秘笈、 54 個汗青書、105 個生死簿。
+      </p>
+      <ul className="entries">
+        {SECTIONS.map((s) => (
+          <li key={s.id}>
+            <a href={sectionHref(s.id)}>{s.label}</a>
+            <span>{SECTION_BLURB[s.id]}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function App() {
   const route = useRoute();
+  const narrow = useNarrow();
   const [index, setIndex] = useState<WikiIndex | null>(null);
   const [loadError, setLoadError] = useState("");
-  const [dark, setDark] = useStoredBool("dark", matchMedia("(prefers-color-scheme: dark)").matches);
+  const [drawer, setDrawer] = useState(false);
 
   useEffect(() => {
     loadWiki().then(setIndex, (e) => setLoadError(String(e)));
   }, []);
   useEffect(() => {
-    document.documentElement.dataset.theme = dark ? "dark" : "light";
-  }, [dark]);
-  useEffect(() => {
     document.getElementById("main")?.scrollTo(0, 0);
+    setDrawer(false);
   }, [route]);
 
   const page = route.page === "wiki" ? index?.byId.get(route.id) : undefined;
@@ -42,8 +75,7 @@ export function App() {
   const placeholder = (() => {
     if (!index || route.page !== "wiki" || page) return undefined;
     for (const [kind, dir, prefix, noun] of [["ending", "event/ends", "end-", "汗青書"], ["badend", "event/badends", "badend-", "生死簿"]] as const) {
-      const overview = index.byId.get(`${dir}/index`);
-      const entry = entryForPageId(route.id, overview, index.ofKind(kind), prefix, noun);
+      const entry = entryForPageId(route.id, index.byId.get(`${dir}/index`), index.ofKind(kind), prefix, noun);
       if (entry) return { entry, noun, overviewId: `${dir}/index`, sectionId: "endings" };
     }
     return undefined;
@@ -61,7 +93,7 @@ export function App() {
   const autoOpen = sectionPages.length > 0 && sectionPages.length <= 3 ? sectionPages[0] : undefined;
   const q = route.page === "search" ? route.q : "";
 
-  const side = index
+  const side: ReactNode = index
     ? section
       ? <SectionSidebar index={index} section={section} activeId={page?.id ?? (placeholder ? placeholder.entry.pageId : autoOpen?.id) ?? ""} />
       : route.page !== "search" && <TimelineSidebar index={index} activeId={page?.id ?? ""} />
@@ -69,65 +101,42 @@ export function App() {
   const nav = activeNav(route, index);
 
   return (
-    <div className={side ? "shell" : "shell no-side"}>
-      <header className="top">
-        <a className="brand" href="#/">
-          活俠傳攻略
-        </a>
-        <nav className="topnav" aria-label="主要分區">
-          <a href="#/" aria-current={nav === "guide" ? "page" : undefined}>
-            事件攻略
-          </a>
-          {SECTIONS.map((s) => (
-            <a key={s.id} href={sectionHref(s.id)} aria-current={nav === s.id ? "page" : undefined}>
-              {s.label}
-            </a>
-          ))}
-        </nav>
-        <input
-          className="global-search"
-          type="search"
-          placeholder="搜尋人物、秘笈、事件、結局…"
-          aria-label="全站搜尋"
-          value={q}
-          onChange={(e) => {
-            location.hash = e.target.value ? searchHref(e.target.value) : "#/";
-          }}
-        />
-        <button className="theme" onClick={() => setDark(!dark)} aria-pressed={dark}>
-          {dark ? "淺色" : "深色"}
-        </button>
-      </header>
-      {side}
-      <main id="main">
-        {loadError && <p className="empty">資料載入失敗：{loadError}</p>}
-        {!index && !loadError && <p className="empty">載入中…</p>}
-        {index && route.page === "wiki" && (page ? <WikiPageView page={page} index={index} /> : placeholder ? <PlaceholderView {...placeholder} /> : <p className="empty">找不到這一頁。</p>)}
-        {index && route.page === "section" && section && (autoOpen ? <WikiPageView page={autoOpen} index={index} /> : (
-          <div className="home">
-            <h1>{section.label}</h1>
-            <p>從左側清單選一項查看。共 {sectionPages.length} 項。</p>
-          </div>
-        ))}
-        {index && route.page === "search" && <SearchView index={index} q={route.q} />}
-        {index && route.page === "home" && (
-          <div className="home">
-            <h1>選了這個，會走到哪？</h1>
-            <p>從左側時間軸選一個事件，核對遊戲內的選項與後果。想查人物、秘笈、道具或結局，用上方分區或搜尋。</p>
-            <p className="meta">
-              收錄 {index.ofKind("event").length} 個事件、{index.ofKind("character").length} 位人物、{index.ofKind("book").length} 本秘笈、
-              {index.ofKind("ending").length} 個汗青書、{index.ofKind("badend").length} 個生死簿。
+    <MConfigProvider>
+      <MReadingStroke target="#main" thickness={3} />
+      <MRicePaper layout="full-screen" landscape={route.page === "home"} seed={7} className="paper">
+        <div className={side && !narrow ? "shell" : "shell no-side"}>
+          <Header nav={nav} q={q} narrow={narrow} menu={narrow && !!side} onMenu={() => setDrawer(true)} />
+          {side && !narrow && <aside className="side">{side}</aside>}
+          <main id="main">
+            {loadError && <MEmpty description={`資料載入失敗：${loadError}`} />}
+            {!index && !loadError && <MLoading />}
+            {index && route.page === "wiki" && (page ? <WikiPageView page={page} index={index} /> : placeholder ? <PlaceholderView {...placeholder} /> : <MEmpty description="找不到這一頁。" />)}
+            {index && route.page === "section" && section && (autoOpen ? <WikiPageView page={autoOpen} index={index} /> : (
+              <div className="home">
+                <h1>{section.label}</h1>
+                <p>從{narrow ? "「目錄」" : "左側清單"}選一項查看。共 {sectionPages.length} 項。</p>
+              </div>
+            ))}
+            {index && route.page === "search" && <SearchView index={index} q={route.q} />}
+            {index && route.page === "home" && <Home index={index} />}
+          </main>
+          <footer className="foot">
+            <MSealColophon text="資料整理自" author="活俠傳 wiki" date={index?.source?.date} seal="活俠" align="right" sealSize={36} seed={5} />
+            <p>
+              <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
+                smilin.net/LoM-wiki
+              </a>
+              （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
             </p>
-          </div>
-        )}
-      </main>
-      <footer className="foot">
-        資料整理自
-        <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
-          活俠傳 wiki
-        </a>
-        （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
-      </footer>
-    </div>
+          </footer>
+        </div>
+      </MRicePaper>
+      <MBackTop target="#main" />
+      {narrow && side && (
+        <MDrawer open={drawer} onOpenChange={setDrawer} direction="left" title="目錄" size="86%">
+          {side}
+        </MDrawer>
+      )}
+    </MConfigProvider>
   );
 }
