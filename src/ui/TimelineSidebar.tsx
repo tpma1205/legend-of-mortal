@@ -27,7 +27,7 @@ export function TimelineSidebar({ index, activeId }: { index: WikiIndex; activeI
               <ol>
                 {m.events.map((e) => (
                   <li key={e.id}>
-                    <a href={wikiHref(e.id)} aria-current={e.id === activeId ? "page" : undefined}>
+                    <a className="dated" href={wikiHref(e.id)} aria-current={e.id === activeId ? "page" : undefined}>
                       <span className="month">{e.period > 0 ? `${PERIOD[e.period]}旬` : ""}</span>
                       <span>{e.title}</span>
                     </a>
