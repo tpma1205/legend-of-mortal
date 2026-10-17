@@ -90,7 +90,6 @@ export function SectionSidebar({ index, section, activeId }: { index: WikiIndex;
                 >
                   <span>{it.label}</span>
                   {it.badge && <span className="badge">{it.badge}</span>}
-                  {it.missing && <span className="badge dim">待補</span>}
                 </a>
               </li>
             ))}
