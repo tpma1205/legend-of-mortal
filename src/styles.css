@@ -176,3 +176,8 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 
 /* the colophon's seal hangs past its text; leave room so it never covers the date */
 .foot > :first-child { margin-right: 3rem; padding-bottom: 0.25rem; }
+/* a real colophon stamps beside the signature, not over its last digit */
+.m-seal-colophon__date { padding-right: 1.25rem; }
+.m-seal-colophon__date { white-space: nowrap; }
+@media (max-width: 800px) { .foot > :first-child { margin-right: 1rem; } }
+@media (max-width: 800px) { main > .foot { margin: 2rem -1rem -2.5rem; border-top: 1px solid var(--line); } }

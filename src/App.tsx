@@ -100,6 +100,19 @@ export function App() {
     : null;
   const nav = activeNav(route, index);
 
+  // on phones the colophon scrolls with the page instead of taking a permanent slice of the screen
+  const footer = (
+    <footer className="foot">
+      <MSealColophon text="資料整理自" author="活俠傳 wiki" date={index?.source?.date} seal="活俠" align="right" sealSize={36} seed={5} />
+      <p>
+        <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
+          smilin.net/LoM-wiki
+        </a>
+        （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
+      </p>
+    </footer>
+  );
+
   return (
     <MConfigProvider>
       <MReadingStroke target="#main" thickness={3} />
@@ -119,16 +132,9 @@ export function App() {
             ))}
             {index && route.page === "search" && <SearchView index={index} q={route.q} />}
             {index && route.page === "home" && <Home index={index} />}
+            {narrow && footer}
           </main>
-          <footer className="foot">
-            <MSealColophon text="資料整理自" author="活俠傳 wiki" date={index?.source?.date} seal="活俠" align="right" sealSize={36} seed={5} />
-            <p>
-              <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
-                smilin.net/LoM-wiki
-              </a>
-              （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
-            </p>
-          </footer>
+          {!narrow && footer}
         </div>
       </MRicePaper>
       <MBackTop target="#main" />
