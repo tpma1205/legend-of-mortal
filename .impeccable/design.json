@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T00:00:00Z",
+  "title": "Design System: 活俠傳攻略",
+  "extensions": {
+    "colorMeta": {
+      "rice-paper": { "role": "neutral", "displayName": "Rice Paper (宣紙)", "canonical": "rgb(252 250 240)", "tonalRamp": ["#3d3c37", "#68675f", "#8f8e84", "#b2b1a6", "#cdccc1", "#e1e0d4", "#f0eee2", "#fcfaf0"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#2b333e", "tonalRamp": ["#0f1423", "#1b222d", "#2b333e", "#4a525c", "#6c737b", "#90969c", "#bcc0c4", "#e3e5e7"] },
+      "seal-cinnabar": { "role": "primary", "displayName": "Seal Cinnabar (朱砂)", "canonical": "#c1272d", "tonalRamp": ["#4a0f12", "#6e1519", "#921c21", "#c1272d", "#d9585c", "#e78285", "#f2b0b2", "#fadfe0"] },
+      "link-oxblood": { "role": "secondary", "displayName": "Oxblood Link", "canonical": "#861717", "tonalRamp": ["#2e0808", "#450c0c", "#5f1010", "#861717", "#a84545", "#c27575", "#dba9a9", "#f1dede"] },
+      "night-paper": { "role": "neutral", "displayName": "Night Paper (墨夜)", "canonical": "rgb(21 29 41)", "tonalRamp": ["#0a0e14", "#10161f", "#151d29", "#242b35", "#434850", "#6b7078", "#9a9ea5", "#d0d2d6"] },
+      "night-ink": { "role": "neutral", "displayName": "Night Ink", "canonical": "#e6e2d8", "tonalRamp": ["#3b3a37", "#66645f", "#8a8881", "#aeaca4", "#c4c1b8", "#d4d1c7", "#e6e2d8", "#f5f3ee"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page h1, weight 900, balanced wrap." },
+      "brand": { "displayName": "Brand", "purpose": "Header name beside the 活俠 stamp." },
+      "title": { "displayName": "Title", "purpose": "Wiki h3/h4 sub-headings. h2 is a brush divider." },
+      "body": { "displayName": "Body", "purpose": "Reading text, max 56rem column." },
+      "table": { "displayName": "Table", "purpose": "Lookup tables, plain and ruled." },
+      "label": { "displayName": "Label", "purpose": "Timeline month and group headings in muted ink." },
+      "footnote": { "displayName": "Footnote", "purpose": "Footer colophon text." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "settle", "value": "0.45s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Page article fades in with a 6px rise. Only under prefers-reduced-motion: no-preference." },
+      { "name": "draw", "value": "0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards", "purpose": "Title brush rule revealed left to right by clip-path." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "800px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Section Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link-current",
+      "description": "Top section link; the current one is bold with a brush underline.",
+      "html": "<nav class=\"ds-topnav\"><a href=\"#\">事件攻略</a><a href=\"#\" aria-current=\"page\"><span class=\"ds-underline\">人物</span></a><a href=\"#\">秘笈</a></nav>",
+      "css": ".ds-topnav { display: flex; gap: 0.25rem 1.25rem; font: 400 16px/1.8 'Noto Serif TC', serif; } .ds-topnav a { color: var(--m-fg, #2b333e); text-decoration: none; padding: 0.25rem 0; } .ds-topnav a:hover { color: var(--m-accent, #861717); } .ds-topnav a[aria-current='page'] { font-weight: 600; } .ds-underline { display: inline-block; padding: 0 0.1rem 0.35rem; border-bottom: 3px solid var(--m-seal, #c1272d); }"
+    },
+    {
+      "name": "Sidebar Link",
+      "kind": "nav",
+      "refersTo": "sidebar-link",
+      "description": "Sidebar entry. Wash on hover, seal fill for the current page, muted when the entry is unwritten.",
+      "html": "<ol class=\"ds-side\"><li><a href=\"#\">普通條目</a></li><li><a href=\"#\" aria-current=\"page\">目前頁面</a></li><li><a href=\"#\" class=\"ds-missing\">尚未撰寫</a></li></ol>",
+      "css": ".ds-side { list-style: none; margin: 0; padding: 0; font: 400 16px/1.6 'Noto Serif TC', serif; } .ds-side a { display: block; padding: 0.3rem 0.6rem; color: var(--m-fg, #2b333e); text-decoration: none; border-radius: 2px; } .ds-side a:hover { background: color-mix(in srgb, var(--m-fg, #2b333e) 7%, rgb(var(--m-paper-rgb, 252 250 240))); } .ds-side a[aria-current='page'] { background: var(--m-seal, #c1272d); color: #fff; } .ds-side a.ds-missing { color: color-mix(in srgb, var(--m-fg, #2b333e) 74%, rgb(var(--m-paper-rgb, 252 250 240))); } .ds-side a:focus-visible { outline: 2px solid var(--m-seal, #c1272d); outline-offset: 2px; }"
+    },
+    {
+      "name": "Wiki Table",
+      "kind": "custom",
+      "refersTo": "table-header",
+      "description": "Plain ruled lookup table; header on a paper wash with a 2px ink bottom rule.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>名稱</th><th>條件</th></tr></thead><tbody><tr><td>範例</td><td>條件說明</td></tr></tbody></table>",
+      "css": ".ds-table { border-collapse: collapse; font: 400 0.9375rem/1.8 'Noto Serif TC', serif; min-width: 100%; color: var(--m-fg, #2b333e); } .ds-table th, .ds-table td { border: 1px solid color-mix(in srgb, var(--m-fg, #2b333e) 22%, rgb(var(--m-paper-rgb, 252 250 240))); padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; } .ds-table th { background: color-mix(in srgb, var(--m-fg, #2b333e) 7%, rgb(var(--m-paper-rgb, 252 250 240))); font-weight: 600; white-space: nowrap; border-bottom: 2px solid var(--m-fg, #2b333e); }"
+    },
+    {
+      "name": "Entry List Item",
+      "kind": "card",
+      "refersTo": "footer",
+      "description": "Home entry: top hairline, bold link, muted description. No card box.",
+      "html": "<ul class=\"ds-entries\"><li><a href=\"#\">事件攻略</a><span>依時間排列的事件</span></li></ul>",
+      "css": ".ds-entries { list-style: none; margin: 0; padding: 0; font-family: 'Noto Serif TC', serif; } .ds-entries li { display: grid; gap: 0.1rem; padding: 0.5rem 0; border-top: 1px solid color-mix(in srgb, var(--m-fg, #2b333e) 22%, rgb(var(--m-paper-rgb, 252 250 240))); } .ds-entries a { font-size: 1.125rem; font-weight: 600; text-decoration: none; color: var(--m-accent, #861717); } .ds-entries a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-entries span { color: color-mix(in srgb, var(--m-fg, #2b333e) 74%, rgb(var(--m-paper-rgb, 252 250 240))); font-size: 0.9375rem; }"
+    },
+    {
+      "name": "Bordered Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Small outlined tag in the link color, used beside sidebar entries.",
+      "html": "<span class=\"ds-tag\">標記</span>",
+      "css": ".ds-tag { display: inline-block; margin-left: 0.5rem; padding: 0 0.4rem; font: 400 0.75rem/1.6 'Noto Serif TC', serif; border: 1px solid currentColor; color: var(--m-accent, #861717); border-radius: 2px; white-space: nowrap; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Scroll Desk",
+    "overview": "A reference opened on a second monitor mid-run, laid out like a desk with a scroll on it. Texture and brushwork live in the margins, edges and seals; the reading text stays on calm paper. The visual vocabulary is the pinned library @shuimo-design/react (beta): a raw rice-paper ground, brush-drawn rules, one cinnabar seal. The project stylesheet only lays out and re-expresses the library's --m-* tokens; it adds no palette of its own. Ink effects are reserved for borders, titles, dividers and stamps; tables and lists are never inked. Two themes share one structure: 宣紙 (light) and 墨夜 (dark).",
+    "keyCharacteristics": [
+      "Rice-paper ground over the whole viewport, with the main column as the only scroller.",
+      "Brush rules (MBorder, MDivider) separate regions instead of boxes and cards.",
+      "One red voice: the seal. Everything else is ink on paper.",
+      "Noto Serif TC for everything, with weight 900 reserved for the title and brand.",
+      "Plain thin-ruled tables.",
+      "One authored motion: the page settles in and the title rule is drawn left to right."
+    ],
+    "rules": [
+      { "name": "The One Seal Rule", "body": "The seal red is the only chromatic color. It marks place (current page, brand stamp) and focus, never decoration or status.", "section": "colors" },
+      { "name": "The Derived Neutrals Rule", "body": "Muted, wash and line are always mixed from --m-fg and the paper token, never hard-coded, so both themes follow without a second palette.", "section": "colors" },
+      { "name": "The Tabular Count Rule", "body": "Numbers that index (list numbers, months) use tabular-nums.", "section": "typography" },
+      { "name": "The Brush Is The Border Rule", "body": "Regions are divided by MBorder and MDivider strokes (thickness 3), each with its own seed so repeated strokes differ. Do not box regions with CSS borders; the table's hairline grid is the only ruled structure.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do express new colors as mixes of --m-fg and the paper token, or as library --m-* tokens, so light and dark both follow.",
+      "Do keep seal red for place and focus: current marks, the brand stamp, selection and the focus ring.",
+      "Do separate regions with MBorder and MDivider strokes, and give each a distinct seed.",
+      "Do keep reading text on plain paper in Noto Serif TC at 1.8 line height inside the 56rem column.",
+      "Do keep tables plain: hairline grid, wash header, no ink effects.",
+      "Do gate every animation behind prefers-reduced-motion: no-preference."
+    ],
+    "donts": [
+      "Don't put ink or brush effects on dense tables or lists.",
+      "Don't build a SaaS sidebar-and-cards dashboard: no card grids, no shadows, no pills.",
+      "Don't add a second accent hue or use red decoratively.",
+      "Don't hard-code light-only hex values in project CSS; they break 墨夜.",
+      "Don't show far-mountain imagery outside the home page."
+    ]
+  }
+}
