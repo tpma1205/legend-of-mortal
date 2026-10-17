@@ -10,9 +10,10 @@ export interface Section {
 export const SECTIONS: Section[] = [
   { id: "characters", label: "人物", kinds: ["character"] },
   { id: "books", label: "秘笈與技能", kinds: ["book", "skill"] },
-  { id: "items", label: "道具與丹藥", kinds: ["item", "pill"] },
+  { id: "items", label: "道具、裝備與煉丹", kinds: ["item", "pill", "forge"] },
   { id: "endings", label: "結局系列", kinds: ["ending", "badend", "achievement"] },
   { id: "pursuit", label: "夢境心上人", kinds: ["pursuit"] },
+  { id: "mechanism", label: "遊戲機制", kinds: ["mechanism"] },
 ];
 
 export const KIND_LABEL: Record<WikiKind, string> = {
@@ -26,6 +27,8 @@ export const KIND_LABEL: Record<WikiKind, string> = {
   achievement: "風雲史",
   pursuit: "夢境心上人",
   event: "事件",
+  mechanism: "遊戲機制",
+  forge: "裝備與煉丹",
   other: "其他",
 };
 

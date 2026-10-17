@@ -1,9 +1,6 @@
 import Fuse from "fuse.js";
-import * as OpenCC from "opencc-js/cn2t";
 import type { WikiPage } from "./wiki";
 import { pageText, type WikiIndex } from "./wikiIndex";
-
-const toTraditional = OpenCC.Converter({ from: "cn", to: "tw" });
 
 export interface SearchHit {
   page: WikiPage;
@@ -18,7 +15,10 @@ const snippetOf = (page: WikiPage, q: string): string => {
 };
 
 /** Fuzzy search over every converted wiki page; simplified input is converted to traditional first. */
-export function createWikiSearch(index: WikiIndex): (query: string) => SearchHit[] {
+export async function createWikiSearch(index: WikiIndex): Promise<(query: string) => SearchHit[]> {
+  // the conversion dictionary is large, so it is only fetched once someone searches
+  const OpenCC = await import("opencc-js/cn2t");
+  const toTraditional = OpenCC.Converter({ from: "cn", to: "tw" });
   const docs = index.pages.map((page) => ({ page, title: page.title, tags: page.tags.join(" "), text: pageText(page) }));
   const fuse = new Fuse(docs, {
     keys: [
@@ -28,7 +28,7 @@ export function createWikiSearch(index: WikiIndex): (query: string) => SearchHit
     ],
     threshold: 0.25,
     ignoreLocation: true,
-    minMatchCharLength: 2,
+    minMatchCharLength: 1,
   });
   return (query) => {
     const q = query.trim();
@@ -41,4 +41,13 @@ export function createWikiSearch(index: WikiIndex): (query: string) => SearchHit
     }
     return [...found.values()].slice(0, 80);
   };
+}
+
+const built = new WeakMap<WikiIndex, Promise<(query: string) => SearchHit[]>>();
+
+/** the search index depends only on the (static) wiki index, so build it once */
+export function getWikiSearch(index: WikiIndex): Promise<(query: string) => SearchHit[]> {
+  let search = built.get(index);
+  if (!search) built.set(index, (search = createWikiSearch(index)));
+  return search;
 }

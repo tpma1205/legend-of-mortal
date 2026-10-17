@@ -15,6 +15,8 @@ export function kindOf(id: string): WikiKind {
   if (id.startsWith("event/achievements")) return "achievement";
   if (id.startsWith("event/pursuit") || id === "people/dream-sweetheart") return "pursuit";
   if (id.startsWith("event/simple/") || id.startsWith("event/detailed_description/")) return "event";
+  if (id.startsWith("other/guide/")) return "mechanism";
+  if (id === "system/develop-list" || id === "system/forge-roadmap") return "forge";
   return "other";
 }
 
@@ -106,15 +108,39 @@ function cleanChunk(text: string): string {
     .join("\n");
 }
 
+/** a source newline inside a table cell is a soft wrap (the wiki's browser shows a space, or nothing between CJK) */
+const softWrap = (html: string) => html.replace(/\s*\n\s*/g, " ").replace(/(?<=[^\x00-\x7F])\s+(?=[^\x00-\x7F])/g, "");
+
+/** rows[row][cell][line][run]; rowspan repeats the cell, colspan leaves empty cells, so every row has the same columns */
 function tableBlock(html: string): Block {
   const $ = cheerio.load(html);
   const rows: Inline[][][][] = [];
+  const carry: { left: number; cell: Inline[][] }[] = [];
   $("tr").each((_, tr) => {
-    const cells = $(tr)
+    const row: Inline[][][] = [];
+    let col = 0;
+    const fillCarried = () => {
+      while ((carry[col]?.left ?? 0) > 0) {
+        row[col] = carry[col].cell;
+        carry[col].left--;
+        col++;
+      }
+    };
+    $(tr)
       .children("td,th")
-      .map((__, c) => [lines($(c).html() ?? "")])
-      .get() as unknown as Inline[][][];
-    if (cells.length) rows.push(cells);
+      .each((__, c) => {
+        fillCarried();
+        const cell = lines(softWrap($(c).html() ?? ""));
+        const colspan = Math.max(1, Number($(c).attr("colspan")) || 1);
+        const rowspan = Math.max(1, Number($(c).attr("rowspan")) || 1);
+        for (let k = 0; k < colspan; k++) {
+          row[col] = k === 0 ? cell : [];
+          if (rowspan > 1) carry[col] = { left: rowspan - 1, cell: row[col] };
+          col++;
+        }
+      });
+    fillCarried();
+    if (row.length) rows.push(row);
   });
   return { type: "table", rows };
 }
@@ -180,7 +206,10 @@ const normalizeTables = (s: string) =>
 export function convertPage(id: string, src: string): WikiPage {
   const { title, tags, body } = parseFrontmatter(src);
   const blocks: Block[] = [];
-  const parts = normalizeTables(body.replace(/<!--[\s\S]*?-->/g, "")).split(/(<table\b[\s\S]*?<\/table>)/i);
+  const withTitle = body
+    .replace(/^#\s*\{\{\s*\$frontmatter\.title\s*\}\}.*$/m, "") // the page's own h1 is rendered by the site
+    .replace(/\{\{\s*\$frontmatter\.title\s*\}\}/g, title);
+  const parts = normalizeTables(withTitle.replace(/<!--[\s\S]*?-->/g, "")).split(/(<table\b[\s\S]*?<\/table>)/i);
   for (const part of parts) {
     if (/^<table\b/i.test(part)) blocks.push(tableBlock(part));
     else blocks.push(...textBlocks(part));

@@ -81,6 +81,32 @@ describe("convertPage", () => {
     ]);
   });
 
+  it("expands rowspan and colspan so every row has the same columns", () => {
+    const body = '<table><tr><td rowspan="2">甲</td><td>乙</td></tr><tr><td>丙</td></tr><tr><td colspan="2">標題</td></tr></table>';
+    const p = convertPage("system/develop-list", page(body));
+    expect(p.blocks).toEqual([
+      {
+        type: "table",
+        rows: [
+          [[[{ text: "甲" }]], [[{ text: "乙" }]]],
+          [[[{ text: "甲" }]], [[{ text: "丙" }]]],
+          [[[{ text: "標題" }]], []],
+        ],
+      },
+    ]);
+  });
+
+  it("treats a source newline inside a table cell as a soft wrap, like the wiki's browser rendering", () => {
+    const p = convertPage("event/badends/index", page("<table><tr><td>第一行\n第二行<br>第三行</td></tr></table>"));
+    expect(p.blocks).toEqual([{ type: "table", rows: [[[[{ text: "第一行第二行" }], [{ text: "第三行" }]]]] }]);
+  });
+
+  it("fills in the vue title placeholder wherever the page uses it", () => {
+    const p = convertPage("other/guide/mechanism/x", page("## {{ $frontmatter.title }}\n\n內文", "關於心上人"));
+    expect(p.blocks[0]).toEqual({ type: "h", level: 2, text: [{ text: "關於心上人" }] });
+    expect(p.blocks).toHaveLength(2);
+  });
+
   it("also reads the lowercase <Btable> spelling", () => {
     const b = convertPage("event/badends/index", page("<Btable>\n<tr><td>編號</td></tr>\n</Btable>"));
     expect(b.blocks).toEqual([{ type: "table", rows: [[[[{ text: "編號" }]]]] }]);
@@ -112,5 +138,8 @@ describe("kindOf", () => {
     expect(kindOf("system/skill")).toBe("skill");
     expect(kindOf("system/items/index")).toBe("item");
     expect(kindOf("other/qna/x")).toBe("other");
+    expect(kindOf("other/guide/mechanism/dream-sweetheart")).toBe("mechanism");
+    expect(kindOf("system/develop-list")).toBe("forge");
+    expect(kindOf("system/forge-roadmap")).toBe("forge");
   });
 });

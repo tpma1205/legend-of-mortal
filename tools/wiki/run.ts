@@ -1,24 +1,27 @@
 /**
  * Convert a local checkout of the 活俠傳 wiki (Markdown) into data/wiki/<kind>.json.
  *
- *   npx tsx tools/wiki/run.ts <path-to-wiki-docs> [commit] [version]
+ *   npx tsx tools/wiki/run.ts <path-to-wiki-docs> [version]
+ *
+ * The commit and its date are read from the git checkout, so re-running on an unchanged wiki gives identical files.
  *
  * The wiki is CC BY-NC-SA 4.0 (see docs/adr/0001-follow-wiki-license.md).
  */
+import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { convertPage } from "./convert";
 import { OVERRIDES, applyOverrides } from "./overrides";
 import type { WikiDataset, WikiKind, WikiPage } from "../../src/guide/wiki";
 
-const [docsDir, commit = "unknown", version = "v1.0.3130"] = process.argv.slice(2);
+const [docsDir, versionArg] = process.argv.slice(2);
 if (!docsDir) {
-  console.error("usage: tsx tools/wiki/run.ts <wiki docs dir> [commit] [version]");
+  console.error("usage: tsx tools/wiki/run.ts <wiki docs dir> [version]");
   process.exit(1);
 }
 
 const SKIP_DIRS = new Set(["en", "ja", "zh-hans", "develop", "public", ".vitepress", "node_modules"]);
-const WANTED: WikiKind[] = ["character", "book", "skill", "item", "pill", "ending", "badend", "achievement", "pursuit", "event"];
+const WANTED: WikiKind[] = ["character", "book", "skill", "item", "pill", "ending", "badend", "achievement", "pursuit", "event", "mechanism", "forge"];
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {
@@ -47,13 +50,17 @@ for (const file of walk(docsDir)) {
 const edited = applyOverrides(pages, OVERRIDES);
 pages.splice(0, pages.length, ...edited);
 
+const git = (...args: string[]) => execFileSync("git", ["-C", docsDir, ...args], { encoding: "utf8" }).trim();
+const commit = git("rev-parse", "--short", "HEAD");
+const version = versionArg ?? "v1.0.3130";
+
 const source = {
   site: "活俠傳 wiki",
   url: "https://smilin.net/LoM-wiki/",
   license: "CC BY-NC-SA 4.0",
   commit,
   version,
-  date: new Date().toISOString().slice(0, 10),
+  date: git("log", "-1", "--format=%cs"),
 };
 
 const outDir = join(import.meta.dirname, "../../data/wiki");

@@ -42,7 +42,7 @@ function numbered(index: WikiIndex, kind: "ending" | "badend"): Group {
 }
 
 /** characters are grouped by their first faction tag; endings are numbered from the wiki's index; the rest by wiki kind */
-export function groupsOf(index: WikiIndex, section: Section, pages: WikiPage[], filtered: boolean): Group[] {
+export function groupsOf(index: WikiIndex, section: Section, pages: WikiPage[], filter: string): Group[] {
   if (section.id === "characters") {
     const byFaction = new Map<string, WikiPage[]>();
     for (const p of pages) {
@@ -54,8 +54,9 @@ export function groupsOf(index: WikiIndex, section: Section, pages: WikiPage[], 
       .sort((a, b) => rank(a[0]) - rank(b[0]) || b[1].length - a[1].length || collator.compare(a[0], b[0]))
       .map(([label, list]) => ({ label, items: list.map(pageItem) }));
   }
-  if (section.id === "endings" && !filtered) {
-    return [numbered(index, "ending"), numbered(index, "badend"), { label: KIND_LABEL.achievement, items: index.ofKind("achievement").map(pageItem) }];
+  if (section.id === "endings") {
+    const groups = [numbered(index, "ending"), numbered(index, "badend"), { label: KIND_LABEL.achievement, items: index.ofKind("achievement").map(pageItem) }];
+    return groups.map((g) => ({ ...g, items: g.items.filter((i) => i.label.includes(filter)) })).filter((g) => g.items.length > 0);
   }
   return section.kinds
     .map((kind) => ({ label: KIND_LABEL[kind], items: pages.filter((p) => p.kind === kind).map(pageItem) }))
@@ -66,7 +67,7 @@ export function SectionSidebar({ index, section, activeId }: { index: WikiIndex;
   const [filter, setFilter] = useState("");
   const all = pagesOfSection(index, section);
   const pages = all.filter((p) => !filter || p.title.includes(filter));
-  const groups = groupsOf(index, section, pages, filter !== "");
+  const groups = groupsOf(index, section, pages, filter);
   const showHeadings = section.id === "characters" || section.kinds.length > 1;
   const empty = groups.every((g) => g.items.length === 0);
   return (

@@ -35,6 +35,8 @@ export type WikiKind =
   | "achievement"
   | "pursuit"
   | "event"
+  | "mechanism"
+  | "forge"
   | "other";
 
 export interface WikiDataset {
