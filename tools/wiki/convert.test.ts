@@ -102,9 +102,14 @@ describe("convertPage", () => {
   });
 
   it("fills in the vue title placeholder wherever the page uses it", () => {
-    const p = convertPage("other/guide/mechanism/x", page("## {{ $frontmatter.title }}\n\n內文", "關於心上人"));
-    expect(p.blocks[0]).toEqual({ type: "h", level: 2, text: [{ text: "關於心上人" }] });
+    const p = convertPage("other/guide/mechanism/x", page("內文\n\n## {{ $frontmatter.title }}", "關於心上人"));
+    expect(p.blocks[1]).toEqual({ type: "h", level: 2, text: [{ text: "關於心上人" }] });
     expect(p.blocks).toHaveLength(2);
+  });
+
+  it("drops a first heading that is just the title placeholder", () => {
+    const p = convertPage("other/guide/mechanism/x", page("## {{ $frontmatter.title }}\n\n內文", "關於心上人"));
+    expect(p.blocks).toEqual([{ type: "p", text: [{ text: "內文" }] }]);
   });
 
   it("also reads the lowercase <Btable> spelling", () => {
