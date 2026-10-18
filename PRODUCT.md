@@ -24,7 +24,7 @@ Not a new guide: a structured, searchable, cross-linked view of an existing comm
 
 ## Operating Context
 
-Desktop-first on a second screen; also used on phones. Heavy reading of tables (equipment, items, endings index) and long flow lists (events). Traditional Chinese content; search accepts simplified input.
+Desktop only, on a second screen next to the game (phones are not designed for). Heavy reading of tables (equipment, items, endings index) and long flow lists (events). Traditional Chinese content; search accepts simplified input.
 
 ## Capabilities and Constraints
 
