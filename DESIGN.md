@@ -1,6 +1,6 @@
 ---
 name: 活俠傳攻略
-description: A scroll-desk reference for the game 活俠傳, built on shuimo-ui. Brushwork in the margins, calm paper under the text.
+description: A scroll-desk reference for the game 活俠傳, built on shuimo-ui. Brushwork only at the header and title, calm paper under the text.
 colors:
   rice-paper: "#fcfaf0"
   ink: "#2b333e"
@@ -42,9 +42,9 @@ typography:
     lineHeight: 1.8
   table:
     fontFamily: "'Noto Serif TC', 'Songti TC', 'PMingLiU', serif"
-    fontSize: "0.9375rem"
+    fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.8
+    lineHeight: 1.7
   label:
     fontFamily: "'Noto Serif TC', 'Songti TC', 'PMingLiU', serif"
     fontSize: "0.875rem"
@@ -64,8 +64,11 @@ spacing:
   md: "1rem"
   lg: "1.5rem"
   xl: "3rem"
-  sidebar-width: "21rem"
+  sidebar-width: "17rem"
   reading-column: "56rem"
+  list-column: "76rem"
+  portrait-width: "18rem"
+  shell-min-width: "1100px"
 components:
   nav-link-current:
     textColor: "{colors.ink}"
@@ -86,11 +89,21 @@ components:
     backgroundColor: "{colors.paper-wash}"
     textColor: "{colors.ink}"
     typography: "{typography.table}"
-    padding: "0.35rem 0.6rem"
+    padding: "0.6rem 0.75rem"
   table-cell:
     textColor: "{colors.ink}"
     typography: "{typography.table}"
-    padding: "0.35rem 0.6rem"
+    padding: "0.6rem 0.75rem"
+  portrait-panel:
+    backgroundColor: "{colors.paper-wash}"
+    textColor: "{colors.ink-muted}"
+    typography: "{typography.footnote}"
+    width: "18rem"
+    height: "14rem"
+  code-block:
+    backgroundColor: "{colors.paper-wash}"
+    textColor: "{colors.ink}"
+    padding: "0.75rem 1rem"
   tag:
     textColor: "{colors.link-oxblood}"
     rounded: "{rounded.hairline}"
@@ -109,18 +122,19 @@ components:
 
 **Creative North Star: "The Scroll Desk"**
 
-A reference opened on a second monitor mid-run, laid out like a desk with a scroll on it. Texture and brushwork live in the margins, edges and seals; the reading text stays on calm paper. The visual vocabulary is the pinned library @shuimo-design/react (beta): a raw rice-paper ground, brush-drawn rules, one cinnabar seal. The project stylesheet only lays out and re-expresses the library's `--m-*` tokens; it adds no palette of its own.
+A reference opened on a second monitor mid-run, laid out like a desk with a scroll on it. Texture lives in seals and in two brush strokes (the header edge and the title rule); the reading text stays on calm paper. The visual vocabulary is the pinned library @shuimo-design/react (beta): a raw rice-paper ground, one cinnabar seal, a rare brush stroke. The project stylesheet only lays out and re-expresses the library's `--m-*` tokens; it adds no palette of its own.
 
-Density is that of a lookup tool. Entries are found in seconds through a folded sidebar, a section nav or search, and the page tells the reader where they are with a breadcrumb and a brush-underlined section name. Ink effects are reserved for borders, titles, dividers and stamps. Tables and lists are never inked; lookup comes first.
+Density is that of a lookup tool. Entries are found in seconds through a folded sidebar, a section nav or search, and the page tells the reader where they are with a breadcrumb and a seal-underlined section name. Ink effects are reserved for the header edge, the page title and stamps. Everything else is ruled with straight hairlines. Tables and lists are never inked; lookup comes first. The site is desktop only; there is no phone layout.
 
 Two themes share one structure: 宣紙 (light rice paper, ink text) and 墨夜 (dark, deep ink ground, pale ink text, brighter cinnabar). The library's taiji toggle switches them through `data-theme="dark"`.
 
 **Key Characteristics:**
 - Rice-paper ground over the whole viewport, with the main column as the only scroller.
-- Brush rules (MBorder, MDivider) separate regions instead of boxes and cards.
+- Straight 1px hairlines separate regions instead of boxes and cards; the brush stroke is kept for the header edge and the title rule.
 - One red voice: the seal. Everything else is ink on paper.
 - Noto Serif TC for everything, with weight 900 reserved for the title and brand.
-- Plain thin-ruled tables.
+- Plain thin-ruled tables at 1rem text, wide enough to read, using the full column.
+- Character pages carry a floated portrait linked from the wiki, or a seal when there is none.
 - One authored motion: the page settles in and the title rule is drawn left to right.
 
 ## Colors
@@ -151,77 +165,86 @@ Ink on warm rice paper with a single cinnabar seal; the dark theme inverts to pa
 
 ### Hierarchy
 - **Display** (900, clamp(1.75rem, 4vw, 2.5rem), 1.3): page h1, balanced wrap, strong ink.
-- **Brand** (900, 1.5rem, letter-spacing 0.12em; 1.25rem on phones): header name beside the 活俠 stamp.
-- **Title** (600, 1.0625rem): wiki h3/h4. Section h2 is a brush MDivider with left-aligned text, not a styled heading.
-- **Body** (400, 16px, 1.8): reading text in a column of at most 56rem.
-- **Table** (400, 0.9375rem): table text; header cells 600.
+- **Brand** (900, 1.5rem, letter-spacing 0.12em): header name beside the 活俠 stamp.
+- **Title** (600, 1.0625rem): wiki h3/h4. Section h2 (600, 1.0625rem, letter-spacing 0.1em) is its text followed by a straight 1px hairline that fills the row.
+- **Body** (400, 16px, 1.8): reading text (paragraphs, h3, h4, breadcrumb) in a column of at most 56rem.
+- **Table** (400, 1rem, 1.7): table text; header cells 600.
 - **Label** (600, 0.875rem, letter-spacing 0.1em): month and group headings in the timeline sidebar, in muted ink.
-- **Footnote** (400, 0.8125rem, 1.6): footer, in muted ink.
+- **Footnote** (400, 0.8125rem, 1.6): footer and portrait caption, in muted ink.
+- **Code** (400, 0.875rem, 1.6, system monospace): code blocks only.
 
 ### Named Rules
 **The Tabular Count Rule.** Numbers that index (list numbers, months) use `tabular-nums`.
 
+**The Pinned Root Rule.** The root font size is pinned to 16px because the library sets 14px, which would shrink every rem.
+
 ## Layout
 
-A full-viewport grid: header row, a 21rem sidebar column beside a flexible main column, and a footer row. The shell fills 100% height and only the sidebar and `#main` scroll. Pages without a sidebar collapse to one column. The reading column holds at 56rem and takes `clamp(1.25rem, 5vw, 4rem)` side padding. Spacing is rem-based on a loose 0.25 / 0.5 / 1 / 1.5 / 3 rhythm; headings sit 2rem (h2) and 1.5rem (h3) above their content.
+Desktop only. A full-viewport grid: header row, a 17rem sidebar column beside a flexible main column, and a footer row. The shell fills 100% height with a minimum width of 1100px (the paper scrolls sideways below that); only the sidebar and `main` scroll. A header button (收合側欄 / 展開側欄) collapses the sidebar to a single column; the state is kept in localStorage `sideOpen`. Pages without a sidebar are always one column. Main takes `clamp(1.5rem, 3vw, 3rem)` side padding. Spacing is rem-based on a loose 0.25 / 0.5 / 1 / 1.5 / 3 rhythm; headings sit 2rem (h2) and 1.5rem (h3, h4) above their content.
 
-The home page lists entries in an auto-fit grid (min 16rem, 2rem column gap), each separated by a top hairline, with no cards.
+Reading column: text (paragraphs, h3, h4, breadcrumb) holds at 56rem; lists cap at 76rem; tables, rules and code blocks use the whole column. A character page floats an 18rem portrait to the right (margin 0 0 1rem 2rem).
 
-Under 800px: the sidebar moves into a left MDrawer (86% wide, title 目錄) opened by a text button in the header; the header shrinks (brand 1.25rem, search 7.5rem) and the section nav becomes one horizontally scrolling row with hidden scrollbar; main padding drops to 1rem.
+The home page (56rem) lists entries in an auto-fit grid (min 16rem, 2rem column gap), each separated by a top hairline, with no cards.
+
+There are no breakpoints. The drawer, the scrolling nav row and the compact header of the old phone layout are gone.
 
 ## Elevation & Depth
 
-Flat. There are no box shadows in the project. Depth comes from the paper ground, brush edges (a 10px brush rule at the header base, an 8px brush edge on the sidebar's right, a 10px rule under each title), and tonal washes. The footer sits on 92% paper over a hairline.
+Flat. There are no box shadows in the project. Depth comes from the paper ground, two brush strokes (a 10px stroke on the header's bottom edge and a 10px stroke under each page title), and tonal washes. The sidebar edge, the section headings, folded-group rules and the footer top are straight 1px hairlines.
 
 ### Named Rules
-**The Brush Is The Border Rule.** Regions are divided by MBorder and MDivider strokes (thickness 3), each with its own seed so repeated strokes differ. Do not box regions with CSS borders; the table's hairline grid is the only ruled structure.
+**The Rare Brush Rule.** The brush stroke (MBorder) appears at most twice per page: the header edge (`.top-edge`, stroke 3) and the title rule (`.title-rule`, stroke 4). Every other division is a straight 1px hairline in `--line`, a wash, or whitespace. Do not box regions with CSS borders; the table grid and the portrait frame are the only ruled structures.
 
 ## Shapes
 
-Almost square. The only radius in the project is 2px (sidebar links, tags), matching the library's `--m-radius`. Silhouette comes from the hand-drawn brush edges and the square seal stamp, not from rounded corners or pills.
+Almost square. The only radius in the project is 2px (sidebar links, tags, spoilers), matching the library's `--m-radius`. Silhouette comes from the square seal stamp and the two brush strokes, not from rounded corners or pills.
 
 ## Components
 
 Most components are library parts; the project only places and tints them.
 
 ### Navigation
-- **Section nav:** plain links in ink; hover turns oxblood; the current one is weight 600 and wrapped in a brush underline (MBorder, bottom, stroke 3).
-- **Sidebar:** folded groups (MCollapse) titled `name（count）`; links with 0.3rem 0.6rem padding, wash on hover, seal fill with white text for the current page, muted ink for missing entries. A filter input appears when a section has more than four pages. Timeline rows use a 2.4rem month column.
+- **Section nav:** plain links in ink; hover turns oxblood; the current one is weight 600 with a straight 2px seal underline (a border, not a brush).
+- **Sidebar:** 17rem, right edge a 1px hairline; folded groups (MCollapse) titled `name（count）`, their rules flattened to 1px hairlines; links with 0.3rem 0.6rem padding, wash on hover, seal fill with white text for the current page, muted ink for missing entries. A filter input appears when a section has more than four pages. Timeline rows use a 2.4rem month column. A header text button collapses it.
 - **Breadcrumb:** MBreadcrumb above every title, 0.9375rem.
 
 ### Header
-- MStamp 活俠 (40px; 30px on phones) with the brand name, section nav, search input (17rem; 11rem and 7.5rem on narrower screens), and the MDarkMode taiji toggle.
+- MStamp 活俠 (40px) with the brand name, section nav, search input (17rem), the sidebar toggle text button, and the MDarkMode taiji toggle. The bottom edge is a brush stroke.
 
 ### Inputs
 - MInput with paper-wash fill replacing the library's translucent paper; placeholders in muted ink at full opacity; clearable. Focus ring is 2px seal outline, 2px offset, site-wide.
 
 ### Tables
-- Collapsed borders in hairline, 0.35rem 0.6rem padding, header on paper wash with a 2px ink bottom rule and no wrapping. Wrapper scrolls horizontally. Never inked.
+- Collapsed 1px hairline borders, 1rem text at 1.7 line height, cell padding 0.6rem 0.75rem, auto layout at full column width. Each column gets a minimum width from its longest line (about 1rem per character, capped at 16rem plus padding, so Chinese text is never squeezed to one character per line); wider tables scroll sideways in their wrapper. Columns empty or dash-only throughout are dropped. A short (12 characters or fewer), link-free first row above more rows is treated as a header (wash fill, weight 600, 2px ink bottom rule); character pages never guess. Never inked.
 
-### Notes and inline
-- Annotated text: dotted underline, expands to a wash highlight with muted smaller note text. Emoji glyphs in wiki text are desaturated (grayscale, 80% opacity).
+### Character portrait
+- A figure floated right, 18rem wide: the image with a 1px hairline frame on a wash, loaded from the wiki's server and never copied, with a 0.8125rem muted credit caption. A character without art shows an MStamp (112px) carrying the name, centered on a 14rem tall dashed-hairline wash panel, with a caption saying the wiki has none. See docs/adr/0001-follow-wiki-license.md.
+
+### Wiki marks
+- Spoiler: blurred 5px, clears on hover, focus or tap over a wash; keyboard focusable. Strike: 70% opacity, 1px line. Note: dotted-underline button that expands a muted smaller note on tap; linked notes keep a dotted underline. Emoji glyphs are desaturated (grayscale, 80% opacity). Horizontal rule: 1px hairline. Code: wash block, hairline border, scrolls sideways.
 
 ### Footer colophon
 - MSealColophon (stamp 36px, text 資料整理自, author, date, right-aligned) in muted 0.8125rem text over a hairline. The seal hangs past the text, so the first child keeps a 3rem right margin and the date stays on one line.
 
 ### Utility parts
-- MReadingStroke (3px progress stroke on `#main`), MBackTop, MDrawer, MEmpty, MLoading, MCard as supplied by the library.
+- MReadingStroke (3px progress stroke on `#main`), MBackTop, MEmpty, MLoading, MCard (plain frame, no shadow, for the edit notice) as supplied by the library.
 
 ### Motion
-- Page article and home settle in over 0.45s (6px rise, fade); the title rule is drawn with a left-to-right clip over 0.7s after 0.1s; both ease with cubic-bezier(0.16, 1, 0.3, 1). Only under `prefers-reduced-motion: no-preference`.
+- Page article and home settle in over 0.45s (6px rise, fade); the title rule is drawn with a left-to-right clip over 0.7s after 0.1s; both ease with cubic-bezier(0.16, 1, 0.3, 1). Spoilers fade over 0.25s. Page motion runs only under `prefers-reduced-motion: no-preference`; the spoiler transition is off under reduce.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** express new colors as mixes of `--m-fg` and the paper token, or as library `--m-*` tokens, so light and dark both follow.
 - **Do** keep seal red for place and focus: current marks, the brand stamp, selection and the focus ring.
-- **Do** separate regions with MBorder and MDivider strokes, and give each a distinct `seed`.
-- **Do** keep reading text on plain paper in Noto Serif TC at 1.8 line height inside the 56rem column.
+- **Do** separate regions with straight 1px `--line` hairlines; keep the brush stroke to the header edge and the title rule.
+- **Do** keep reading text on plain paper in Noto Serif TC at 1.8 line height inside the 56rem column, and let tables use the full column.
 - **Do** keep tables plain: hairline grid, wash header, no ink effects.
 - **Do** gate every animation behind `prefers-reduced-motion: no-preference`.
 
 ### Don't:
-- **Don't** put ink or brush effects on dense tables or lists.
+- **Don't** put ink or brush effects on dense tables or lists, or add brush strokes beyond the header edge and title rule.
+- **Don't** add phone-specific layout (drawer, scrolling nav, breakpoints); the site is desktop only.
 - **Don't** build a SaaS sidebar-and-cards dashboard: no card grids, no shadows, no pills.
 - **Don't** add a second accent hue or use red decoratively.
 - **Don't** hard-code light-only hex values in project CSS; they break 墨夜.
