@@ -57,17 +57,15 @@ h1, h2, h3, h4 { font-family: var(--font); }
 .top-edge { position: absolute; inset: auto 0 0 0; height: 10px; pointer-events: none; }
 .brand { display: flex; align-items: center; gap: 0.75rem; color: var(--m-fg-strong); text-decoration: none; font-weight: 900; font-size: 1.5rem; letter-spacing: 0.12em; }
 .topnav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; flex: 1; min-width: 0; }
-.topnav a { color: var(--m-fg); text-decoration: none; padding: 0.25rem 0; }
+.topnav a { color: var(--m-fg); text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
 .topnav a:hover { color: var(--link); }
-.topnav a[aria-current="page"] { font-weight: 600; }
-.underline { display: inline-block; padding: 0 0.1rem 0.35rem; }
+.topnav a[aria-current="page"] { font-weight: 600; border-bottom-color: var(--m-seal); }
 .top-tools { display: flex; align-items: center; gap: 0.75rem; }
 .global-search { width: 17rem; }
 
 /* sidebar */
-.side { grid-area: side; min-height: 0; overflow-y: auto; position: relative; }
+.side { grid-area: side; min-height: 0; overflow-y: auto; position: relative; border-right: 1px solid var(--line); }
 .sidebar { position: relative; padding: 0.5rem 1rem 3rem 1.5rem; }
-.sidebar-edge { position: absolute; inset: 0 0 0 auto; width: 8px; pointer-events: none; }
 .tools { margin-bottom: 1rem; }
 .sidebar ol { list-style: none; margin: 0; padding: 0; }
 .sidebar li a {
@@ -100,7 +98,8 @@ main { grid-area: main; min-width: 0; overflow-y: auto; padding: 1.5rem clamp(1.
 .event header { position: relative; margin-bottom: 1.5rem; padding-bottom: 0.9rem; }
 .title-rule { position: absolute; inset: auto 0 0 0; height: 10px; pointer-events: none; }
 h1 { margin: 0 0 0.25rem; font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.3; font-weight: 900; text-wrap: balance; color: var(--m-fg-strong); }
-.wiki-h2 { margin: 2rem 0 0.75rem; }
+.wiki-h2 { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 0.75rem; font-size: 1.0625rem; font-weight: 600; letter-spacing: 0.1em; }
+.wiki-h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .wiki-page h3, .wiki-page h4 { margin: 1.5rem 0 0.5rem; font-size: 1.0625rem; font-weight: 600; }
 .wiki-page p { margin: 0.5rem 0; }
 .meta { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.9375rem; }
@@ -181,3 +180,12 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 .wiki-hr { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0; }
 .wiki-code { overflow-x: auto; padding: 0.75rem 1rem; background: var(--wash); border: 1px solid var(--line); font: 0.875rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre; }
 @media (prefers-reduced-motion: reduce) { .spoiler { transition: none; } }
+
+/* folded groups: the library's hand-drawn rule becomes a straight hairline */
+.m-collapse-item__line { -webkit-mask: none; mask: none; height: 1px; background: var(--line); }
+
+/* character portrait */
+.portrait { float: right; width: 18rem; margin: 0 0 1rem 2rem; }
+.portrait img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--wash); }
+.portrait-seal { display: grid; place-items: center; height: 14rem; border: 1px dashed var(--line); background: var(--wash); }
+.portrait figcaption { margin-top: 0.35rem; color: var(--muted); font-size: 0.8125rem; line-height: 1.5; }

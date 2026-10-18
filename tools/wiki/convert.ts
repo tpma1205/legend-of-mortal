@@ -310,6 +310,12 @@ const normalizeTables = (s: string) =>
     .replace(/<(\/?)ChTr\b[^>]*>/g, "<$1tr>")
     .replace(/<(\/?)ChTd\b[^>]*>/g, "<$1td>");
 
+/** the first character image a character page shows (its portrait); only the path is kept */
+function portraitOf(id: string, body: string): string | undefined {
+  if (!id.startsWith("people/characters/")) return undefined;
+  return body.match(/src=['"`](\/images\/characters\/[^'"`]+\.(?:webp|png|jpe?g))['"`]/)?.[1];
+}
+
 export function convertPage(id: string, src: string): WikiPage {
   const { title, tags, body } = parseFrontmatter(src);
   const blocks: Block[] = [];
@@ -324,5 +330,6 @@ export function convertPage(id: string, src: string): WikiPage {
   // the site prints the page title itself; a first heading that only repeats it is noise
   const first = blocks[0];
   if (first?.type === "h" && first.text.map((r) => r.text).join("") === title) blocks.shift();
-  return { id, kind: kindOf(id), title, tags, blocks };
+  const image = portraitOf(id, body);
+  return { id, kind: kindOf(id), title, tags, blocks, ...(image ? { image } : {}) };
 }

@@ -248,6 +248,25 @@ describe("convertPage", () => {
     ]);
   });
 
+  it("records the first character image path as the page's portrait, without keeping the image", () => {
+    const body = "<ChTabs><ChTab title=\"初識\"><ChMeet src='/images/characters/girl_2/normal.webp' desc='俏皮' /></ChTab><ChTab><Ch src='/images/characters/girl_2/angry1.webp' /></ChTab></ChTabs>\n\n內文";
+    const p = convertPage("people/characters/girl2", page(body, "葉雲裳"));
+    expect(p.image).toBe("/images/characters/girl_2/normal.webp");
+    expect(JSON.stringify(p.blocks)).not.toContain("webp");
+  });
+
+  it("finds a portrait given as a plain img tag, and ignores images outside characters/", () => {
+    const a = convertPage("people/characters/aunt2", page('<img src="/images/characters/aunt2/normal.webp">\n\n內文'));
+    expect(a.image).toBe("/images/characters/aunt2/normal.webp");
+    const b = convertPage("people/characters/x", page('<img src="/images/collab/poster.webp">\n\n內文'));
+    expect(b.image).toBeUndefined();
+  });
+
+  it("gives non-character pages no portrait", () => {
+    const p = convertPage("system/books/book_1", page("<img src='/images/characters/girl_2/normal.webp'>\n\n內文"));
+    expect(p.image).toBeUndefined();
+  });
+
   it("keeps the text of vue wrapper components but not their markup", () => {
     const p = convertPage("event/ends/end-1", page('<EndBackground no=25 title="退隱江湖">\n你退隱之後。<br>\n波瀾。\n</EndBackground>'));
     expect(p.blocks.map((b) => b.type)).toEqual(["p", "p"]);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MBorder, MCollapse, MCollapseItem, MInput } from "@shuimo-design/react";
+import { MCollapse, MCollapseItem, MInput } from "@shuimo-design/react";
 import type { WikiIndex } from "../guide/wikiIndex";
 import { groupsOf, pagesOfSection, type Item } from "./sidebarGroups";
 import type { Section } from "./sections";
@@ -48,7 +48,6 @@ export function SectionSidebar({ index, section, activeId }: { index: WikiIndex;
       ) : (
         groups.map((g) => <section key={g.label}>{list(g.items)}</section>)
       )}
-      <MBorder right border={false} className="sidebar-edge" seed={3} strokeWidth={3} />
     </nav>
   );
 }

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { MBorder, MCollapse, MCollapseItem, MInput } from "@shuimo-design/react";
+import { MCollapse, MCollapseItem, MInput } from "@shuimo-design/react";
 import type { WikiIndex } from "../guide/wikiIndex";
 import { buildTimeline, parseEventId } from "../guide/timeline";
 import { useOpenGroups } from "./useOpenGroups";
@@ -45,7 +45,6 @@ export function TimelineSidebar({ index, activeId }: { index: WikiIndex; activeI
           </MCollapseItem>
         ))}
       </MCollapse>
-      <MBorder right border={false} className="sidebar-edge" seed={3} strokeWidth={3} />
     </nav>
   );
 }

@@ -13,13 +13,7 @@ export function Header({ nav, q, side, onSide }: { nav: string; q: string; side:
       <nav className="topnav" aria-label="主要分區">
         {items.map((it, i) => (
           <a key={it.id} href={it.href} aria-current={nav === it.id ? "page" : undefined}>
-            {nav === it.id ? (
-              <MBorder tag="span" border={false} bottom strokeWidth={3} seed={i + 1} className="underline">
-                {it.label}
-              </MBorder>
-            ) : (
-              it.label
-            )}
+            {it.label}
           </a>
         ))}
       </nav>

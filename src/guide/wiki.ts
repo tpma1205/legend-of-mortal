@@ -28,6 +28,8 @@ export interface WikiPage {
   title: string;
   tags: string[];
   blocks: Block[];
+  /** character pages: the wiki-relative path of the first character image (e.g. /images/characters/girl_2/normal.webp). Only the path is kept, never the file. */
+  image?: string;
   /** changes this site made to the wiki text (shown on the page, as CC BY-SA requires) */
   edits?: string[];
 }

@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { MBreadcrumb, MBreadcrumbItem, MBorder, MCard, MDivider } from "@shuimo-design/react";
+import { MBreadcrumb, MBreadcrumbItem, MBorder, MCard, MStamp } from "@shuimo-design/react";
 import type { Block, Inline, WikiPage } from "../guide/wiki";
 import type { WikiIndex } from "../guide/wikiIndex";
 import { parseEventId } from "../guide/timeline";
@@ -95,7 +95,7 @@ function BlockView({ block, index, header, guessHeader, n }: { block: Block; ind
   const kindAllowsGuess = guessHeader;
   switch (block.type) {
     case "h": {
-      if (block.level <= 2) return <MDivider text={plain(block.text)} align="left" seed={n + 20} thickness={3} className="wiki-h2" />;
+      if (block.level <= 2) return <h2 className="wiki-h2" data-n={n}>{plain(block.text)}</h2>;
       const Tag = `h${Math.min(6, block.level)}` as "h3";
       return (
         <Tag>
@@ -165,7 +165,7 @@ function Backlinks({ page, index }: { page: WikiPage; index: WikiIndex }) {
   const kinds = [...new Set(from.map((p) => p.kind))];
   return (
     <section className="backlinks">
-      <MDivider text="相關頁面" align="left" seed={9} thickness={3} />
+      <h2 className="wiki-h2">相關頁面</h2>
       {kinds.map((kind) => (
         <p key={kind} className="meta">
           {KIND_LABEL[kind]}：
@@ -185,6 +185,29 @@ function Backlinks({ page, index }: { page: WikiPage; index: WikiIndex }) {
 }
 
 const MONTH_TEXT = (t: { year: number; month: number }) => (t.year === 0 ? "任意時間" : `第${t.year}年${t.month > 0 ? ` ${t.month}月` : ""}`);
+
+const WIKI_ORIGIN = "https://smilin.net/LoM-wiki";
+
+/**
+ * A character's portrait, loaded straight from the wiki's server (nothing is copied into this site) and only on
+ * that character's own page. A character the wiki has no art for gets a seal carrying the name instead.
+ */
+function Portrait({ page }: { page: WikiPage }) {
+  const [failed, setFailed] = useState(false);
+  const src = page.image && !failed ? `${WIKI_ORIGIN}${page.image}` : undefined;
+  return (
+    <figure className="portrait">
+      {src ? (
+        <img src={src} alt={`${page.title}立繪`} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={() => setFailed(true)} />
+      ) : (
+        <div className="portrait-seal">
+          <MStamp text={page.title} size={112} seed={page.title.length * 7 + 3} />
+        </div>
+      )}
+      <figcaption>{src ? "立繪：遊戲美術 © Paras Games，圖片取自活俠傳 wiki" : "wiki 尚無此人物的立繪"}</figcaption>
+    </figure>
+  );
+}
 
 /** where this page sits: section, then year/month or kind, then the page itself */
 export function Crumbs({ page }: { page: WikiPage }) {
@@ -210,6 +233,7 @@ export function WikiPageView({ page, index }: { page: WikiPage; index: WikiIndex
         <h1>{page.title}</h1>
         <MBorder bottom border={false} seed={2} strokeWidth={4} flyingWhite={0.2} className="title-rule" />
       </header>
+      {page.kind === "character" && !page.id.endsWith("/index") && <Portrait page={page} />}
       {page.blocks.map((b, i) => (
         <BlockView key={i} block={b} index={index} header={HEADER_KINDS.has(page.kind)} guessHeader={page.kind !== "character"} n={i} />
       ))}
