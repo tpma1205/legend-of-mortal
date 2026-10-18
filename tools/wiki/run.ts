@@ -10,7 +10,9 @@
 import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
-import { convertPage } from "./convert";
+import { convertPage, kindOf } from "./convert";
+import { coverage } from "./coverage";
+import { EXCLUDED } from "./excluded";
 import { OVERRIDES, applyOverrides } from "./overrides";
 import type { WikiDataset, WikiKind, WikiPage } from "../../src/guide/wiki";
 
@@ -34,17 +36,30 @@ function walk(dir: string, out: string[] = []): string[] {
 }
 
 const pages: WikiPage[] = [];
+const seen: { id: string; kind: WikiKind }[] = [];
 const skipped: WikiDataset["skipped"] = [];
 for (const file of walk(docsDir)) {
   const id = relative(docsDir, file).replace(/\\/g, "/").replace(/\.md$/, "");
+  const kind = kindOf(id);
+  seen.push({ id, kind });
+  if (!WANTED.includes(kind)) continue;
   try {
     const page = convertPage(id, readFileSync(file, "utf8"));
-    if (!WANTED.includes(page.kind)) continue;
     if (page.blocks.length === 0) skipped.push({ id, reason: "no content blocks" });
     else pages.push(page);
   } catch (e) {
     skipped.push({ id, reason: String(e) });
   }
+}
+
+// every wiki section is converted or excluded on purpose; print the table and stop on anything unaccounted for
+const report = coverage(seen, WANTED, EXCLUDED);
+console.log("section".padEnd(34), "pages  converted  excluded because");
+for (const r of report.rows) console.log(r.section.padEnd(34), String(r.total).padStart(5), String(r.converted).padStart(10), " ", r.excludedReason ?? "");
+if (report.unregistered.length || report.staleExclusions.length) {
+  if (report.unregistered.length) console.error(`\nNOT CONVERTED AND NOT LISTED in tools/wiki/excluded.ts: ${report.unregistered.join(", ")}`);
+  if (report.staleExclusions.length) console.error(`\nSTALE entries in tools/wiki/excluded.ts: ${report.staleExclusions.join(", ")}`);
+  process.exit(1);
 }
 
 const edited = applyOverrides(pages, OVERRIDES);

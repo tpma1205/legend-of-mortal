@@ -201,6 +201,20 @@ describe("convertPage", () => {
     expect(p.blocks).toEqual([{ type: "p", text: [{ text: "內文" }] }]);
   });
 
+  it("points a link to a page that only includes another page at that other page", () => {
+    const p = convertPage("event/ends/end-24", page("見[夢境心上人](/event/pursuit/)與[總表](/event/pursuit/index)。"));
+    expect(p.blocks[0]).toEqual({
+      type: "p",
+      text: [
+        { text: "見" },
+        { text: "夢境心上人", to: "people/dream-sweetheart" },
+        { text: "與" },
+        { text: "總表", to: "people/dream-sweetheart" },
+        { text: "。" },
+      ],
+    });
+  });
+
   it("turns a mermaid upgrade chart into an indented list plus its refund note", () => {
     const chart = [
       "```mermaid",

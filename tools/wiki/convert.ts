@@ -39,8 +39,14 @@ export function hrefToId(href: string): string | undefined {
   } catch {
     // keep raw path when it isn't valid percent-encoding
   }
-  return p.endsWith("/") ? `${p}index` : p;
+  const id = p.endsWith("/") ? `${p}index` : p;
+  return ALIASES[id] ?? id;
 }
+
+/** pages that only `@include` another page; the wiki serves the same content at both addresses */
+const ALIASES: Record<string, string> = {
+  "event/pursuit/index": "people/dream-sweetheart",
+};
 
 const INLINE = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]|\[((?:\\.|[^\]\\])+)\]\(([^)\s]+)\)|<span\b[^>]*?title="([^"]*)"[^>]*>([\s\S]*?)<\/span>|\|\|(.+?)\|\||~~(.+?)~~/g;
 

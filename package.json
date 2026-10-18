@@ -8,7 +8,8 @@
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "validate": "vitest run src/guide"
+    "validate": "vitest run src/guide",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "@shuimo-design/react": "^1.0.0-beta.4",
