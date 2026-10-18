@@ -7,6 +7,7 @@ import { KIND_LABEL, sectionOfKind } from "./sections";
 import { sectionHref, wikiHref } from "./route";
 import { splitGlyphs } from "./glyphs";
 import { looksLikeHeader } from "./tableHeader";
+import { columnMinWidths, visibleColumns } from "./tableColumns";
 
 /** emoji in the wiki text are drawn in ink instead of full colour */
 function Text({ text }: { text: string }) {
@@ -126,16 +127,20 @@ function BlockView({ block, index, header, guessHeader, n }: { block: Block; ind
       return <pre className="wiki-code">{block.text}</pre>;
     case "table": {
       const asHeader = header || (kindAllowsGuess && looksLikeHeader(block.rows));
+      // a header-led table drops columns that are empty throughout; the browser then sizes the rest by their content
+      const cols = asHeader ? visibleColumns(block.rows, true) : Array.from({ length: Math.max(...block.rows.map((r) => r.length)) }, (_, i) => i);
+      const mins = columnMinWidths(block.rows, cols);
       return (
         <div className="table-wrap">
           <table>
             <tbody>
               {block.rows.map((row, r) => (
                 <tr key={r}>
-                  {row.map((cell, c) => {
+                  {cols.map((c, i) => {
+                    const cell = row[c] ?? [];
                     const Cell = asHeader && r === 0 ? "th" : "td";
                     return (
-                      <Cell key={c}>
+                      <Cell key={c} style={r === 0 ? { minWidth: `${mins[i]}rem` } : undefined}>
                         {cell.map((line, l) => (
                           <div key={l}>
                             <Runs runs={line} index={index} />

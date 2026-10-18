@@ -10,7 +10,7 @@
   --line: color-mix(in srgb, var(--m-fg) 22%, var(--paper));
   --link: var(--m-accent);
   --font: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
-  --side-w: 21rem;
+  --side-w: 17rem;
 }
 :root[data-theme="dark"] {
   --link: color-mix(in srgb, var(--m-seal) 55%, #fff);
@@ -22,6 +22,7 @@
 }
 
 * { box-sizing: border-box; }
+html { font-size: 16px; } /* the library sets 14px on the root, which would shrink every rem below */
 html, body, #root { height: 100%; margin: 0; }
 body { background: var(--paper); color: var(--m-fg); font: 400 16px/1.8 var(--font); }
 ::selection { background: var(--m-seal); color: #fff; }
@@ -30,7 +31,7 @@ a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--m-seal); outline-offset: 2px; }
 h1, h2, h3, h4 { font-family: var(--font); }
 
-.paper { height: 100%; overflow: hidden; }
+.paper { height: 100%; overflow-x: auto; overflow-y: hidden; }
 /* the paper wraps its children in a content div; it must be viewport-high so #main is the scroller */
 .m-rice-paper__content { height: 100%; }
 .shell {
@@ -39,8 +40,9 @@ h1, h2, h3, h4 { font-family: var(--font); }
   grid-template-rows: auto minmax(0, 1fr) auto;
   grid-template-areas: "top top" "side main" "foot foot";
   height: 100%;
+  min-width: 1100px;
 }
-.shell.no-side { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "main" "foot"; }
+.shell.side-closed, .shell.no-side { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "main" "foot"; }
 
 /* header */
 .top {
@@ -88,8 +90,12 @@ h1, h2, h3, h4 { font-family: var(--font); }
 .empty { color: var(--muted); }
 
 /* reading column */
-main { grid-area: main; min-width: 0; overflow-y: auto; padding: 1.5rem clamp(1.25rem, 5vw, 4rem) 3rem; }
-.event, .home { max-width: 56rem; }
+main { grid-area: main; min-width: 0; overflow-y: auto; padding: 1.5rem clamp(1.5rem, 3vw, 3rem) 3rem; }
+.home { max-width: 56rem; }
+/* text keeps a comfortable line length; tables, lists and rules use the whole column */
+.event { max-width: none; }
+.event > p, .event > h3, .event > h4, .event > .crumbs { max-width: 56rem; }
+.event .wiki-list { max-width: 76rem; }
 .crumbs { margin-bottom: 1rem; font-size: 0.9375rem; }
 .event header { position: relative; margin-bottom: 1.5rem; padding-bottom: 0.9rem; }
 .title-rule { position: absolute; inset: auto 0 0 0; height: 10px; pointer-events: none; }
@@ -117,10 +123,10 @@ h1 { margin: 0 0 0.25rem; font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1
 
 /* tables stay plain and ruled: lookup comes first */
 .table-wrap { overflow-x: auto; margin: 0.75rem 0; }
-.wiki-page table { border-collapse: collapse; font-size: 0.9375rem; min-width: 100%; }
-.wiki-page th, .wiki-page td { border: 1px solid var(--line); padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
-.wiki-page th { background: var(--wash); font-weight: 600; white-space: nowrap; border-bottom: 2px solid var(--m-fg); }
-.wiki-page td div + div { margin-top: 0.25rem; }
+.wiki-page table { border-collapse: collapse; font-size: 1rem; line-height: 1.7; width: 100%; }
+.wiki-page th, .wiki-page td { border: 1px solid var(--line); padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }
+.wiki-page th { background: var(--wash); font-weight: 600; border-bottom: 2px solid var(--m-fg); }
+.wiki-page td div + div { margin-top: 0.4rem; }
 
 /* search results */
 .results { list-style: none; margin: 0; padding: 0; }
@@ -143,15 +149,7 @@ h1 { margin: 0 0 0.25rem; font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1
 /* theme the browser's own surfaces */
 * { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--m-fg) 35%, transparent) transparent; }
 
-@media (max-width: 800px) {
-  .top { padding: 0.5rem 1rem 0.8rem; }
-  .topnav { order: 3; flex-basis: 100%; }
-  .top-tools { margin-left: auto; }
-  .global-search { width: 11rem; }
-  main { padding: 1rem 1rem 2.5rem; }
-  .foot { padding: 0.5rem 1rem 0.75rem; }
-  .sidebar { padding: 0.5rem 0.5rem 2rem; }
-}
+
 
 /* inputs: a calm wash instead of the library's translucent paper, and a placeholder that reads */
 .top-tools .m-input, .tools .m-input { --m-input-bg: var(--wash); }
@@ -166,21 +164,15 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 }
 
 /* phones: keep the header short — the section nav becomes one scrolling row */
-@media (max-width: 800px) {
-  .top { gap: 0.25rem 0.75rem; padding-bottom: 0.7rem; }
-  .brand { font-size: 1.25rem; gap: 0.5rem; }
-  .topnav { flex-wrap: nowrap; overflow-x: auto; gap: 1rem; padding-bottom: 0.15rem; white-space: nowrap; scrollbar-width: none; }
-  .topnav::-webkit-scrollbar { display: none; }
-  .global-search { width: 7.5rem; }
-}
+
 
 /* the colophon's seal hangs past its text; leave room so it never covers the date */
 .foot > :first-child { margin-right: 3rem; padding-bottom: 0.25rem; }
 /* a real colophon stamps beside the signature, not over its last digit */
 .m-seal-colophon__date { padding-right: 1.25rem; }
 .m-seal-colophon__date { white-space: nowrap; }
-@media (max-width: 800px) { .foot > :first-child { margin-right: 1rem; } }
-@media (max-width: 800px) { main > .foot { margin: 2rem -1rem -2.5rem; border-top: 1px solid var(--line); } }
+
+
 
 /* wiki marks: ~~struck~~ text, ||hidden|| text, rules and code */
 .wiki-page s { opacity: 0.7; text-decoration-thickness: 1px; }

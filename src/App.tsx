@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { MBackTop, MConfigProvider, MDrawer, MEmpty, MLoading, MReadingStroke, MRicePaper, MSealColophon, MStamp } from "@shuimo-design/react";
+import { MBackTop, MConfigProvider, MEmpty, MLoading, MReadingStroke, MRicePaper, MSealColophon, MStamp } from "@shuimo-design/react";
 import { loadWiki } from "./guide/wikiData";
 import type { WikiIndex } from "./guide/wikiIndex";
 import { entryForPageId } from "./guide/endingList";
@@ -11,8 +11,7 @@ import { SearchView } from "./ui/SearchView";
 import { PlaceholderView } from "./ui/PlaceholderView";
 import { WikiPageView } from "./ui/WikiPageView";
 import { SECTIONS, sectionOfKind } from "./ui/sections";
-import { sectionHref, useRoute, type Route } from "./ui/route";
-import { useNarrow } from "./ui/useNarrow";
+import { sectionHref, useRoute, useStoredBool, type Route } from "./ui/route";
 
 function activeNav(route: Route, index: WikiIndex | null): string {
   if (route.page === "section") return route.section;
@@ -57,17 +56,15 @@ function Home({ index }: { index: WikiIndex }) {
 
 export function App() {
   const route = useRoute();
-  const narrow = useNarrow();
   const [index, setIndex] = useState<WikiIndex | null>(null);
   const [loadError, setLoadError] = useState("");
-  const [drawer, setDrawer] = useState(false);
+  const [sideOpen, setSideOpen] = useStoredBool("sideOpen", true);
 
   useEffect(() => {
     loadWiki().then(setIndex, (e) => setLoadError(String(e)));
   }, []);
   useEffect(() => {
     document.getElementById("main")?.scrollTo(0, 0);
-    setDrawer(false);
   }, [route]);
 
   const page = route.page === "wiki" ? index?.byId.get(route.id) : undefined;
@@ -100,26 +97,13 @@ export function App() {
     : null;
   const nav = activeNav(route, index);
 
-  // on phones the colophon scrolls with the page instead of taking a permanent slice of the screen
-  const footer = (
-    <footer className="foot">
-      <MSealColophon text="資料整理自" author="活俠傳 wiki" date={index?.source?.date} seal="活俠" align="right" sealSize={36} seed={5} />
-      <p>
-        <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
-          smilin.net/LoM-wiki
-        </a>
-        （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
-      </p>
-    </footer>
-  );
-
   return (
     <MConfigProvider>
       <MReadingStroke target="#main" thickness={3} />
       <MRicePaper layout="full-screen" landscape={route.page === "home"} seed={7} className="paper">
-        <div className={side && !narrow ? "shell" : "shell no-side"}>
-          <Header nav={nav} q={q} narrow={narrow} menu={narrow && !!side} onMenu={() => setDrawer(true)} />
-          {side && !narrow && <aside className="side">{side}</aside>}
+        <div className={side ? (sideOpen ? "shell" : "shell side-closed") : "shell no-side"}>
+          <Header nav={nav} q={q} side={side ? (sideOpen ? "open" : "closed") : "none"} onSide={() => setSideOpen(!sideOpen)} />
+          {side && sideOpen && <aside className="side">{side}</aside>}
           <main id="main">
             {loadError && <MEmpty description={`資料載入失敗：${loadError}`} />}
             {!index && !loadError && <MLoading />}
@@ -127,22 +111,24 @@ export function App() {
             {index && route.page === "section" && section && (autoOpen ? <WikiPageView page={autoOpen} index={index} /> : (
               <div className="home">
                 <h1>{section.label}</h1>
-                <p>從{narrow ? "「目錄」" : "左側清單"}選一項查看。共 {sectionPages.length} 項。</p>
+                <p>從左側清單選一項查看。共 {sectionPages.length} 項。</p>
               </div>
             ))}
             {index && route.page === "search" && <SearchView index={index} q={route.q} />}
             {index && route.page === "home" && <Home index={index} />}
-            {narrow && footer}
           </main>
-          {!narrow && footer}
+          <footer className="foot">
+            <MSealColophon text="資料整理自" author="活俠傳 wiki" date={index?.source?.date} seal="活俠" align="right" sealSize={36} seed={5} />
+            <p>
+              <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
+                smilin.net/LoM-wiki
+              </a>
+              （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
+            </p>
+          </footer>
         </div>
       </MRicePaper>
       <MBackTop target="#main" />
-      {narrow && side && (
-        <MDrawer open={drawer} onOpenChange={setDrawer} direction="left" title="目錄" size="86%">
-          {side}
-        </MDrawer>
-      )}
     </MConfigProvider>
   );
 }
