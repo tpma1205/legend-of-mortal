@@ -11,7 +11,7 @@ export function Header({ nav, q, side, onSide }: { nav: string; q: string; side:
         <span>活俠傳攻略</span>
       </a>
       <nav className="topnav" aria-label="主要分區">
-        {items.map((it, i) => (
+        {items.map((it) => (
           <a key={it.id} href={it.href} aria-current={nav === it.id ? "page" : undefined}>
             {it.label}
           </a>

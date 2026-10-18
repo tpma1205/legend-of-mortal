@@ -29,7 +29,7 @@ Desktop-first on a second screen; also used on phones. Heavy reading of tables (
 ## Capabilities and Constraints
 
 - Source is the 活俠傳 wiki (smilin.net/LoM-wiki, CC BY-NC-SA 4.0): wiki wins on conflicts; this site is non-commercial, credits the wiki on every page, and lists its own edits on the page (see `docs/adr/0001-follow-wiki-license.md`).
-- No game or wiki images are used.
+- Only character portraits are shown, linked straight from the wiki's server on the character's own page (never copied into this site), with credit to the game art's owner; no other game or wiki images are used.
 - Terminology is fixed in `GLOSSARY.md` (汗青書 = 結局, 生死簿 = 驟死結局, 風雲史 = 成就).
 - The wiki lags the game: content from the 《崆峒神威》 update (2026-10-15) is not yet in the wiki.
 

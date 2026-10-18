@@ -123,7 +123,7 @@ export function App() {
               <a href="https://smilin.net/LoM-wiki/" target="_blank" rel="noreferrer">
                 smilin.net/LoM-wiki
               </a>
-              （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業，不使用遊戲圖片。
+              （{index?.source?.version ?? "v1.0.3130"}），依 CC BY-NC-SA 4.0 授權；本站非官方、非商業；人物立繪為遊戲美術 © Paras Games，直接引用自 wiki，未複製存放於本站。
             </p>
           </footer>
         </div>
