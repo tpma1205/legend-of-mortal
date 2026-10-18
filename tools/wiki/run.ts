@@ -23,7 +23,7 @@ if (!docsDir) {
 }
 
 const SKIP_DIRS = new Set(["en", "ja", "zh-hans", "develop", "public", ".vitepress", "node_modules"]);
-const WANTED: WikiKind[] = ["character", "book", "skill", "item", "pill", "ending", "badend", "achievement", "pursuit", "event", "mechanism", "forge"];
+const WANTED: WikiKind[] = ["character", "book", "skill", "item", "pill", "ending", "badend", "achievement", "pursuit", "event", "mechanism", "forge", "lore"];
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const name of readdirSync(dir)) {

@@ -74,7 +74,7 @@ describe("data/wiki", () => {
 
   it("covers every area the site promises", () => {
     const kinds = new Set(index.pages.map((p) => p.kind));
-    for (const k of ["character", "book", "skill", "item", "pill", "forge", "mechanism", "ending", "badend", "achievement", "pursuit", "event"]) {
+    for (const k of ["character", "book", "skill", "item", "pill", "forge", "mechanism", "ending", "badend", "achievement", "pursuit", "event", "lore"]) {
       expect(kinds.has(k as never), `kind ${k}`).toBe(true);
     }
   });

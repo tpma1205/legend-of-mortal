@@ -14,8 +14,9 @@ export function kindOf(id: string): WikiKind {
   if (id.startsWith("event/badends/")) return "badend";
   if (id.startsWith("event/achievements")) return "achievement";
   if (id.startsWith("event/pursuit") || id === "people/dream-sweetheart") return "pursuit";
-  if (id.startsWith("event/simple/") || id.startsWith("event/detailed_description/")) return "event";
-  if (id.startsWith("other/guide/")) return "mechanism";
+  if (id.startsWith("event/simple/") || id.startsWith("event/detailed_description/") || id === "event/story-simple-table") return "event";
+  if (id === "event/pre-game-timeline" || id.startsWith("event/stories/")) return "lore";
+  if (id.startsWith("other/guide/") || id.startsWith("system/engagement/") || id === "system/hidden-params") return "mechanism";
   if (id === "system/develop-list" || id === "system/forge-roadmap") return "forge";
   return "other";
 }

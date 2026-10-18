@@ -14,6 +14,7 @@ export const SECTIONS: Section[] = [
   { id: "endings", label: "結局系列", kinds: ["ending", "badend", "achievement"] },
   { id: "pursuit", label: "夢境心上人", kinds: ["pursuit"] },
   { id: "mechanism", label: "遊戲機制", kinds: ["mechanism"] },
+  { id: "lore", label: "背景故事", kinds: ["lore"] },
 ];
 
 export const KIND_LABEL: Record<WikiKind, string> = {
@@ -28,6 +29,7 @@ export const KIND_LABEL: Record<WikiKind, string> = {
   pursuit: "夢境心上人",
   event: "事件",
   mechanism: "遊戲機制",
+  lore: "背景故事",
   forge: "裝備與煉丹",
   other: "其他",
 };

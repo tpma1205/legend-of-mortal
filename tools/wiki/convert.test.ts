@@ -301,5 +301,11 @@ describe("kindOf", () => {
     expect(kindOf("other/guide/mechanism/dream-sweetheart")).toBe("mechanism");
     expect(kindOf("system/develop-list")).toBe("forge");
     expect(kindOf("system/forge-roadmap")).toBe("forge");
+    expect(kindOf("system/engagement/battle-commands")).toBe("mechanism");
+    expect(kindOf("system/hidden-params")).toBe("mechanism");
+    expect(kindOf("event/story-simple-table")).toBe("event");
+    expect(kindOf("event/pre-game-timeline")).toBe("lore");
+    expect(kindOf("event/stories/岳家軍兵符")).toBe("lore");
+    expect(kindOf("event/story-branch-timeline")).toBe("other");
   });
 });

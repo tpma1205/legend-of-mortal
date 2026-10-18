@@ -3,7 +3,6 @@
  * here makes `tools/wiki/run.ts` stop, so nothing is dropped by accident.
  */
 const SECOND_BATCH = "第二批（使用者決定先不做）";
-const UNDECIDED = "尚未決定，需問使用者";
 const NOT_GUIDE = "不是攻略內容";
 
 export const EXCLUDED: Record<string, string> = {
@@ -14,15 +13,10 @@ export const EXCLUDED: Record<string, string> = {
   "system/facility": SECOND_BATCH,
   "system/training": SECOND_BATCH,
 
-  // not discussed with the user yet
-  "event/pre-game-timeline": UNDECIDED,
-  "event/stories": UNDECIDED,
-  "event/story-branch-timeline": UNDECIDED,
-  "event/story-simple-table": UNDECIDED,
-  "other/dali-duan-lineage": UNDECIDED,
-  "other/qna": UNDECIDED,
-  "system/engagement": UNDECIDED,
-  "system/hidden-params": UNDECIDED,
+  // decided with the user: not converted
+  "event/story-branch-timeline": "舊版年表，wiki 自己註明久未更新，已由主支線簡易表格取代",
+  "other/dali-duan-lineage": "遊戲設定考據，攻略用途低",
+  "other/qna": "製作人訪談與問答，內容龐大且非攻略；留在 wiki，不轉載",
 
   // not guide content
   index: NOT_GUIDE,

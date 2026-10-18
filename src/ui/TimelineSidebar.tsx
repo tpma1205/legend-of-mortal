@@ -5,6 +5,8 @@ import { buildTimeline, parseEventId } from "../guide/timeline";
 import { useOpenGroups } from "./useOpenGroups";
 import { wikiHref } from "./route";
 
+/** the wiki's one-page table of every event by month and period */
+const OVERVIEW = "event/story-simple-table";
 const PERIOD = ["", "上", "中", "下"];
 const MONTH = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"];
 
@@ -23,6 +25,13 @@ export function TimelineSidebar({ index, activeId }: { index: WikiIndex; activeI
       <div className="tools">
         <MInput value={filter} onValueChange={setFilter} placeholder="篩選事件名稱" clearable aria-label="篩選事件名稱" />
       </div>
+      {index.byId.has(OVERVIEW) && (
+        <p className="overview-link">
+          <a href={wikiHref(OVERVIEW)} aria-current={activeId === OVERVIEW ? "page" : undefined}>
+            主支線簡易表格
+          </a>
+        </p>
+      )}
       {shown.length === 0 && <p className="empty">找不到符合的事件。</p>}
       <MCollapse value={open} onValueChange={setOpen}>
         {shown.map((y) => (

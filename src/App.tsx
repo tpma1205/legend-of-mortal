@@ -30,7 +30,8 @@ const SECTION_BLURB: Record<string, string> = {
   items: "道具、裝備與煉丹",
   endings: "汗青書、生死簿與風雲史",
   pursuit: "夢境心上人的結緣步驟",
-  mechanism: "行動點、能力值、心相、變心夢等機制",
+  mechanism: "行動點、能力值、心相、變心夢、對戰與隱藏參數",
+  lore: "開幕前史與五段江湖舊事",
 };
 
 function Home({ index }: { index: WikiIndex }) {

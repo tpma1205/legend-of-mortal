@@ -46,6 +46,7 @@ export type WikiKind =
   | "pursuit"
   | "event"
   | "mechanism"
+  | "lore"
   | "forge"
   | "other";
 

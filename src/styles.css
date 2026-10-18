@@ -189,3 +189,7 @@ input::placeholder, textarea::placeholder { color: var(--muted); opacity: 1; }
 .portrait img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--wash); }
 .portrait-seal { display: grid; place-items: center; height: 14rem; border: 1px dashed var(--line); background: var(--wash); }
 .portrait figcaption { margin-top: 0.35rem; color: var(--muted); font-size: 0.8125rem; line-height: 1.5; }
+
+.overview-link { margin: 0 0 0.75rem; padding: 0.3rem 0.6rem; border: 1px solid var(--line); border-radius: 2px; }
+.overview-link a { color: var(--m-fg); text-decoration: none; font-weight: 600; }
+.overview-link a[aria-current="page"] { color: var(--link); }
