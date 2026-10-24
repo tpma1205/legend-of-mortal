@@ -58,7 +58,10 @@ describe("data/wiki", () => {
     ] as const) {
       const nos = endingEntries(index.byId.get(`${dirName}/index`), index.ofKind(kind), prefix, noun).map((e) => e.no);
       expect(nos.length).toBeGreaterThanOrEqual(min);
-      expect(nos).toEqual(Array.from({ length: nos.length }, (_, i) => i + 1));
+      // numbers the wiki's own index skips (we list exactly what the index lists)
+      const skippedUpstream = new Set(kind === "badend" ? [107] : []);
+      const wanted = Array.from({ length: nos.at(-1) ?? 0 }, (_, i) => i + 1).filter((n) => !skippedUpstream.has(n));
+      expect(nos).toEqual(wanted);
     }
   });
 
