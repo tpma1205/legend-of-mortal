@@ -22,6 +22,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      - name: Built site must contain the wiki data chunks
+        run: test "$(ls dist/assets/character-*.js dist/assets/event-*.js | wc -l)" -eq 2
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
