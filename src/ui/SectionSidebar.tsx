@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MCollapse, MCollapseItem, MInput } from "@shuimo-design/react";
 import type { WikiIndex } from "../guide/wikiIndex";
-import { groupsOf, pagesOfSection, type Item } from "./sidebarGroups";
+import { OVERVIEW_OF, groupsOf, pagesOfSection, type Item } from "./sidebarGroups";
 import type { Section } from "./sections";
 import { useOpenGroups } from "./useOpenGroups";
 import { wikiHref } from "./route";
@@ -15,6 +15,8 @@ export function SectionSidebar({ index, section, activeId }: { index: WikiIndex;
   const names = groups.map((g) => g.label);
   const activeGroup = groups.find((g) => g.items.some((i) => i.pageId === activeId))?.label;
   const [open, setOpen] = useOpenGroups(activeGroup, filter !== "" || !headings, names);
+
+  const pinned = OVERVIEW_OF[section.id];
 
   const list = (items: Item[]) => (
     <ol>
@@ -35,6 +37,13 @@ export function SectionSidebar({ index, section, activeId }: { index: WikiIndex;
         <div className="tools">
           <MInput value={filter} onValueChange={setFilter} placeholder={`在${section.label}內篩選`} clearable aria-label={`在${section.label}內篩選`} />
         </div>
+      )}
+      {pinned && index.byId.has(pinned.id) && (
+        <p className="overview-link">
+          <a href={wikiHref(pinned.id)} aria-current={pinned.id === activeId ? "page" : undefined}>
+            {pinned.label}
+          </a>
+        </p>
       )}
       {groups.every((g) => g.items.length === 0) && <p className="empty">找不到符合的項目。</p>}
       {headings ? (

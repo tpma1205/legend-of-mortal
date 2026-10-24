@@ -32,3 +32,13 @@ describe("groupsOf (結局系列)", () => {
     expect(groups.flatMap((g) => g.items.map((i) => i.label))).toEqual(["汗青書1：回疆隱居"]);
   });
 });
+
+describe("groupsOf (人物)", () => {
+  const page = (id: string, title: string, tags: string[]): WikiPage => ({ id, kind: "character", title, tags, blocks: [{ type: "p", text: [{ text: "x" }] }] });
+  const chars = buildWikiIndex([{ source, skipped: [], pages: [page("people/characters/index", "人物列表", ["人物"]), page("people/characters/a", "唐默鈴", ["人物", "唐門"])] }]);
+
+  it("keeps the 人物列表 overview out of the faction groups", () => {
+    const groups = groupsOf(chars, SECTIONS.find((s) => s.id === "characters")!, chars.pages, "");
+    expect(groups.map((g) => g.label)).toEqual(["唐門"]);
+  });
+});

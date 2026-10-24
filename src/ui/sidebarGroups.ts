@@ -24,6 +24,9 @@ export interface Group {
   items: Item[];
 }
 
+/** a section's overview page: pinned above the groups instead of listed in one */
+export const OVERVIEW_OF: Record<string, { id: string; label: string }> = { characters: { id: "people/characters/index", label: "人物列表" } };
+
 const NOT_A_FACTION = new Set(["人物", "可攻略女角"]);
 
 const pageItem = (p: WikiPage): Item => ({ key: p.id, label: p.title, pageId: p.id, badge: p.tags.includes("可攻略女角") ? "可攻略" : undefined });
@@ -44,6 +47,7 @@ export function groupsOf(index: WikiIndex, section: Section, pages: WikiPage[], 
   if (section.id === "characters") {
     const byFaction = new Map<string, WikiPage[]>();
     for (const p of pages) {
+      if (p.id === OVERVIEW_OF.characters.id) continue;
       const faction = p.tags.find((t) => !NOT_A_FACTION.has(t)) ?? "其他";
       byFaction.set(faction, [...(byFaction.get(faction) ?? []), p]);
     }
