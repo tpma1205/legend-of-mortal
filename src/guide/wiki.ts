@@ -32,6 +32,8 @@ export interface WikiPage {
   image?: string;
   /** changes this site made to the wiki text (shown on the page, as CC BY-SA requires) */
   edits?: string[];
+  /** this page was split out of another wiki page (its id); the wiki has no page at `id` itself */
+  derivedFrom?: string;
 }
 
 export type WikiKind =

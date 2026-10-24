@@ -42,6 +42,14 @@ function numbered(index: WikiIndex, kind: "ending" | "badend"): Group {
   return { label: noun, items };
 }
 
+/** 風雲史: the overview table first, then one entry per achievement */
+function achievements(index: WikiIndex): Group {
+  const [overview, ...rest] = [...index.ofKind("achievement")].sort((a, b) => (a.id.endsWith("/index") ? -1 : b.id.endsWith("/index") ? 1 : collator.compare(a.id, b.id)));
+  const items = [overview, ...rest].filter(Boolean).map(pageItem);
+  if (overview?.id.endsWith("/index")) items[0] = { ...items[0], label: "風雲史總表" };
+  return { label: KIND_LABEL.achievement, items };
+}
+
 /** characters are grouped by their first faction tag; endings are numbered from the wiki's index; the rest by wiki kind */
 export function groupsOf(index: WikiIndex, section: Section, pages: WikiPage[], filter: string): Group[] {
   if (section.id === "characters") {
@@ -57,7 +65,7 @@ export function groupsOf(index: WikiIndex, section: Section, pages: WikiPage[], 
       .map(([label, list]) => ({ label, items: list.map(pageItem) }));
   }
   if (section.id === "endings") {
-    const groups = [numbered(index, "ending"), numbered(index, "badend"), { label: KIND_LABEL.achievement, items: index.ofKind("achievement").map(pageItem) }];
+    const groups = [numbered(index, "ending"), numbered(index, "badend"), achievements(index)];
     return groups.map((g) => ({ ...g, items: g.items.filter((i) => i.label.includes(filter)) })).filter((g) => g.items.length > 0);
   }
   return section.kinds

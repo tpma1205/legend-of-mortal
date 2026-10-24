@@ -225,7 +225,8 @@ export function Crumbs({ page }: { page: WikiPage }) {
 }
 
 export function WikiPageView({ page, index }: { page: WikiPage; index: WikiIndex }) {
-  const origin = `https://smilin.net/LoM-wiki/${page.id.replace(/\/index$/, "/")}${page.id.endsWith("/index") ? "" : ".html"}`;
+  const wikiId = page.derivedFrom ?? page.id;
+  const origin = `https://smilin.net/LoM-wiki/${wikiId.replace(/\/index$/, "/")}${wikiId.endsWith("/index") ? "" : ".html"}`;
   return (
     <article className="event wiki-page">
       <Crumbs page={page} />

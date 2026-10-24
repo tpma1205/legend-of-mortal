@@ -11,6 +11,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { convertPage, kindOf } from "./convert";
+import { splitAchievements } from "./achievements";
 import { coverage } from "./coverage";
 import { EXCLUDED } from "./excluded";
 import { OVERRIDES, applyOverrides } from "./overrides";
@@ -64,6 +65,12 @@ if (report.unregistered.length || report.staleExclusions.length) {
 
 const edited = applyOverrides(pages, OVERRIDES);
 pages.splice(0, pages.length, ...edited);
+
+const achievements = pages.find((p) => p.id === "event/achievements/index");
+if (achievements) {
+  const split = splitAchievements(achievements);
+  pages.splice(pages.indexOf(achievements), 1, split.overview, ...split.pages);
+}
 
 const git = (...args: string[]) => execFileSync("git", ["-C", docsDir, ...args], { encoding: "utf8" }).trim();
 const commit = git("rev-parse", "--short", "HEAD");
