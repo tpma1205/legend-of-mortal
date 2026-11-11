@@ -16,7 +16,7 @@ export function kindOf(id: string): WikiKind {
   if (id.startsWith("event/pursuit") || id === "people/dream-sweetheart") return "pursuit";
   if (id.startsWith("event/simple/") || id.startsWith("event/detailed_description/") || id === "event/story-simple-table") return "event";
   if (id === "event/pre-game-timeline" || id.startsWith("event/stories/")) return "lore";
-  if (id.startsWith("other/guide/") || id.startsWith("system/engagement/") || id === "system/hidden-params" || id === "system/pinball") return "mechanism";
+  if (id.startsWith("other/guide/") || id.startsWith("system/engagement/") || id === "system/hidden-params" || id === "system/pinball" || id === "system/shop") return "mechanism";
   if (id === "system/develop-list" || id === "system/forge-roadmap") return "forge";
   return "other";
 }
@@ -92,12 +92,25 @@ function trimRuns(runs: Inline[]): Inline[] {
   return runs.filter((r) => r.text !== "");
 }
 
+/** a ||spoiler|| that runs across lines is closed at each line end and reopened on the next, so every line hides it */
+function splitSpoilers(lines: string[]): string[] {
+  let open = false;
+  return lines.map((line) => {
+    const odd = (line.split("||").length - 1) % 2 === 1;
+    const out = (open ? "||" : "") + line + (open !== odd ? "||" : "");
+    if (odd) open = !open;
+    return out;
+  });
+}
+
 const lines = (html: string): Inline[][] =>
-  html
-    // a [[link]] whose name runs across a <br> stays one link
-    .replace(/\[\[[^\]]*\]\]/g, (m) => m.replace(/<br\s*\/?>/gi, " "))
-    .replace(/<br\s*\/?>/gi, "\n")
-    .split("\n")
+  splitSpoilers(
+    html
+      // a [[link]] whose name runs across a <br> stays one link
+      .replace(/\[\[[^\]]*\]\]/g, (m) => m.replace(/<br\s*\/?>/gi, " "))
+      .replace(/<br\s*\/?>/gi, "\n")
+      .split("\n"),
+  )
     .map(inline)
     .filter((l) => l.length > 0);
 

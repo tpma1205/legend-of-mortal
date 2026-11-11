@@ -3,14 +3,30 @@
     "site": "活俠傳 wiki",
     "url": "https://smilin.net/LoM-wiki/",
     "license": "CC BY-NC-SA 4.0",
-    "commit": "c3b4ab2",
-    "version": "v1.0.6000",
-    "date": "2026-10-24"
+    "commit": "23a4783d",
+    "version": "v1.0.6001",
+    "date": "2026-11-10"
   },
   "skipped": [
     {
       "id": "event/pursuit/index",
       "reason": "no content blocks"
+    },
+    {
+      "id": "event/simple/2-10-1-南宮訃音old",
+      "reason": "wiki 留著的舊版備份（檔名以 old 結尾），已有新版頁面"
+    },
+    {
+      "id": "event/simple/2-10-1-江陵決戰old",
+      "reason": "wiki 留著的舊版備份（檔名以 old 結尾），已有新版頁面"
+    },
+    {
+      "id": "event/simple/2-10-1-江陵決戰前夜old",
+      "reason": "wiki 留著的舊版備份（檔名以 old 結尾），已有新版頁面"
+    },
+    {
+      "id": "event/simple/2-10-1-江陵決戰準備old",
+      "reason": "wiki 留著的舊版備份（檔名以 old 結尾），已有新版頁面"
     }
   ]
 }

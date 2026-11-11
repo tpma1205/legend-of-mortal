@@ -173,6 +173,14 @@ describe("convertPage", () => {
     ]);
   });
 
+  it("keeps a ||spoiler|| that runs across <br> hidden on every line", () => {
+    const p = convertPage("people/characters/x", page("- 前文：||甲<br>乙||後文"));
+    expect(p.blocks[0]).toMatchObject({
+      type: "list",
+      items: [{ text: [{ text: "前文：" }, { text: "甲", spoiler: true }] }, { text: [{ text: "乙", spoiler: true }, { text: "後文" }] }],
+    });
+  });
+
   it("reads a markdown pipe table, but not a ||spoiler|| line", () => {
     const p = convertPage("event/detailed_description/x", page("| 甲 | 乙 |\n| --- | --- |\n| 1 | 2 |\n\n||隱藏||"));
     expect(p.blocks[0]).toEqual({

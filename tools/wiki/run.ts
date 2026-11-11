@@ -44,6 +44,10 @@ for (const file of walk(docsDir)) {
   const kind = kindOf(id);
   seen.push({ id, kind });
   if (!WANTED.includes(kind)) continue;
+  if (id.startsWith("event/simple/") && id.endsWith("old")) {
+    skipped.push({ id, reason: "wiki 留著的舊版備份（檔名以 old 結尾），已有新版頁面" });
+    continue;
+  }
   try {
     const page = convertPage(id, readFileSync(file, "utf8"));
     if (page.blocks.length === 0) skipped.push({ id, reason: "no content blocks" });
